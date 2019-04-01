@@ -29,7 +29,6 @@ const LoginModal = (props) => {
             />
         </Modal>
   </div>
-
   )
 }
 

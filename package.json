@@ -7,7 +7,7 @@
     "node": "10.15.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
+    "start": "webpack-dev-server --mode development --open --hot --https",
     "build": "webpack --mode production",
     "lint": "eslint .",
     "test": "jest",
@@ -71,11 +71,14 @@
     "axios": "^0.18.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
+    "fetch-mock": "^7.3.1",
     "materialize-css": "^1.0.0-rc.2",
     "materialize-social": "^1.0.3",
     "npm": "^6.9.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.0.4",
     "react-loader": "^2.4.5",
     "react-redux": "^6.0.1",
     "react-responsive-modal": "^3.6.0",

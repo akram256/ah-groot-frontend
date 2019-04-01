@@ -12,6 +12,11 @@ const endPoints = {
     'https://ah-backend-groot.herokuapp.com/api/password-reset/',
   resetPassword:
     'https://ah-backend-groot.herokuapp.com/api/password/reset/done/',
+getCategories: 'https://ah-backend-groot.herokuapp.com/api/categories/?limit=6',
+articles: 'https://ah-backend-groot.herokuapp.com/api/articles/?limit=6',
+loginUser:'https://ah-backend-groot.herokuapp.com/api/users/login/',
+facebooklogin:'https://ah-backend-groot.herokuapp.com/api/social/auth/facebook/',
+googlelogin:'https://ah-backend-groot.herokuapp.com/api/social/auth/google/'
 };
 
 export default endPoints;

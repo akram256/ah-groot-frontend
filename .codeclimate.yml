@@ -8,3 +8,12 @@ exclude_patterns:
   - 'src/containers/ResetPassword/'
   - 'src/components/landingPage/Header.js'
   - 'src/components/landingPage/Logo.js'
+  - "tests/"
+  - "src/reducers/SocialAuth/SocialAuthReducers.js"
+  - "src/actions/SocialAuth/GoogleActions.js"
+  - "src/actions/SocialAuth/FacebookActions.js"
+  - "src/containers/Login/Login.js"
+  - "src/containers/Login.js"
+  - "src/actions/index.js"
+  - "src/containers/SocialAuthContainer.js"
+  
