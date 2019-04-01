@@ -4,6 +4,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+
 import '../styles/App.css';
 
 class App extends Component {
