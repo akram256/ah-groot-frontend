@@ -3,27 +3,33 @@ import { shallow } from 'enzyme';
 
 import LandingPage from '../../src/containers/LandingPage/LandingPage';
 
+ 
 describe('NavBar', () => {
   it('should render without crashing', () => {
     const wrapper = shallow(<LandingPage />);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should open modal form', () => {
+  it('should open sign up modal form', () => {
     const wrapper = shallow(<LandingPage />);
     wrapper.instance().setState({open: true });
-    wrapper.instance().onOpenModal();
+    wrapper.instance().openSignUp();
   });
 
-  it('should close modal form', () => {
+  it('should open log in modal form', () => {
     const wrapper = shallow(<LandingPage />);
-    wrapper.instance().onCloseModal();
+    wrapper.instance().setState({open: true });
+    wrapper.instance().openLogIn();
   });
 
-  it('should change state to true', () => {
+  it('should close sign up modal form', () => {
     const wrapper = shallow(<LandingPage />);
-    const event = {}
-    event.preventDefault = jest.fn()
-    wrapper.instance().buttonClicked(event);
+    wrapper.instance().closeSignUp();
   });
+
+  it('should close log in modal form', () => {
+    const wrapper = shallow(<LandingPage />);
+    wrapper.instance().closeLogIn();
+  });
+
 });

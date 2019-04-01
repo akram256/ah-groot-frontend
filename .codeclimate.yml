@@ -1,3 +1,7 @@
+version: "2"
 exclude_patterns:
- - "src/components/signup/SignupForm.js"
- - "tests/"
+  - "src/components/login/LoginForm.js"
+  - "src/components/signup/SignupForm.js"
+  - "tests/"
+  - "src/actions/ArticleAction.js"
+  - "src/actions/index.js"

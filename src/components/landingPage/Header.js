@@ -16,13 +16,10 @@ class Header extends Component {
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down_">
           <li className="action-buttons">
-            <a
-              className="waves-effect waves-light btn-small join"
-              onClick={this.props.onOpenModal}
-            >
-              Join
-            </a>
-            <a className="waves-effect waves-light btn-small login">login</a>
+            <a className="waves-effect waves-light btn-small join"
+              onClick={this.props.openSignUp}>Join</a>
+            <a className="waves-effect waves-light btn-small login"
+            onClick = {this.props.openLogIn}>login</a>
           </li>
         </ul>
       </div>

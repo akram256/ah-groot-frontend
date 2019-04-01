@@ -72,6 +72,8 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "materialize-css": "^1.0.0-rc.2",
+    "materialize-social": "^1.0.3",
+    "npm": "^6.9.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-loader": "^2.4.5",

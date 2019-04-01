@@ -259,6 +259,23 @@ const data = {
       },
     },
   },
+  login: {
+    success: {
+      user: {
+        email: 'jerry@gmail.com',
+        username: 'Roselyn123',
+        token:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZW1haWwiOiJqZXJyeUBnbWFpbC5jb20iLCJleHAiOjE1NTY3Nzc4NjN9.ZuV7IjxVVfVU8PoQ8elR4FS-KWdXTyrt6v6jtKAOxr4',
+      },
+    },
+    failure: {
+      errors: {
+        error: [
+          'random error',
+        ]
+      }
+    }
+  }
 };
 
 export default data;
