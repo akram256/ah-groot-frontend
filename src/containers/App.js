@@ -15,7 +15,7 @@ class App extends Component {
               exact path='/'
               render={(renderProps) => (
               <div>
-                  <h1>Author's Haven</h1>
+                  <h1>Author's Haven Application</h1>
               </div>
           )} />
         </Switch>
