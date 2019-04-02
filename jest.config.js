@@ -20,7 +20,7 @@ module.exports = {
   ],
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    "\\.(css|jpg|png)$": "<rootDir>/ignore-css.js"
+    "\\.(css|scss|jpg|png)$": "<rootDir>/ignore-css.js"
   },
   // A list of paths to directories that Jest should use to search for files in
   roots: [
