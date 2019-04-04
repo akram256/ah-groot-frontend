@@ -7,12 +7,14 @@ module.exports = {
   clearMocks: true,
 
   // The directory where Jest should output its coverage files
+  collectCoverage: true,
   coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: [
     "/node_modules/",
-    "<rootDir>/ignore-css.js"
+    "<rootDir>/ignore-css.js",
+    "<rootDir>/tests/maxios_mock.js"
   ],
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
@@ -39,5 +41,5 @@ module.exports = {
   ],
 
   // Indicates whether each individual test should be reported during the run
-  verbose: true,
+  verbose: false,
 };

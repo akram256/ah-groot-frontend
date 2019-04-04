@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LandingPage from './LandingPage/LandingPage';
+
 import '../styles/App.scss';
+import 'materialize-css/dist/css/materialize.min.css';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route
-              exact path='/'
-              render={(renderProps) => (
-              <div>
-                  <h1>Author's Haven Application</h1>
-              </div>
-          )} />
+          <Route exact path="/" component={LandingPage} />
         </Switch>
       </Router>
     );
