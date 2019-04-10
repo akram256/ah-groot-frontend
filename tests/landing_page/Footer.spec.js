@@ -1,12 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import App from '../src/containers/App';
+import Footer from '../../src/components/landingPage/Footer';
 
-describe('App', () => {
+describe('Footer', () => {
   it('should render without crashing', () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<Footer />);
     expect(wrapper).toMatchSnapshot();
   });
 });
-

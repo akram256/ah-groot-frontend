@@ -8,11 +8,7 @@ cache:
   - node_modules
 
 install:
-  - npm ci
-  
-cache:
-  directories:
-  - "$HOME/.npm"
+  - npm install
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -20,7 +16,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - npm run test:coverage
+  - npm run test:coverage -u
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

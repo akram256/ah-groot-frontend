@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
+import getCategories from './GetCategories';
+import articleReducer from './ArticleReducer';
 
-const sampleReducer = (state, action) => {
-  return null;
-};
 
 export default combineReducers({
-  sampleReducer,
+  categories: getCategories,
+  articles: articleReducer
 });
