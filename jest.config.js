@@ -14,7 +14,8 @@ module.exports = {
   coveragePathIgnorePatterns: [
     "/node_modules/",
     "<rootDir>/ignore-css.js",
-    "<rootDir>/tests/maxios_mock.js"
+    "<rootDir>/tests/maxios_mock.js",
+    "<rootDir>/tests/helpers/"
   ],
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
