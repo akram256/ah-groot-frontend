@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 import moxios from 'moxios';
 
 import data from './maxios_mock';
-import NavBarContainer from '../../src/containers/LandingPage/NavBarContainer';
+import { storeCategories } from '../../src/actions/index'
+import NavBarContainer, { NavBarContainer as DumpNavBarContainer } from '../../src/containers/LandingPage/NavBarContainer';
+
 
 describe('NavBarContainer', () => {
   const initialState = {
@@ -29,15 +31,23 @@ describe('NavBarContainer', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render without crashing 2', () => {
-    const wrapper = shallow( <Provider store={store}><NavBarContainer /></Provider> );
-    expect(wrapper).toMatchSnapshot();
+  it('should render when props are updated', () => {
+    const wrapper = shallow(<DumpNavBarContainer
+      storeCategories={()=>storeCategories()}
+      categories =  {data.category.categorys.results.slice(0,7)}
+      />);
+      wrapper.instance().renderCategories();
+    console.log(wrapper.instance())
   });
 
-  it('should render when state is updated', () => {
+  it('should render when mounted', () => {
     const wrapper = mount( <Provider store={store}><NavBarContainer /></Provider> );
-    wrapper.setProps({ categories: data.category.categorys.results });
-    expect(wrapper.prop('categories').length).toEqual(2);
+    wrapper.setProps({ categories: data.category.categorys.results.slice(0,2) });
+  });
+
+  it('should render with categories more than 6 tabs', () => {
+    const wrapper = shallow( <Provider store={store}><NavBarContainer /></Provider> );
+    wrapper.setProps({ categories: data.category.categorys.results.slice(0,7) });
+    wrapper.update();
   });
 });
-

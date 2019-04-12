@@ -14,9 +14,6 @@ class NavBar extends Component {
               <a href="#">Home</a>
             </li>
             <NavBarContainer />
-            <li>
-              <a href="#">More</a>
-            </li>
           </ul>
         </div>
       </nav>

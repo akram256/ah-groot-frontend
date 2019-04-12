@@ -8,6 +8,7 @@ class ArticleCard extends Component {
     const timeAgo = moment(`${newdate}`).fromNow();
 
     return (
+      <div className='col s6'>
       <div className="card grey lighten-5">
         <div className="card-content black-text">
           <span className="card-title truncate">{title}</span>
@@ -19,6 +20,7 @@ class ArticleCard extends Component {
           <div>{reading_time}</div>
           <i className="material-icons">star</i>
         </div>
+      </div>
       </div>
     );
   }

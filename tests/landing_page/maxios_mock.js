@@ -216,7 +216,30 @@ const data = {
         },
         {
           name: 'Music',
-          slug: 'music',
+          slug: 'music-1',
+        },
+        {
+          name: 'Music',
+          slug: 'music-2',
+        },
+        {
+          name: 'Music',
+          slug: 'music-3',
+        },
+        {
+          name: 'Music',
+          slug: 'music-4',
+        },
+        {
+          name: 'Music',
+          slug: 'music-5',
+        },        {
+          name: 'Music',
+          slug: 'music-6',
+        },
+        {
+          name: 'Music',
+          slug: 'music-7',
         },
       ],
     },

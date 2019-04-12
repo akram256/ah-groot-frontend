@@ -31,27 +31,36 @@ class Carousel extends Component {
             A Social platform for the creative at heart
           </div>
         </div>
-        <a className="carousel-item" href="#one!">
-          <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-1-compressed.jpg" />
-        </a>
-        <a className="carousel-item" href="#three!">
-          <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-2-compressed.jpg" />
-        </a>
-        <a className="carousel-item" href="#four!">
-          <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-3-compressed.jpg" />
-        </a>
-        <a className="carousel-item" href="#five!">
-          <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-4-compressed.jpg" />
-        </a>
-        <a className="carousel-item" href="#six!">
-          <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-5-compressed.jpg" />
-        </a>
-        <a className="carousel-item" href="#two!">
-          <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-6-compressed.jpg" />
-        </a>
+      {this.renderImages()}
       </div>
     );
   }
+
+  renderImages  = () =>{
+    return(
+      <div>
+      <a className="carousel-item" href="#one!">
+      <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-1-compressed.jpg" />
+    </a>
+    <a className="carousel-item" href="#three!">
+      <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-2-compressed.jpg" />
+    </a>
+    <a className="carousel-item" href="#four!">
+      <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-3-compressed.jpg" />
+    </a>
+    <a className="carousel-item" href="#five!">
+      <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-4-compressed.jpg" />
+    </a>
+    <a className="carousel-item" href="#six!">
+      <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-5-compressed.jpg" />
+    </a>
+    <a className="carousel-item" href="#two!">
+      <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554888347/groot/carousel-6-compressed.jpg" />
+    </a>
+    </div>
+    );
+  }
 }
+
 
 export default Carousel;
