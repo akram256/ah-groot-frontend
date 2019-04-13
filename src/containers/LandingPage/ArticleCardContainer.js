@@ -11,7 +11,7 @@ export class AricleCardContainer extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col s12">Recent articles</div>
+        <div className="recent-articles col s12">Recent articles</div>
         {this.props.articles.length > 1 ? (
           this.props.articles.map(element => {
             return (

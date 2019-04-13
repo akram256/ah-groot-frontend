@@ -15,14 +15,14 @@ nav .nav-wrapper > #nav-mobile {
 }
 
 .action-buttons .waves-effect.waves-light.btn-small.join {
-    background-color: $primary-color;
-  }
+  background-color: $primary-color;
+}
 
 .action-buttons .waves-effect.waves-light.btn-small.login {
-    background-color: White;
-    color: $primary-color;
-    border-color: $primary-color;
-  }
+  background-color: White;
+  color: $primary-color;
+  border-color: $primary-color;
+}
 
 .head-wrapper {
   height: 60px;
@@ -35,7 +35,7 @@ nav .nav-wrapper > #nav-mobile {
   }
   font-size: 30px;
   display: inline-flex;
-  -webkit-text-fill-color:$primary-color;
+  -webkit-text-fill-color: $primary-color;
 }
 
 .action-buttons > a {
@@ -79,7 +79,7 @@ nav .nav-wrapper > #nav-mobile {
   transform: translate(-50%, -50%);
 }
 
-.row .col.s12 {
+.recent-articles {
   text-align: center;
   font-size: x-large;
   padding: 20px;
@@ -88,7 +88,7 @@ nav .nav-wrapper > #nav-mobile {
 .card .card-action {
   display: -webkit-inline-box;
 }
-.card .card-action > div{
+.card .card-action > div {
   padding-right: 15px;
 }
 
@@ -104,8 +104,8 @@ nav .nav-wrapper > #nav-mobile {
 .page-footer.custom {
   background-color: $primary-color;
 
-  .row{
-    .px-2{
+  .row {
+    .px-2 {
       padding-left: 10px;
       padding-right: 10px;
     }
@@ -130,5 +130,5 @@ nav .nav-wrapper > #nav-mobile {
 
 @media only screen and (max-width: 992px){
   .hide-on-med-and-down {
-       display: flex !important; 
+       display: flex !important;
   }}

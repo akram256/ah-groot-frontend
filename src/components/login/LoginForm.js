@@ -1,17 +1,16 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 const LoginForm = (props) => {
-
-    const { 
-        email, 
+    const {
+        email,
         password,
         emailChange,
         passwordChange,
         handleSubmit,
         isLoading
     } = props;
-    
+
     let Loader = require('react-loader');
     return (
       <div>
@@ -36,7 +35,7 @@ const LoginForm = (props) => {
                 className="waves-effect waves-light btn-small login"
                 onClick = {handleSubmit}
                 />
-            <a className="forgot-password" href="url">Forgot Password?</a>
+            <Link to='/password-reset' className="forgot-password">Forgot Password?</Link>
         </form>
         </div>
       </div>
