@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import '../../styles/loginModal.scss';
@@ -13,15 +14,19 @@ export class LoginContainer extends Component {
       password: '',
       isLoading: false,
     };
+    let { history } = this.props;
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps) {
       this.setState({ isLoading: false });
       if (nextProps.token) {
-        localStorage.setItem('token', nextProps.token);
-        setTimeout(() => window.location.reload(), 3000);
+        sessionStorage.setItem('token', nextProps.token);
+        this.props.history.push('/home');
       }
+    }
+    if(sessionStorage.token){
+      this.props.history.push('/home');
     }
   }
 
@@ -75,7 +80,7 @@ const mapStateToProps = state => ({
   isSuccessful: state.login.isSuccessful,
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   { loginAction }
-)(LoginContainer);
+)(LoginContainer));

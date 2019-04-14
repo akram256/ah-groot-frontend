@@ -1,0 +1,154 @@
+$primary-color: #040a47;
+
+div.container > div.row {
+  > button {
+    // background-color: $primary-color;
+    margin-right: 5%;
+  }
+  > div.draft {
+    display: flex;
+  }
+  > div.input-field.col.s6.tags {
+    margin-top: auto;
+    text-align: unset;
+    > label {
+      position: static;
+    }
+    > div {
+      > input {
+        width: -webkit-fill-available !important;
+      }
+      > div.css-vj8t7z.select__control > div.css-1wy0on6.select__indicators > span {
+        display: none;
+      }
+      > div.css-2o5izw.select__control.select__control--is-focused.select__control--menu-is-open {
+        box-shadow: unset;
+        :hover {
+          border-color: unset;
+        }
+      }
+    }
+  }
+  > div.input-field.col.s6.category {
+    margin-top: auto;
+    > label {
+      position: static;
+    }
+    > div {
+      > div {
+        > div.css-1hwfws3 {
+          height: 15px;
+        }
+        > div.css-1hwfws3.select__value-container.select__value-container--has-value
+          > div.css-xp4uvy.select__single-value {
+          position: inherit;
+        }
+        > div.css-1wy0on6.select__indicators > span {
+          display: none;
+        }
+        border-radius: unset;
+        border-style: unset;
+        border-bottom-style: solid;
+        border-width: 2px;
+      }
+      padding-top: 21px;
+      > div.css-2o5izw.select__control.select__control--is-focused.select__control--menu-is-open {
+        box-shadow: unset;
+        :hover {
+          border-color: unset;
+        }
+      }
+      > div.css-2o5izw.select__control.select__control--is-focused {
+        box-shadow: unset;
+      }
+      > div.css-15k3avv.select__menu {
+        .css-wqgs6e.select__option.select__option--is-focused {
+          background-color: #e4e4e4;
+        }
+        .css-z5z6cw.select__option.select__option--is-selected {
+          background-color: #8f8c8c;
+        }
+      }
+      > div.css-2o5izw {
+        border-color: #26a69a;
+      }
+    }
+  }
+  > div.input-field.col.s12.editor {
+    padding-top: 20px;
+    > label {
+      margin-top: -29px;
+    }
+    > div {
+      > div.themeSwitcher {
+        text-align: -webkit-auto;
+        font-size: medium;
+        padding-top: 20px;
+        > div.switch {
+          > span {
+            padding-right: 10px;
+          }
+        }
+        > span {
+          font-size: medium;
+        }
+        div > label > span {
+          background-color: #4750b2;
+        }
+      }
+      > div.quill {
+        font-size: small;
+        > div.ql-toolbar.ql-snow {
+          background: #eaecec;
+          border-top-left-radius: 0.5em;
+          border-top-right-radius: 0.5em;
+          border-bottom: none;
+        }
+        > div.ql-container.ql-snow {
+          min-height: 10em;
+          border-bottom-left-radius: 0.5em;
+          border-bottom-right-radius: 0.5em;
+          background: #fefcfc;
+        }
+      }
+    }
+  }
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: $primary-color !important;
+}
+
+#root > div > div > div.container > div.row > div.input-field.col.s6.tags > div > div.css-vj8t7z.select__control {
+  border-radius: unset;
+  border-style: unset;
+  border-bottom-style: solid;
+  border-width: 2px;
+}
+#root > div > div > div.container > div.row > div.input-field.col.s6.tags > div > div.css-2o5izw.select__control.select__control--is-focused.select__control--menu-is-open {
+  border-radius: unset;
+  border-style: unset;
+  border-bottom-style: solid;
+}
+
+#root > div > div > div.container > div.row > div.input-field.col.s6.tags > div > div.css-2o5izw.select__control.select__control--is-focused.select__control--menu-is-open > div.css-1wy0on6.select__indicators > span {
+  display: none;
+}
+#root > div > div > div.container > div.row > div.input-field.col.s6.tags > div > div.css-2o5izw.select__control.select__control--is-focused {
+  border-radius: unset;
+  border-style: unset;
+  border-bottom-style: solid;
+  box-shadow: unset;
+}
+
+#root > div > div > div.container > div.row > div.input-field.col.s6.tags > div > div.css-15k3avv.select__menu > div > div.css-wqgs6e.select__option.select__option--is-focused {
+  background-color: #e4e4e4;
+}
+.css-2o5izw:hover {
+  border-color: #8f8c8c !important;
+}
+
+#root > div > div > div.container > div.row > div.input-field.col.s6.tags > div > div.css-vj8t7z.select__control > div.css-1hwfws3.select__value-container.select__value-container--is-multi{
+  padding: unset;
+}
+

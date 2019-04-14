@@ -38,9 +38,7 @@ describe('LoginContainer', () => {
 
   it('should render when state is updated', () => {
     const wrapper = mount(
-      <Provider store={store}>
-        <LoginContainer open={false} close={mockFn} />
-      </Provider>
+        <App open={false} close={mockFn} />
     );
     expect(wrapper.find('.modal').length).toEqual(1);
   });
@@ -68,7 +66,8 @@ describe('LoginContainer', () => {
   it('pass next props',() => {
     const wrapper = shallow(<App open={false} close={mockFn} />);
     const nextProps = {token:'abcdefg'}
-    wrapper.instance().componentWillReceiveProps(nextProps)
+    wrapper.setProps({history: { push: mockFn}});
+    wrapper.instance().componentWillReceiveProps(nextProps);
   });
 
   it('should call email',
