@@ -1,6 +1,9 @@
+const base = 'https://ah-backend-groot.herokuapp.com/api'
+
 const endPoints = {
-getCategories: 'https://ah-backend-groot.herokuapp.com/api/categories/?limit=7',
-articles: 'https://ah-backend-groot.herokuapp.com/api/articles/?limit=6'
+getCategories: `${base}/categories/?limit=6`,
+articles: `${base}/articles/?limit=6`,
+loginUser: `${base}/users/login/`
 };
 
 export default endPoints;

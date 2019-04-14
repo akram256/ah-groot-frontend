@@ -236,6 +236,11 @@ describe('Test all reducers', () => {
         read_stats: 0,
       }],
       registrationReducer: { error: null, successMsg: null, loading: false },
+      "login": {
+        "errors": null,
+        "isSuccessful": false,
+        "token": "",
+      }
     });
   });
 });

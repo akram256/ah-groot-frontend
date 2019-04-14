@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-
 class ArticleCard extends Component {
+
   render() {
     const { title, description, body, reading_time, updated_at } = this.props;
     const newdate = new Date(updated_at).toString();

@@ -36,8 +36,6 @@ describe('NavBarContainer', () => {
       storeCategories={()=>storeCategories()}
       categories =  {data.category.categorys.results.slice(0,7)}
       />);
-      wrapper.instance().renderCategories();
-    console.log(wrapper.instance())
   });
 
   it('should render when mounted', () => {

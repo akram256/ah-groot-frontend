@@ -111,3 +111,24 @@ nav .nav-wrapper > #nav-mobile {
     }
   }
 }
+
+.card .card-action {
+  display: -webkit-inline-box;
+}
+.card .card-action > div{
+  padding-right: 15px;
+}
+
+.card-description {
+  color: grey;
+}
+
+.card .card-content .card-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 992px){
+  .hide-on-med-and-down {
+       display: flex !important; 
+  }}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import LoginContainer from '../Login/Login';
 import NavBar from '../../components/landingPage/NavBar';
 import Header from '../../components/landingPage/Header';
 import Carousel from '../../components/landingPage/Carousel';
@@ -11,33 +13,41 @@ import '../../styles/landing.scss'
 
 class LandingPage extends Component {
   state = {
-    open: false,
+    openLogIn: false,
+    openSignUp: false
   };
  
-  onOpenModal = () => {
-    this.setState({ open: true });
+  openSignUp = () => {
+    this.setState({ openSignUp: true });
   };
 
-  onCloseModal = () => {
-    this.setState({ open: false });
+  openLogIn = () => {
+    this.setState({ openLogIn: true });
+  };
+  
+  closeSignUp = () => {
+    this.setState({ openSignUp: false });
   };
 
-  buttonClicked = (e) =>{
-    e.preventDefault();
-    console.log('Hello')
-      this.setState({
-        open:true
-      })
-  }
+  closeLogIn = () => {
+    this.setState({ openLogIn: false });
+  };
 
   render() {
     
     return (
       <div>
         <SignUpPage
-        open = {this.state.open}
-        close ={this.onCloseModal} />
-        <Header onOpenModal={this.onOpenModal}/>
+        open = {this.state.openSignUp}
+        close ={this.closeSignUp} />
+        <LoginContainer 
+          open = {this.state.openLogIn}
+          close = {this.closeLogIn}
+        />
+        <Header 
+          openSignUp={this.openSignUp}
+          openLogIn = {this.openLogIn}
+        />
         <NavBar />
         <Carousel />
         <ArticleCardContainer/>
