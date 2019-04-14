@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewArticle  should mount without crashing 1`] = `ReactWrapper {}`;
+
+exports[`ViewArticle  should render without articles 1`] = `ShallowWrapper {}`;
+
+exports[`ViewArticle  should render without crashing 1`] = `ShallowWrapper {}`;

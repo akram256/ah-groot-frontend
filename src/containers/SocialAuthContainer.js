@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import  { withRouter }  from 'react-router-dom';
 import {connect} from 'react-redux';
 import facebooklogin from '../actions/SocialAuth/FacebookActions';
 import googlelogin from '../actions/SocialAuth/GoogleActions';
@@ -18,9 +17,9 @@ export class SocialAuthViews extends Component {
     if (nextProps.socialauthState.isAuthenticated) {
       localStorage.setItem('token', nextProps.socialauthState.payload.user.auth_token);
       M.toast({html:'You have Successully Logged in', classes: 'green'});
-    } 
+    }
   }
-  
+
     handleFacebook=(response)=>{
       const {facebooklogin} = this.props;
       if (response.accessToken) {
@@ -39,7 +38,7 @@ export class SocialAuthViews extends Component {
       const {googlelogin}= this.props;
       googlelogin('invalid request');
     }
-  
+
    render() {
     return (
       <div>

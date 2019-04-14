@@ -16,4 +16,8 @@ exclude_patterns:
   - "src/containers/Login.js"
   - "src/actions/index.js"
   - "src/containers/SocialAuthContainer.js"
-
+  - "src/containers/Articles/*"
+  - "src/reducers/ArticleReducer.js"
+  - "src/containers/App.js"
+  - "src/reducers/CreateArticle.js"
+  - "src/components/articles/*"

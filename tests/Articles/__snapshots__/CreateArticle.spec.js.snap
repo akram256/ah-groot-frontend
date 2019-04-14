@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateArticle page  should call on click functions 1`] = `ShallowWrapper {}`;
+
+exports[`CreateArticle page  should render without crashing 1`] = `ShallowWrapper {}`;

@@ -4,6 +4,8 @@ import moxios from 'moxios';
 import data from './maxios_mock';
 
 import { setCategories, storeCategories } from '../../src/actions';
+import { getAllCategories } from '../../src/actions/CategoryAction';
+import { getTags } from '../../src/actions/TagAction';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -25,12 +27,8 @@ describe('Get categories actions', () => {
         response: data.category,
       });
     });
-    const expectedActions = [
-      { type: 'CATEGORIES', categories: data.category.categorys.results },
-    ];
     const store = mockStore({ categories: [] });
     return store.dispatch(storeCategories()).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
     });
   });
 
@@ -44,10 +42,7 @@ describe('Get categories actions', () => {
     });
 
     const store = mockStore({ categories: [] });
-
-    const expectedActions = [{ type: 'CATEGORIES', categories: undefined }];
     store.dispatch(setCategories());
-    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('does not store categories when reponse is 404', () => {
@@ -62,6 +57,59 @@ describe('Get categories actions', () => {
 
     return store.dispatch(storeCategories()).then(() => {
       expect(store.getActions()).toEqual([]);
+    });
+  });
+
+  it('retrieves all categories and dispatches them', () => {
+    moxios.wait(() => {
+      const requestM = moxios.requests.mostRecent();
+      requestM.respondWith({
+        status: 200,
+        response: data.category,
+      });
+    });
+    const store = mockStore({ allCategories: [] });
+    return store.dispatch(getAllCategories()).then(() => {});
+  });
+
+  it('retrieves all categories with error', () => {
+    moxios.wait(() => {
+      const requestM = moxios.requests.mostRecent();
+      requestM.respondWith({
+        status: 404,
+        response: [],
+      });
+    });
+
+    const store = mockStore({ allCategories: [] });
+    return store.dispatch(getAllCategories()).then(() => {
+    });
+  });
+
+
+  it('retrieves all tags and dispatches them', () => {
+    moxios.wait(() => {
+      const requestM = moxios.requests.mostRecent();
+      requestM.respondWith({
+        status: 200,
+        response: {tags: {results: ["music","world"]}},
+      });
+    });
+    const store = mockStore({ tags: [] });
+    return store.dispatch(getTags()).then(() => {
+    });
+  });
+
+  it('retrieves all tags with error', () => {
+    moxios.wait(() => {
+      const requestM = moxios.requests.mostRecent();
+      requestM.respondWith({
+        status: 404,
+        response: ["music","world"],
+      });
+    });
+    const store = mockStore({ tags: [] });
+    return store.dispatch(getTags()).then(() => {
     });
   });
 });

@@ -6,11 +6,9 @@ class Header extends Component {
   }
 
   render() {
-
-
     return (
       <div className="head-wrapper">
-        <a href="#" className="app-logo">
+        <a href="/home" className="app-logo">
           <img src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554739109/groot/logo.png" />
           <span>Authors Haven</span>
         </a>

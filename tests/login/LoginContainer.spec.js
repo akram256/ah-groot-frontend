@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import moxios from 'moxios';
 
 import LoginContainer, {
-  LoginContainer as App,
+  LoginContainer as App, mapStateToProps
 } from '../../src/containers/Login/Login';
 
 describe('LoginContainer', () => {
@@ -38,9 +38,7 @@ describe('LoginContainer', () => {
 
   it('should render when state is updated', () => {
     const wrapper = mount(
-      <Provider store={store}>
-        <LoginContainer open={false} close={mockFn} />
-      </Provider>
+        <App open={false} close={mockFn} />
     );
     expect(wrapper.find('.modal').length).toEqual(1);
   });
@@ -68,7 +66,8 @@ describe('LoginContainer', () => {
   it('pass next props',() => {
     const wrapper = shallow(<App open={false} close={mockFn} />);
     const nextProps = {token:'abcdefg'}
-    wrapper.instance().componentWillReceiveProps(nextProps)
+    wrapper.setProps({history: { push: mockFn}});
+    wrapper.instance().componentWillReceiveProps(nextProps);
   });
 
   it('should call email',
@@ -88,4 +87,15 @@ describe('LoginContainer', () => {
     }
       wrapper.instance().passwordChange(passwordEvent);
     });
+
+    it('should match state to props', () => {
+      const defualtState ={
+        login: {
+        token:"dd",
+        errors: "error",
+        isSuccesfull: false
+      }
+      };
+      mapStateToProps(defualtState);
+   });
 });

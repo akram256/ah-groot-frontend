@@ -1,10 +1,15 @@
 import { combineReducers } from 'redux';
 
 import getCategories from './GetCategories';
-import articleReducer from './ArticleReducer';
 import registrationReducer from './registrationReducer';
 import loginReducer from './loginReducer';
 import socialauthReducer from './SocialAuth/SocialAuthReducers'
+import getAllCategories from './GetAllCategories';
+import TagReducer from './GetTags';
+import { articleReducer, userArticleReducer, publishedArticles,
+  singleUserArticle , allUserArticles, postArticle
+} from './ArticleReducer';
+import CreateArticleReducer from './CreateArticle';
 
 
 export default combineReducers({
@@ -13,4 +18,12 @@ export default combineReducers({
   registrationReducer,
   login: loginReducer,
   socialauthReducer,
+  allCategories: getAllCategories,
+  tags: TagReducer,
+  newArticle: CreateArticleReducer,
+  userArticles: userArticleReducer,
+  editArticle: singleUserArticle,
+  allArticles: allUserArticles,
+  recentArticlePost: postArticle,
+  publishedArticles: publishedArticles
 });

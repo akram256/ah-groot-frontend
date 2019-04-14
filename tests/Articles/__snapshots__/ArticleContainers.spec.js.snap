@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All Article container: ArticleFeed should mount without crashing 1`] = `ReactWrapper {}`;
+
+exports[`All Article container: ArticleFeed should render with store without crashing 1`] = `ReactWrapper {}`;
+
+exports[`All Article container: ArticleFeed should render without crashing 1`] = `ShallowWrapper {}`;
+
+exports[`SelectCategory should render with store without crashing 1`] = `ReactWrapper {}`;
+
+exports[`SelectCategory should render with store without default category 1`] = `ReactWrapper {}`;
+
+exports[`SelectCategory should render without crashing 1`] = `ShallowWrapper {}`;
+
+exports[`SelectCategory should respond to on change events 1`] = `ShallowWrapper {}`;

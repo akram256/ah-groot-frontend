@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getArticles } from '../../actions/ArticleAction';
-import ArticleCard from '../../components/landingPage/ArticleCard';
+import ArticleView from '../../components/landingPage/ArticleCard';
 
-export class AricleCardContainer extends Component {
+export class AricleContainer extends Component {
   componentWillMount() {
     this.props.getArticles();
   }
@@ -11,16 +11,14 @@ export class AricleCardContainer extends Component {
   render() {
     return (
       <div className="row">
-        <div className="recent-articles col s12">Recent articles</div>
-        {this.props.articles.length > 1 ? (
+        {this.props.articles.length > 0 ? (
           this.props.articles.map(element => {
             return (
-              <ArticleCard
+              <ArticleView
                 key={element.slug}
                 title={element.title}
                 description={element.description}
-                reading_time={element.reading_time}
-                updated_at={element.updated_at}
+                slug={element.slug}
               />
             );
           })
@@ -50,4 +48,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AricleCardContainer);
+)(AricleContainer);
