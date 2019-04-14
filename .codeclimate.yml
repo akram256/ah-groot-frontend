@@ -1,0 +1,3 @@
+exclude_patterns:
+ - "src/components/signup/SignupForm.js"
+ - "tests/"

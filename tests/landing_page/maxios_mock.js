@@ -244,6 +244,21 @@ const data = {
       ],
     },
   },
+  register: {
+    user: {
+      user: {
+        Message:
+          'You have successfully been registered, please check your email for confirmation',
+        token:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTgsImVtYWlsIjoidXNlcjI0QGdtYWlsLmNvbSIsImV4cCI6MTU1Njc4Mjc0MH0.FwGSzzLJz-trMM9I7ZKrVv3ND8TSEsl5KaRWaoZOmL4',
+      },
+    },
+    errorData: {
+      errors: {
+        'input fields': 'All fields are required',
+      },
+    },
+  },
 };
 
 export default data;
