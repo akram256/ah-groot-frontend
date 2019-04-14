@@ -19,7 +19,7 @@ const LoginModal = (props) => {
     <div className="modal ">
         <Modal open={open} onClose={close}>
             <h4 className="welcome">Welcome Back!</h4>
-            <LoginForm 
+            <LoginForm
             email={email}
             password={password}
             emailChange = {emailChange}
@@ -29,7 +29,7 @@ const LoginModal = (props) => {
             />
         </Modal>
   </div>
-    
+
   )
 }
 

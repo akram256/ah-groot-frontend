@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'index-bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   devtool: 'source-maps',
   module: {
@@ -19,39 +19,37 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: [
-          'style-loader', 'css-loader',
-        ],
+        loaders: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
-        loaders: [
-          'style-loader', 'css-loader', 'sass-loader',
-        ],
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(jpg|jpeg|gif|png|svg)$/i,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
               outputPath: './assets',
               name: "[name].[ext]",
             },
           },
-        ]
+        ],
       },
       {
         test: /\.html$/,
         use: {
           loader: 'html-loader',
-        }
+        },
       },
     ],
   },
   devServer: {
     contentBase: path.join(__dirname, 'src'),
-    historyApiFallback: true,
+    historyApiFallback: {
+      disableDotRule: true,
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

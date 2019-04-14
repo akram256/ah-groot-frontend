@@ -16,7 +16,7 @@ class LandingPage extends Component {
     openLogIn: false,
     openSignUp: false
   };
- 
+
   openSignUp = () => {
     this.setState({ openSignUp: true });
   };
@@ -24,7 +24,7 @@ class LandingPage extends Component {
   openLogIn = () => {
     this.setState({ openLogIn: true });
   };
-  
+
   closeSignUp = () => {
     this.setState({ openSignUp: false });
   };
@@ -34,17 +34,17 @@ class LandingPage extends Component {
   };
 
   render() {
-    
+
     return (
       <div>
         <SignUpPage
         open = {this.state.openSignUp}
         close ={this.closeSignUp} />
-        <LoginContainer 
+        <LoginContainer
           open = {this.state.openLogIn}
           close = {this.closeLogIn}
         />
-        <Header 
+        <Header
           openSignUp={this.openSignUp}
           openLogIn = {this.openLogIn}
         />

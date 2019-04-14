@@ -5,3 +5,6 @@ exclude_patterns:
   - "tests/"
   - "src/actions/ArticleAction.js"
   - "src/actions/index.js"
+  - 'src/containers/ResetPassword/'
+  - 'src/components/landingPage/Header.js'
+  - 'src/components/landingPage/Logo.js'
