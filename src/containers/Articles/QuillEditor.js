@@ -16,7 +16,6 @@ export class Editor extends Component {
     this.quillNode;
     this.handleChange = this.handleChange.bind(this);
   }
-
   handleChange(html) {
     this.setState({ editorHtml: html });
     this.props.setBody(html);
