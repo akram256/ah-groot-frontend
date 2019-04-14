@@ -92,7 +92,6 @@ export class SingleArticleView extends Component {
                   }
                   }>thumb_up</button><span className="votes">{this.state.likes}</span>
                   </label>
-
                   <label className="outter">
                   <button slug={this.props.match.params.slug} className="material-icons like" onClick={(event) => {
                     const slug = event.currentTarget.getAttribute('slug'); this.handledislike(slug)
