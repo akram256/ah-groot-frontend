@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import M from 'materialize-css/dist/js/materialize.js';
 import { withRouter } from 'react-router-dom';
-
 import { connect } from 'react-redux';
 
 import AllArticleView from '../../components/articles/AllArticleView';
@@ -24,8 +23,11 @@ export class ArticleFeed extends Component {
     M.FloatingActionButton.init(elems, options);
     this.props.getAllArticles();
   }
+  
 
   render() {
+    console.log(this.props.allArticles);
+    
     return (
       <div>
         <Header />
@@ -53,17 +55,23 @@ export class ArticleFeed extends Component {
               {this.props.allArticles.length > 0 ? (
                 this.props.allArticles.map(element => {
                   return (
+                
                     <AllArticleView
                       key={element.slug}
                       title={element.title}
                       description={element.description}
                       slug={element.slug}
+                     
                     />
+                   
+                    
                   );
+                  
                 })
               ) : (
                 <span />
               )}
+          
             </div>
           </div>
         </div>
@@ -81,6 +89,7 @@ const mapDispatchToProps = dispatch => {
     getAllArticles: function() {
       dispatch(getAllArticles());
     },
+   
   };
 };
 
@@ -88,3 +97,5 @@ export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
 )(ArticleFeed));
+
+

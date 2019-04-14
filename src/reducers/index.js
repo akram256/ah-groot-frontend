@@ -11,6 +11,7 @@ import { articleReducer, userArticleReducer, publishedArticles,
 } from './ArticleReducer';
 import CreateArticleReducer from './CreateArticle';
 import commentReducer from './commentReducer';
+import dislikeReducer from './LikeDislikeReducers';
 
 
 export default combineReducers({
@@ -27,6 +28,6 @@ export default combineReducers({
   allArticles: allUserArticles,
   recentArticlePost: postArticle,
   publishedArticles: publishedArticles,
-  comments: commentReducer
-
+  comments: commentReducer,
+  dislikeReducer
 });

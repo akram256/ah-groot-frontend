@@ -6,29 +6,35 @@ class AllArticleView extends Component {
     super(props);
     let { history } = this.props;
   }
+
   render() {
-    const { title, description, slug } = this.props;
+    const {title, description, slug, 
+      likes,
+      dislikes} = this.props;
+      
     return (
-      <div className="col s12 custom">
+        <div className='col s12 custom'>
         <div className="card grey lighten-5">
-          <div
-            slug={slug}
-            className="card-content black-text"
-            onClick={event => {
-              const slug = event.currentTarget.getAttribute('slug');
-              this.props.history.push(`/article/${slug}/view`);
-            }}
-          >
+        <div
+        slug={slug}
+        className="card-content black-text"
+        onClick={event => {
+          const slug = event.currentTarget.getAttribute('slug');
+          this.props.history.push(`/article/${slug}/view`);
+        }}
+      >
             <span className="card-title truncate">{title}</span>
             <span className="card-description truncate">{description}</span>
           </div>
-          <div className="card-action">
-            <button >1 like</button>
-            <button >3 dislikes</button>
+            <div className="card-action">
+            <button >{likes} Likes</button>
+            <button >{dislikes} DisLikes</button>
             <button >0 comments</button>
           </div>
+
+          </div>
         </div>
-      </div>
+     
     );
   }
 }
