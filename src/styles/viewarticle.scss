@@ -4,6 +4,12 @@ div.container > div.row {
     overflow-y: scroll;
     height: 550px;
   }
+  div.container > div.fixed-action-btn.direction-right {
+    position: absolute;
+    display: inline-block;
+    left: 19px;
+    top: 65px;
+  }
 }
 
 div.tabs-content.carousel.carousel-slider::-webkit-scrollbar-track {
@@ -45,9 +51,8 @@ div.tabs-content.carousel.carousel-slider::-webkit-scrollbar-thumb {
   }
   > div.fixed-action-btn.direction-right {
     position: fixed;
-    display: inline-flexbox;
-    left:6px;
-    bottom: 634px;
+    display: inline-block;
+    left: 6px;
   }
 }
 
@@ -118,18 +123,14 @@ div.tabs-content.carousel.carousel-slider::-webkit-scrollbar-thumb {
 #drafts > div > div > div.card-action > span:nth-child(2) {
   padding-right: 15px;
 }
-
 #published > div > div > div.card-action > span:nth-child(1) {
   padding-right: 15px;
 }
-
 .edit-artilce {
   color: #26a69a;
-  padding-right: 15px;
 }
 .delete-artilce {
   color: red;
-  padding-right: 15px;
 }
 .edit-artilce:hover,
 .delete-artilce:hover {

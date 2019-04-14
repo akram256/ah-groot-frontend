@@ -103,6 +103,7 @@ export class SingleArticleView extends Component {
             </div>
             <CommentContainer slug={this.props.match.params.slug} />
           </div>
+          <CommentContainer slug={this.props.match.params.slug}/>
         </div>
       </div>
       </div>

@@ -74,8 +74,11 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
-    "webpack-dev-server": "^3.1.14"
+    "redux-devtools": "^3.5.0",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.3",
+    "webpack-dev-server": "^3.1.14",
+    "redux-thunk": "^2.3.0"
   },
   "dependencies": {
     "materialize-css": "^1.0.0-rc.2",

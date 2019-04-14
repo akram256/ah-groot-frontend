@@ -2,7 +2,6 @@ import ReactQuill from 'react-quill';
 import React, { Component, createElement } from 'react';
 import { connect } from 'react-redux';
 
-import * as sanitizeHtml from "sanitize-html";
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 
@@ -13,7 +12,6 @@ export class Editor extends Component {
   constructor(props) {
     super(props);
     this.state = { editorHtml: "", theme: 'snow' };
-    this.quillNode;
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -22,44 +20,26 @@ export class Editor extends Component {
     this.props.setBody(html);
   }
 
-componentWillReceiveProps(props){
-  if(props.bodyDefaultValue){
-    this.quillNode.getEditor().enable(true);
-    this.quillNode.getEditor().clipboard.dangerouslyPasteHTML(this.sanitize(props.bodyDefaultValue), "silent");
-}
-}
-
- sanitize = (value) => {
-      return sanitizeHtml(value, {
-          allowedTags: [ "h1", "h2", "h3", "h4", "h5", "h6", "p", "br", "a", "ul", "li", "ol", "s", "u", "em", "pre", "strong", "blockquote", "span" ],
-          allowedAttributes: {
-              "*": [ "class", "style" ],
-              "a": [ "href", "name", "target" ]
-          },
-          allowedSchemes: [ "http", "https", "ftp", "mailto" ]
-      });
-  }
-
   handleThemeChange() {
     let newTheme;
     this.state.theme === 'snow' ? (newTheme = 'bubble') : (newTheme = 'snow');
     this.setState({ theme: newTheme });
   }
 
-  creatorEditorProps = ( ) => {
+  creatorEditorProps = ( ) =>{
+    if(this.props.showTheme && this.props.bodyDefaultValue !== "" ){
+      return {theme: this.state.theme, defaultValue: this.props.bodyDefaultValue, readOnly: false}
+    }
     if(!this.props.showTheme){
       return {
         theme: 'bubble',
+        value: this.props.bodyDefaultValue,
         readOnly: !this.props.showTheme,
       };
     }
-    if(this.props.showTheme || this.props.edit ){
+    if(this.props.showTheme){
       return {theme: this.state.theme,}
     }
-  }
-
-  setQuillNode = (node) => {
-    this.quillNode = node;
   }
   render() {
     return (
@@ -67,8 +47,6 @@ componentWillReceiveProps(props){
         {createElement(ReactQuill, {
           onChange: html => this.handleChange(html),
           // defaultValue: this.props.bodyDefaultValue,
-          ref: this.setQuillNode,
-          // value:this.state.editorHtml,
           modules: Editor.modules,
           formats: Editor.formats,
           bounds: '.container',
