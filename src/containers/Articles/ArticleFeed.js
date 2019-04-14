@@ -83,7 +83,6 @@ const mapDispatchToProps = dispatch => {
     getAllArticles: function() {
       dispatch(getAllArticles());
     },
-
   };
 };
 

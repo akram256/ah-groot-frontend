@@ -2,6 +2,7 @@ import axios from 'axios';
 import endPoints, {authHeader} from '../containers/urls';
 
 
+// axios.defaults.headers.common['Authorization'] = `Bearer ${sessionStorage.token}`;
 export const getTags = () => {
   return dispatch => {
     return axios.get(endPoints.tags, authHeader)
