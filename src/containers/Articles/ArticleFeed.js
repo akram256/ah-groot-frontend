@@ -24,6 +24,7 @@ export class ArticleFeed extends Component {
     M.FloatingActionButton.init(elems, options);
     this.props.getAllArticles();
   }
+  
 
   // complete function ....
   /* istanbul ignore next */
@@ -78,7 +79,10 @@ export class ArticleFeed extends Component {
                       slug={element.slug}
                       average_rating={element.average_rating}
                     />
+                   
+                    
                   );
+                  
                 })
               ) : (
                 <span ></span>

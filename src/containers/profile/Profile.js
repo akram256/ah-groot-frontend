@@ -46,7 +46,6 @@ export class ProfileContainer extends Component {
       }
       this.props.updateProfile(body);
 
-      console.log(body);
       
       location.reload();
     };
@@ -90,7 +89,6 @@ export class ProfileContainer extends Component {
   render() {
     const {profile} = this.props
     sessionStorage.setItem('profile', profile.user)
-    console.log(profile.followers)
     
     return (
       <div>
