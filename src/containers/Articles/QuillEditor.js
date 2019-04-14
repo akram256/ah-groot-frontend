@@ -1,5 +1,5 @@
 import ReactQuill from 'react-quill';
-import React, { Component, createElement } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as sanitizeHtml from "sanitize-html";
