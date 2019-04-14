@@ -17,37 +17,28 @@ constructor(props){
     title: '',
     body:'',
     category: {},
-    tagList: [],
-    hasSetProps: false,
+    tagList: []
   }
 }
 
 componentWillMount(){
   this.props.getSingleleUserArticle(this.props.match.params.slug);
 }
-componentDidMount(){
-  // console.log("edit article", " has mounted", this.props.editArticle);
-}
 
 componentWillReceiveProps(props){
   if(props.editArticle.hasOwnProperty('title')){
-    const {description, title, tagList, category, body } = props.editArticle;
-    this.setState({ description, title, tagList, category , body, hasSetProps: true});
-    // if(this.state.hasSetProps){
-      // document.getElementById('textarea1').value = this.state.description;
-      // console.log(text);
-    // }
-    // console.log("edit article", " has recieve new props", props.editArticle);
-
+    const {description, title, tagList, category, body} = props.editArticle;
+    this.setState({ description, title, tagList, category , body});
   };
 
 }
   handleOnClick = () => {
+    const requestData = JSON.stringify(this.props.newArticle);
+    console.log(requestData);
     this.props.updateUserArticle(this.props.match.params.slug, this.props.newArticle);
   }
 
   render() {
-    console.log("edit article", " has rendered");
     return (
       <div>
         <Header />
@@ -69,7 +60,7 @@ componentWillReceiveProps(props){
             <TagContainer defaultTags={this.state.tagList} />
             <div className="input-field col s12 editor">
               <label>Body</label>
-              <Editor showTheme={true} edit={true} bodyDefaultValue={this.state.body} />
+              <Editor showTheme={true} bodyDefaultValue={this.state.body} />
             </div>
             <button
             className="waves-effect waves-light btn-small save"
@@ -97,8 +88,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateUserArticle: function(slug, article) {
-      dispatch(updateUserArticle(slug, article));
+    updateUserArticle: function(article) {
+      dispatch(updateUserArticle(article));
     },
     getSingleleUserArticle: function(slug) {
       dispatch(getSingleleUserArticle(slug));
