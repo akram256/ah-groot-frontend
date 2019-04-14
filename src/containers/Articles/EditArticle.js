@@ -46,8 +46,6 @@ componentWillReceiveProps(props){
     this.props.updateUserArticle(this.props.match.params.slug, this.props.newArticle);
   }
 
-  render() {
-    console.log("edit article", " has rendered");
     return (
       <div>
         <Header />
@@ -85,8 +83,7 @@ componentWillReceiveProps(props){
         </div>
       </div>
     );
-  }
-}
+ 
 
 const mapStateToProps = state => {
   return {

@@ -8,7 +8,6 @@ export class ArticleView extends Component {
     super(props);
     let { history } = this.props;
   }
-
   deleteArticle = slug => {
     axios
       .delete(`${endPoints.singleArticle}${slug}/`, authHeader)
