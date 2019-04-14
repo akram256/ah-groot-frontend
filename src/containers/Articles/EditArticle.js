@@ -188,8 +188,8 @@ const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
   return {
-    updateUserArticle: function(slug, article) {
-      dispatch(updateUserArticle(slug, article));
+    updateUserArticle: function(article) {
+      dispatch(updateUserArticle(article));
     },
     getSingleleUserArticle: function(slug) {
       dispatch(getSingleleUserArticle(slug));

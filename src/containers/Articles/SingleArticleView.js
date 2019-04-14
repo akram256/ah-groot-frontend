@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill';
 
 import Header from '../../components/landingPage/Header';
 import { modules, formats } from './QuillModules';
+import CommentContainer from '../../containers/Comments/CommentContainer';
 
 import { getSingleleUserArticle } from '../../actions/ArticleAction';
 
@@ -68,6 +69,7 @@ componentWillReceiveProps(props){
               modules={modules} />
             </div>
           </div>
+          <CommentContainer slug={this.props.match.params.slug}/>
         </div>
       </div>
     );

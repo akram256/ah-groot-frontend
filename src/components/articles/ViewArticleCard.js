@@ -3,12 +3,11 @@ import { withRouter } from 'react-router-dom';
 import endPoints, {authHeader} from '../../containers/urls';
 import axios from 'axios';
 
-export class ArticleView extends Component {
+class ArticleView extends Component {
   constructor(props) {
     super(props);
     let { history } = this.props;
   }
-
   deleteArticle = slug => {
     return axios
       .delete(`${endPoints.singleArticle}${slug}/`, authHeader)
@@ -18,6 +17,7 @@ export class ArticleView extends Component {
           /* istanbul ignore next */
           window.location.reload();
         }
+        console.log(response);
       })
       .catch(function(error) {
         return;
@@ -26,8 +26,7 @@ export class ArticleView extends Component {
 
   editArticle = slug => {
     this.props.history.push(`/me/article/${slug}/edit`);
-  }
-
+  };
   render() {
     const { title, description, slug } = this.props;
     return (
