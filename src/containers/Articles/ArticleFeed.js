@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import M from 'materialize-css/dist/js/materialize.js';
 import { withRouter } from 'react-router-dom';
-
 import { connect } from 'react-redux';
 
 import AllArticleView from '../../components/articles/AllArticleView';
@@ -25,7 +24,10 @@ export class ArticleFeed extends Component {
     this.props.getAllArticles();
   }
 
+
   render() {
+    console.log(this.props.allArticles);
+
     return (
       <div>
         <Header />
@@ -65,6 +67,7 @@ export class ArticleFeed extends Component {
               ) : (
                 <span ></span>
               )}
+
             </div>
           </div>
         </div>
@@ -82,6 +85,7 @@ const mapDispatchToProps = dispatch => {
     getAllArticles: function() {
       dispatch(getAllArticles());
     },
+
   };
 };
 
@@ -89,3 +93,5 @@ export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
 )(ArticleFeed));
+
+
