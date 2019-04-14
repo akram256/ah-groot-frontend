@@ -33,7 +33,6 @@ div.container > div.row {
         border-color: white;
         > div.select__indicators{
           > span {
-            display: none;
           }
           > div.select__indicator.select__dropdown-indicator{
             display: none;
@@ -69,8 +68,6 @@ div.container > div.row {
   }
   > div.input-field.col.s6.category {
     margin-top: auto;
-    > label {
-      position: static;
     }
     > div {
       > div {
