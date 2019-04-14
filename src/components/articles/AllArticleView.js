@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-class AllArticleView extends Component {
+export class AllArticleView extends Component {
   constructor(props) {
     super(props);
     let { history } = this.props;

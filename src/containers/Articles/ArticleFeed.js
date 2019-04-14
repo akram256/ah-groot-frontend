@@ -23,9 +23,11 @@ export class ArticleFeed extends Component {
     M.FloatingActionButton.init(elems, options);
     this.props.getAllArticles();
   }
+  
 
 
   render() {
+    console.log(this.props.allArticles);
     return (
       <div>
         <Header />
@@ -53,6 +55,7 @@ export class ArticleFeed extends Component {
               {this.props.allArticles.length > 0 ? (
                 this.props.allArticles.map(element => {
                   return (
+                
                     <AllArticleView
                       key={element.slug}
                       title={element.title}
@@ -60,12 +63,14 @@ export class ArticleFeed extends Component {
                       slug={element.slug}
                       average_rating={element.average_rating}
                     />
+                   
+                    
                   );
+                  
                 })
               ) : (
                 <span ></span>
               )}
-
             </div>
           </div>
         </div>
@@ -83,6 +88,7 @@ const mapDispatchToProps = dispatch => {
     getAllArticles: function() {
       dispatch(getAllArticles());
     },
+   
   };
 };
 
