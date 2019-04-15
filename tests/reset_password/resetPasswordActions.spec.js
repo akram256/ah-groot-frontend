@@ -90,6 +90,43 @@ describe('Reset password', () => {
       })
     });
 
+    it('should not create an action to reset password for non-matching passwords', () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 404,
+          response: data,
+        });
+      });
+
+      const store = mockStore({ });
+      return store.dispatch(actions.resetPassword(password)).catch(() => {
+        expect(store.getActions()).toEqual([]);
+      })
+    });
+
+    it('should not create an action to reset password for invalid passwords', () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 404,
+          response: {
+            "user": {
+                "Message": "Please check your email a link has been sent to you",
+                "detail": "Not found",
+            }
+          }
+        ,
+        });
+      });
+
+      const store = mockStore({ });
+      return store.dispatch(actions.resetPassword(password)).catch(() => {
+        expect(store.getActions()).toEqual([]);
+      })
+    });
+
+
   });
 
 });
