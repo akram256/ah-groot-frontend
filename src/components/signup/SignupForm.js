@@ -4,18 +4,18 @@ import SocialAuthViews from '../../containers/SocialAuthContainer';
 const SignupForm = props => {
   let Loader = require('react-loader')
   return (
-    <div className="row">
-      <div className="col s12 15 offset-12">
-        <h4 className="center-align regHeader">REGISTER</h4>
+    <div>
+      <div className="formInput">
+        <h5 className="center-align data-heading">JOIN</h5>
         <form onSubmit={props.onSubmit} id="signUpForm" className="form">
-          <div className="input-field">
+          <div className="input-field s12">
             <input
               type="text"
               id="username"
               name="username"
               value={props.username}
               onChange={props.onChange}
-              className="formInput"
+              className="validate"
               required
             />
             <label className="active" htmlFor="username">
@@ -23,7 +23,7 @@ const SignupForm = props => {
             </label>
           </div>
 
-          <div className="input-field">
+          <div className="input-field s12">
             <label className="active" htmlFor="email">
               Email
             </label>
@@ -33,12 +33,12 @@ const SignupForm = props => {
               name="email"
               value={props.email}
               onChange={props.onChange}
-              className="formInput"
+              className="validate"
               required
             />
           </div>
 
-          <div className="input-field">
+          <div className="input-field s12">
             <label className="active" htmlFor="password">
               Password
             </label>
@@ -48,12 +48,12 @@ const SignupForm = props => {
               name="password"
               value={props.password}
               onChange={props.onChange}
-              className="formInput"
+              className="validate"
               required
             />
           </div>
 
-          <div className="input-field">
+          <div className="input-field s12">
             <label className="active" htmlFor="password2">
               Confirm Password 
             </label>
@@ -64,12 +64,13 @@ const SignupForm = props => {
               value={props.password2}
               onChange={props.onChange}
               required
+              className="validate"
             />
           </div>
 
           <div className="input-field center">
           <Loader loaded={!props.isLoading}>
-            <button type="submit" className="waves-effect waves-light btn-small regButton" id="register">
+            <button type="submit" className="waves-effect waves-light btn-small login">
               Register
             </button>
           </Loader>
@@ -80,7 +81,11 @@ const SignupForm = props => {
             <SocialAuthViews/> 
       
           </div>
-        
+
+          <div className="data-option">
+            <p className="center-align">Already have an account? <a href='#' onClick={() => props.redirectToLogIn()}
+            id="redirectLink">Log in</a></p>
+          </div>
          
         </form>
       </div>

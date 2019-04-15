@@ -1,5 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import {Provider} from 'react-redux';
+import store from '../../src/Store';
 
 import LandingPage from '../../src/containers/LandingPage/LandingPage';
 
@@ -23,6 +25,7 @@ describe('NavBar', () => {
 
   it('should close sign up modal form', () => {
     const wrapper = shallow(<LandingPage />);
+    wrapper.instance().setState({openSignUp: true });
     wrapper.instance().closeSignUp();
   });
 
@@ -35,5 +38,24 @@ describe('NavBar', () => {
     const wrapper = shallow(<LandingPage />);
     wrapper.instance().redirectUser();
   });
+
+  it('redirectToLogIn', () => {
+    const redirectToLogIn = jest.fn();
+    const wrapper = shallow(<LandingPage />);
+    wrapper.instance().redirectToLogIn();
+  });
+
+  it('signup page redirectToLogin is covered', () => {
+    const props = {
+      open: jest.fn(),
+      close: jest.fn(),
+      redirectToLogIn: () => jest.fn(),
+      loading: false,
+      userSignupRequest: jest.fn() }
+    const wrapper = shallow(<Provider store={store}><LandingPage /></Provider>);
+  });
+
+
+
 
 });

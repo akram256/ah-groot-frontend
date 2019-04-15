@@ -14,7 +14,6 @@ describe('LoginForm', () => {
 
   it('should click signup link', () =>{
     const wrapper = shallow(<LoginForm {...props}/>);
-    console.log(wrapper.find('.new-user'));
     wrapper.find('.new-user').simulate('click');
     
   });

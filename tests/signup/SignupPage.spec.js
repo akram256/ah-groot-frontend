@@ -58,6 +58,28 @@ describe('User registration actions', () => {
     moxios.uninstall();
   });
 
+  it('should not register a user', () => {
+    const mockStore = configureMockStore([thunk]);
+    const store = mockStore({});
+
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 400,
+        response: {errors: [{}]},
+      });
+    });
+
+    const expectedAction = [
+      { type: 'STARTED' },
+      { type: 'FAILED', err: {errors: [{}]}},
+    ];
+    return store.dispatch(userSignupRequest(WrongUserData)).then(() => {
+
+      expect(store.getActions()).toEqual(expectedAction);
+    });
+  });
+
   it('should register a user successfully', () => {
     const mockStore = configureMockStore([thunk]);
     const store = mockStore({
@@ -82,30 +104,9 @@ describe('User registration actions', () => {
       return store.dispatch(userSignupRequest(userData)).then(() => {
         expect(store.getActions()).toEqual(expectedAction);
       });
-
-
   });
 
-  it('should not register a user', () => {
-    const mockStore = configureMockStore([thunk]);
-    const store = mockStore({});
 
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 400,
-        response: {errors: [{}]},
-      });
-    });
-
-    const expectedAction = [
-      { type: 'STARTED' },
-      { type: 'FAILED', err: {errors: [{}]}},
-    ];
-    return store.dispatch(userSignupRequest(WrongUserData)).then(() => {
-      expect(store.getActions()).toEqual(expectedAction);
-    });
-  });
 });
 
 describe('Form', () => {
@@ -238,8 +239,6 @@ it('calls input handler', () => {
 
 
 });
-
-
 
 
 

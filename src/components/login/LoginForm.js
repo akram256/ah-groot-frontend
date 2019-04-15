@@ -23,7 +23,7 @@ const LoginForm = (props) => {
                     value={email}
                     onChange={emailChange}
                 />
-                <label className="active" for="email">Email</label>
+                <label className="active" htmlFor="email">Email</label>
             </div>
             <div className="input-field col s12">
                 <input id="password" type="password" className="validate"
