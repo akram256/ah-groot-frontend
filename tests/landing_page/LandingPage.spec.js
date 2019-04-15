@@ -31,4 +31,9 @@ describe('NavBar', () => {
     wrapper.instance().closeLogIn();
   });
 
+  it('redirect user', () => {
+    const wrapper = shallow(<LandingPage />);
+    wrapper.instance().redirectUser();
+  });
+
 });

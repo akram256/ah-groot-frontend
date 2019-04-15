@@ -14,7 +14,7 @@ const loginAction = loginData => {
     return axios
       .post(endPoints.loginUser, body)
       .then(function(response) {
-        M.toast({html:response.data.user.username, classes:'green'
+        M.toast({html:`Successfully logged in as ${response.data.user.username}`, classes:'green'
       });
         dispatch({
           type: LOGIN_SUCCESS,
