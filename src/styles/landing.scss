@@ -140,10 +140,7 @@ nav .nav-wrapper > #nav-mobile {
   border-color: white;
 
 }
-// .keep-login-facebook-metro{
-//   background-color: none;
 
-// }
 .App{
   display: flex;
   justify-content: center;
@@ -153,6 +150,7 @@ nav .nav-wrapper > #nav-mobile {
   padding: 0px !important;
   margin-right: 30px !important;
   border:  !important;
+  font-family: Roboto, sans-serif;
 }
 .App button{
   background-color: rgba(0, 0, 0, 0) !important;
@@ -187,6 +185,14 @@ p.login-or label{
   border: 1px solid #eeeeee;
   margin: 0px 10px;
   overflow: auto;
+}
+.google-div, .google-div div{
+  margin-right: 0px !important;
+  padding-right: 10px !important;
+}
+.google-div span{
+  color: #9e9e9e !important;
+  font-size: 13px !important;
 }
 
 .facebook-div button, .google-div button{

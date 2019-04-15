@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  { withRouter }  from 'react-router-dom';
+// import  { withRouter }  from 'react-router-dom';
 import {connect} from 'react-redux';
 import facebooklogin from '../actions/SocialAuth/FacebookActions';
 import googlelogin from '../actions/SocialAuth/GoogleActions';
@@ -12,8 +12,6 @@ export class SocialAuthViews extends Component {
   constructor(props){
     super(props);
 
-    let {history} = this.props;
-    history.push({pathname: '/'})
   }
 
   componentWillReceiveProps(nextProps) {
@@ -40,7 +38,6 @@ export class SocialAuthViews extends Component {
     handlegoogleFailure=(response) => {
       const {googlelogin}= this.props;
       googlelogin('invalid request');
-      M.toast({html:'Invalid request', classes: 'red'});
     }
   
    render() {
@@ -62,5 +59,5 @@ export const mapStateToProps = state => ({
 });
 
 
-export default withRouter(connect(mapStateToProps,  {facebooklogin, googlelogin})(SocialAuthViews));
+export default (connect(mapStateToProps,  {facebooklogin, googlelogin})(SocialAuthViews));
 

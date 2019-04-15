@@ -15,11 +15,12 @@ const SocialAuth = props =>(
           textButton={false}
           icon= {<img src ="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554917850/groot/facebook_logo.png" width="50px" height="50px"/>}
         />
-        <label>Sign in with facebook</label>
+        <label>Join with facebook</label>
       </div>
       <div className="google-div">
         <GoogleLogin
           clientId={config.clientId}
+          buttonText="Join with google"
           onSuccess={props.googleSuccess}
           onFailure={props.googleFailure}
         >
@@ -27,7 +28,6 @@ const SocialAuth = props =>(
        
       </div>
   </div>  
-
 );
 SocialAuth.prototype = {
   responseFacebook: PropTypes.func.isRequired,
