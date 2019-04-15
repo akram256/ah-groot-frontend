@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { resetPassword } from '../../actions/resetPasswordActions';
+import M from 'materialize-css/dist/js/materialize.js';
 
 export class NewPassword extends Component {
   constructor(props) {
@@ -19,15 +20,15 @@ export class NewPassword extends Component {
   }
 
   sendNewPassword() {
-    this.props.resetPassword(this.state.newPassword, this.props.token);
+    this.props.resetPassword(this.state.newPassword, this.state.confirmNewPassword, this.props.token);
   }
 
   render() {
     return (
       <div className="reset-password card-panel">
-        <p className="reset-password center-align">Reset your password</p>
+        <p className="reset-password center-align bold">Reset your password</p>
         <div className="row">
-          <form>
+          <form className="reset">
             <div className="row">
               <div className="input-field col s12">
                 <input

@@ -39,7 +39,7 @@ export class ResetPassword extends Component {
       <div className="reset-password card-panel">
         <p className="reset-password center-align">Reset your password</p>
         <div className="row">
-          <form>
+          <form className="reset">
             <div className="row">
               <div className="input-field col s12 reset">
                 <input
@@ -51,7 +51,7 @@ export class ResetPassword extends Component {
                   required
                 />
                 <label htmlFor="email">
-                  {this.state.email ? this.state.value : 'Email'}
+                  {this.state.email ? this.state.value : 'Enter your email here'}
                 </label>
               </div>
             </div>

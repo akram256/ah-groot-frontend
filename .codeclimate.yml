@@ -1,14 +1,14 @@
 version: "2"
 exclude_patterns:
+  - "tests/"
   - "src/components/login/LoginForm.js"
   - "src/components/signup/SignupForm.js"
-  - "tests/"
   - "src/actions/ArticleAction.js"
   - "src/actions/index.js"
-  - 'src/containers/ResetPassword/'
-  - 'src/components/landingPage/Header.js'
-  - 'src/components/landingPage/Logo.js'
-  - "tests/"
+  - "src/containers/ResetPassword/ResetPassword.js"
+  - "src/containers/ResetPassword/NewPassword.js"
+  - "src/components/landingPage/Header.js"
+  - "src/components/landingPage/Logo.js"
   - "src/reducers/SocialAuth/SocialAuthReducers.js"
   - "src/actions/SocialAuth/GoogleActions.js"
   - "src/actions/SocialAuth/FacebookActions.js"
@@ -16,4 +16,4 @@ exclude_patterns:
   - "src/containers/Login.js"
   - "src/actions/index.js"
   - "src/containers/SocialAuthContainer.js"
-  
+
