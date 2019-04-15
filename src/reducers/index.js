@@ -10,6 +10,7 @@ import { articleReducer, userArticleReducer, publishedArticles,
   singleUserArticle , allUserArticles, postArticle
 } from './ArticleReducer';
 import CreateArticleReducer from './CreateArticle';
+import ratingReducer from './ratingReducer'
 
 
 export default combineReducers({

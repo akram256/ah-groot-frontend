@@ -1,6 +1,4 @@
 import reducers from '../src/reducers';
-import getCategories from '../src/reducers/GetCategories';
-import data from './landing_page/maxios_mock';
 
 describe('Test all reducers', () => {
   it('Given article reducer should handle ARTICLES', () => {
