@@ -19,7 +19,7 @@ export const userSignupRequest = userData => async (dispatch) => {
   dispatch(startAction());
   try {
     const response = await axios.post(
-      'https://ah-backend-groot.herokuapp.com/api/users/',
+      'https://ah-backend-groot-pr-57.herokuapp.com/api/users/',
       userData,
     );
     dispatch(successRegistration(response.data));
