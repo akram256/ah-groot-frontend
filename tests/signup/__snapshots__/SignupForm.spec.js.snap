@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignupForm Component it matches the snapshot 1`] = `
+exports[`SignupForm Component it matches the snapshot: register 1`] = `
 <div
   className="row"
 >
@@ -17,7 +17,7 @@ exports[`SignupForm Component it matches the snapshot 1`] = `
       id="signUpForm"
     >
       <div
-        className="input-field col s12"
+        className="input-field"
       >
         <input
           className="formInput"
@@ -91,10 +91,154 @@ exports[`SignupForm Component it matches the snapshot 1`] = `
         >
           <button
             className="waves-effect waves-light btn-small regButton"
+            id="register"
             type="submit"
           >
             Register
           </button>
+        </div>
+        <br />
+        <br />
+        <hr
+          className="login-separator"
+        />
+        <p
+          className="login-or"
+        >
+          <label>
+            OR
+          </label>
+        </p>
+        <div>
+          <div
+            className="App"
+          >
+            <div
+              className="facebook-div"
+            >
+              <span
+                style={
+                  Object {
+                    "opacity": 0.6,
+                    "transition": "opacity 0.5s",
+                  }
+                }
+              >
+                <button
+                  className="kep-login-facebook metro"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    height="50px"
+                    src="https://res.cloudinary.com/dx0hz2ziy/image/upload/v1554917850/groot/facebook_logo.png"
+                    width="50px"
+                  />
+                </button>
+                <style
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": Array [
+                        Array [
+                          9,
+                          ".kep-login-facebook{font-family:Helvetica,sans-serif;font-weight:700;-webkit-font-smoothing:antialiased;color:#fff;cursor:pointer;display:inline-block;font-size:calc(.27548vw + 12.71074px);text-decoration:none;text-transform:uppercase;transition:background-color .3s,border-color .3s;background-color:#4c69ba;border:calc(.06887vw + .67769px) solid #4c69ba;padding:calc(.34435vw + 13.38843px) calc(.34435vw + 18.38843px)}.kep-login-facebook.small{padding:calc(.34435vw + 3.38843px) calc(.34435vw + 8.38843px)}.kep-login-facebook.medium{padding:calc(.34435vw + 8.38843px) calc(.34435vw + 13.38843px)}.kep-login-facebook.metro{border-radius:0}.kep-login-facebook .fa{margin-right:calc(.34435vw + 3.38843px)}",
+                          "",
+                        ],
+                      ],
+                    }
+                  }
+                />
+              </span>
+              <label>
+                Join with facebook
+              </label>
+            </div>
+            <div
+              className="google-div"
+            >
+              <button
+                disabled={true}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fff",
+                    "border": "1px solid transparent",
+                    "borderRadius": 2,
+                    "boxShadow": "0 2px 2px 0 rgba(0, 0, 0, .24), 0 0 1px 0 rgba(0, 0, 0, .24)",
+                    "color": "rgba(0, 0, 0, .54)",
+                    "display": "inline-flex",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "opacity": 0.6,
+                    "padding": 0,
+                  }
+                }
+                type="button"
+              >
+                <div
+                  style={
+                    Object {
+                      "background": "#fff",
+                      "borderRadius": 2,
+                      "marginRight": 10,
+                      "padding": 10,
+                    }
+                  }
+                >
+                  <svg
+                    height="18"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="#000"
+                      fillRule="evenodd"
+                    >
+                      <path
+                        d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z"
+                        fill="#EA4335"
+                      />
+                      <path
+                        d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z"
+                        fill="#4285F4"
+                      />
+                      <path
+                        d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z"
+                        fill="#FBBC05"
+                      />
+                      <path
+                        d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z"
+                        fill="#34A853"
+                      />
+                      <path
+                        d="M0 0h18v18H0z"
+                        fill="none"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <span
+                  style={
+                    Object {
+                      "fontWeight": 500,
+                      "paddingBottom": 10,
+                      "paddingLeft": 0,
+                      "paddingRight": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  Join with google
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </form>

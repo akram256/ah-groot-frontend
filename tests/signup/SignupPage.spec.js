@@ -12,6 +12,12 @@ import store from '../../src/Store';
 
 describe('MapStateToDispatch', () => {
 
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  document.getElementsByTagName('head')[0].appendChild(script);
+
+   const div = document.createElement('div');
+
 
   it('access mapStateToProps', () => {
     const newProps = {
@@ -24,7 +30,7 @@ describe('MapStateToDispatch', () => {
       email: 'example@gmail.com',
       username: 'Cucumber',
     };
-   mount(<Provider store={store}><SignUpPage {...newProps} /></Provider>);
+   mount(<Provider store={store}><SignUpPage {...newProps} /></Provider>,div);
 
   });
 
@@ -131,7 +137,7 @@ describe('Form', () => {
       email: 'example@gmail.com',
       username: 'Cucumber',
     };
-    let wrapper = mount(<SignUpModal {...newProps} />);
+    let wrapper = mount(<Provider store={store}><SignUpModal {...newProps} /></Provider>);
     wrapper.find('#signUpForm').simulate('submit');
     expect(newProps.submitHandler).toHaveBeenCalled();
   });
@@ -146,7 +152,7 @@ describe('Form', () => {
       email:"email@gmail.com",
       username:"username",
     };
-    let wrapper = mount(<SignUpModal {...newProps} />);
+    let wrapper = mount(<Provider store={store}><SignUpModal {...newProps} /></Provider>);
     const form = wrapper.find('#signUpForm');
   form.simulate('submit');
 });
@@ -162,7 +168,7 @@ it('should update username value in state if user inputs value in username field
     email:"email@gmail.com",
     username:"username",
   };
-  let wrapper = mount(<SignUpModal {...newProps} />);
+  let wrapper = mount(<Provider store={store}><SignUpModal {...newProps} /></Provider>);
   const form = wrapper.find('#signUpForm');
   form.find("input[type='text']").instance().value = 'aaaaaa';
   form.find("input[name='email']").instance().value = 'aaaaaaa@gmail.com';

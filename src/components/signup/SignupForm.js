@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import SocialAuthViews from '../../containers/SocialAuthContainer';
 
 const SignupForm = props => {
   let Loader = require('react-loader')
@@ -68,11 +69,18 @@ const SignupForm = props => {
 
           <div className="input-field center">
           <Loader loaded={!props.isLoading}>
-            <button type="submit" className="waves-effect waves-light btn-small regButton">
+            <button type="submit" className="waves-effect waves-light btn-small regButton" id="register">
               Register
             </button>
           </Loader>
+          <br/>
+          <br/>
+           <hr className="login-separator" />
+            <p className="login-or"><label>OR</label></p>
+            <SocialAuthViews/> 
+      
           </div>
+        
          
         </form>
       </div>
