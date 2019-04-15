@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SocialAuthViews from '../../containers/SocialAuthContainer';
 
 const LoginForm = (props) => {
-    const {
-        email,
+
+    const { 
+        email, 
         password,
         emailChange,
         passwordChange,
@@ -14,7 +16,7 @@ const LoginForm = (props) => {
     let Loader = require('react-loader');
     return (
       <div>
-        <div className="formInput">
+            <div className="formInput">
         <Loader loaded={!isLoading}></Loader>
          <form onSubmit={handleSubmit}>
             <div className="input-field col s12">
@@ -35,7 +37,13 @@ const LoginForm = (props) => {
                 className="waves-effect waves-light btn-small login"
                 onClick = {handleSubmit}
                 />
-            <Link to='/password-reset' className="forgot-password">Forgot Password?</Link>
+               <Link to='/password-reset' className="forgot-password">Forgot Password?</Link>
+          
+            <br/>
+            <hr className="login-separator" />
+            <p className="login-or"><label>OR</label></p>
+            <SocialAuthViews/>
+           
         </form>
         </div>
       </div>

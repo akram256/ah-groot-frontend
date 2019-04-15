@@ -240,7 +240,15 @@ describe('Test all reducers', () => {
         "errors": null,
         "isSuccessful": false,
         "token": "",
+      },
+      "socialauthReducer":{
+        "facebook_login":false,
+        "google_login":false,
+        "isAuthenticated":false,
+        "payload":"",
+        "token":"",
       }
-    });
   });
 });
+});
+

@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import LandingPage from '../../src/containers/LandingPage/LandingPage';
 
-
 describe('NavBar', () => {
   it('should render without crashing', () => {
     const wrapper = shallow(<LandingPage />);
