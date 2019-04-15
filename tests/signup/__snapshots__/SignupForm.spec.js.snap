@@ -17,7 +17,7 @@ exports[`SignupForm Component it matches the snapshot 1`] = `
       id="signUpForm"
     >
       <div
-        className="input-field"
+        className="input-field col s12"
       >
         <input
           className="formInput"

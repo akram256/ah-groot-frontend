@@ -42,11 +42,29 @@ form .waves-effect.waves-light.btn-small.login {
 }
 
 .forgot-password{
+    font-size: 10px;
+    margin: 0px;
+    
+}
+
+.new-user{
     float: right;
-    margin-top: 25px;
 }
 
 .welcome{
     text-align: center;
     font-weight: bold;
+}
+
+.login-button{
+    float:left;
+    margin: 0px;
+}
+
+.button-area{
+    float: left;
+}
+
+.login-form{
+    padding: 30px;
 }

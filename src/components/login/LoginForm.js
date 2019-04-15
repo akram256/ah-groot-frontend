@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SocialAuthViews from '../../containers/SocialAuthContainer';
 
 const LoginForm = (props) => {
 
@@ -10,14 +9,14 @@ const LoginForm = (props) => {
         emailChange,
         passwordChange,
         handleSubmit,
-        isLoading
+        isLoading,
+        redirectUser
     } = props;
 
     let Loader = require('react-loader');
     return (
       <div>
-            <div className="formInput">
-        <Loader loaded={!isLoading}></Loader>
+        <div className="formInput">
          <form onSubmit={handleSubmit}>
             <div className="input-field col s12">
                 <input id="email" type="email" className="validate"
@@ -32,18 +31,19 @@ const LoginForm = (props) => {
                     onChange={passwordChange}
                 />
                 <label className="active" for="password">Password</label>
+                <div className="button-area">
+                <div><Link to='/password-reset' className="forgot-password">Forgot Password?</Link></div>
+                <div className="login-button">
+                    <Loader loaded={!isLoading}>
+                        <input type="submit" value="Login"
+                        className="waves-effect waves-light btn-small login"
+                        onClick = {handleSubmit}
+                        />
+                    </Loader>
+                </div>
             </div>
-            <input type="submit" value="Login"
-                className="waves-effect waves-light btn-small login"
-                onClick = {handleSubmit}
-                />
-               <Link to='/password-reset' className="forgot-password">Forgot Password?</Link>
-          
-            <br/>
-            <hr className="login-separator" />
-            <p className="login-or"><label>OR</label></p>
-            <SocialAuthViews/>
-           
+            </div>
+            <a href="#" onClick={() => redirectUser()} className="new-user">New to Author's Haven?</a>
         </form>
         </div>
       </div>

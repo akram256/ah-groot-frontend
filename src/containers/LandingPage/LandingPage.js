@@ -33,6 +33,11 @@ class LandingPage extends Component {
     this.setState({ openLogIn: false });
   };
 
+  redirectUser = () =>{
+    this.closeLogIn();
+    this.openSignUp();
+}
+
   render() {
 
     return (
@@ -43,6 +48,7 @@ class LandingPage extends Component {
         <LoginContainer
           open = {this.state.openLogIn}
           close = {this.closeLogIn}
+          redirectUser = {this.redirectUser}
         />
         <Header
           openSignUp={this.openSignUp}

@@ -44,8 +44,9 @@ export class LoginContainer extends Component {
   };
 
   render() {
-    const { open } = this.props;
-    const { close } = this.props;
+    const { open,
+            close,
+            redirectUser } = this.props;
 
     return (
       <LoginModal
@@ -57,6 +58,7 @@ export class LoginContainer extends Component {
         passwordChange={this.passwordChange}
         handleSubmit={this.handleSubmit}
         isLoading={this.state.isLoading}
+        redirectUser={redirectUser}
       />
     );
   }
