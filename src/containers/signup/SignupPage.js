@@ -60,6 +60,7 @@ export class SignupPage extends Component {
           username={this.state.username}
           userSignupRequest= {this.props.userSignupRequest}
           isLoading={this.props.loading}
+          redirectToLogIn={this.props.redirectToLogIn}
 
           
         />

@@ -1,26 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SignupForm Component it matches the snapshot: register 1`] = `
-<div
-  className="row"
->
+<div>
   <div
-    className="col s12 15 offset-12"
+    className="formInput"
   >
-    <h4
-      className="center-align regHeader"
+    <h5
+      className="center-align data-heading"
     >
-      REGISTER
-    </h4>
+      JOIN
+    </h5>
     <form
       className="form"
       id="signUpForm"
     >
       <div
-        className="input-field"
+        className="input-field s12"
       >
         <input
-          className="formInput"
+          className="validate"
           id="username"
           name="username"
           required={true}
@@ -34,7 +32,7 @@ exports[`SignupForm Component it matches the snapshot: register 1`] = `
         </label>
       </div>
       <div
-        className="input-field"
+        className="input-field s12"
       >
         <label
           className="active"
@@ -43,7 +41,7 @@ exports[`SignupForm Component it matches the snapshot: register 1`] = `
           Email
         </label>
         <input
-          className="formInput"
+          className="validate"
           id="email"
           name="email"
           required={true}
@@ -51,7 +49,7 @@ exports[`SignupForm Component it matches the snapshot: register 1`] = `
         />
       </div>
       <div
-        className="input-field"
+        className="input-field s12"
       >
         <label
           className="active"
@@ -60,7 +58,7 @@ exports[`SignupForm Component it matches the snapshot: register 1`] = `
           Password
         </label>
         <input
-          className="formInput"
+          className="validate"
           id="password"
           name="password"
           required={true}
@@ -68,7 +66,7 @@ exports[`SignupForm Component it matches the snapshot: register 1`] = `
         />
       </div>
       <div
-        className="input-field"
+        className="input-field s12"
       >
         <label
           className="active"
@@ -77,6 +75,7 @@ exports[`SignupForm Component it matches the snapshot: register 1`] = `
           Confirm Password
         </label>
         <input
+          className="validate"
           id="password2"
           name="password2"
           required={true}
@@ -90,8 +89,7 @@ exports[`SignupForm Component it matches the snapshot: register 1`] = `
           className="loadedContent"
         >
           <button
-            className="waves-effect waves-light btn-small regButton"
-            id="register"
+            className="waves-effect waves-light btn-small login"
             type="submit"
           >
             Register
@@ -240,6 +238,22 @@ exports[`SignupForm Component it matches the snapshot: register 1`] = `
             </div>
           </div>
         </div>
+      </div>
+      <div
+        className="data-option"
+      >
+        <p
+          className="center-align"
+        >
+          Already have an account? 
+          <a
+            href="#"
+            id="redirectLink"
+            onClick={[Function]}
+          >
+            Log in
+          </a>
+        </p>
       </div>
     </form>
   </div>

@@ -1,12 +1,5 @@
 $primary-color: #040a47;
-.regHeader {
-    text-transform: uppercase;
-    font-weight: bold;
-}
-.regButton{
-    background-color: #040a47!important; 
-    float: left;
-}
+
 .styles_modal__gNwvD{
     height: auto;
     width: 40%;
@@ -18,7 +11,7 @@ form .waves-effect.waves-light.btn-small.login {
     color: white;
     border-color: $primary-color;
     margin-top: 25px;
-  }
+}
 
 .formInput{
     margin: 20px auto;
@@ -28,8 +21,32 @@ form .waves-effect.waves-light.btn-small.login {
 .form{
     margin-top: 50px;
 }
-.regButton{
-    background-color:#040a47; 
+
+.social{
+    margin: auto;
+    left: 30%;
+}
+.social.waves-effect.waves-light.btn-floating.btn-large.social.facebook{
+    background-color: #3b5998;
+    margin: 10px;
 }
 
+.social.waves-effect.waves-light.btn-floating.btn-large.social.twitter{
+    background-color: #1DA1F2;
+    margin: 10px;
+}
 
+.social.waves-effect.waves-light.btn-floating.btn-large.social.google{
+    background-color: #db3236;
+    margin: 10px;
+}
+
+.forgot-password{
+    float: right;
+    margin-top: 25px;
+}
+
+.data-heading{
+    text-align: center;
+    font-weight: bold;
+}

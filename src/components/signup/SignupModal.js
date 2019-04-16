@@ -14,6 +14,7 @@ const SignUpModal = props => {
           email={props.email}
           username={props.username}
           isLoading={props.isLoading}
+          redirectToLogIn={props.redirectToLogIn}
         />
       </Modal>
     </div>

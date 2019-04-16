@@ -37,6 +37,10 @@ class LandingPage extends Component {
     this.closeLogIn();
     this.openSignUp();
 }
+  redirectToLogIn = () =>{
+    this.closeSignUp();
+    this.openLogIn();
+  }
 
   render() {
 
@@ -44,7 +48,8 @@ class LandingPage extends Component {
       <div>
         <SignUpPage
         open = {this.state.openSignUp}
-        close ={this.closeSignUp} />
+        close ={this.closeSignUp}
+        redirectToLogIn={this.redirectToLogIn}/>
         <LoginContainer
           open = {this.state.openLogIn}
           close = {this.closeLogIn}
