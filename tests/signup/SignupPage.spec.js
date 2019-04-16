@@ -241,5 +241,50 @@ it('calls input handler', () => {
 });
 
 
+// describe('timer mocks', () => {
+
+//   const userData = {
+//     username: 'edgar',
+//     email: 'edgarnyabongo@gamil.com',
+//     password: 'P@ssw0rd2',
+//     password2: 'P@ssw0rd2',
+//   };
+
+
+//   it('tests the timer', () => {
+//     const mockStore = configureMockStore([thunk]);
+//     const store = mockStore({
+//       error: null,
+//       successMsg: null,
+//       loading: false,
+//     });
+
+//     moxios.wait(() => {
+//       const request = moxios.requests.mostRecent();
+//       request.respondWith({
+//         status: 201,
+//         response: {user: { Message: 'Successfully logged in'} },
+//       })
+
+//     });
+
+//     const expectedAction = [
+//       { type: 'STARTED' },
+//       { type: 'SUCCESSFUL', data: {user: { Message: 'Successfully logged in'} } },
+//     ];
+
+//     return store.dispatch(userSignupRequest(userData)).then(() => {
+//       expect(store.getActions()).toEqual(expectedAction);
+//       jest.runAllTimers();
+//       expect(setTimeout).toHaveBeenCalledTimes(1);
+//       expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 3000);
+
+//   });
+
+
+//   });
+
+// });
+
 
 
