@@ -13,6 +13,7 @@ import CreateArticleReducer from './CreateArticle';
 import ratingReducer from './ratingReducer'
 
 
+
 export default combineReducers({
   categories: getCategories,
   articles: articleReducer,
@@ -26,5 +27,6 @@ export default combineReducers({
   editArticle: singleUserArticle,
   allArticles: allUserArticles,
   recentArticlePost: postArticle,
-  publishedArticles: publishedArticles
+  publishedArticles: publishedArticles,
+  ratingReducer
 });

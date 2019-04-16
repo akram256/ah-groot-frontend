@@ -27,7 +27,7 @@ export class SignupPage extends Component {
   submitHandler = e => {
     e.preventDefault();
     this.setState({isLoading:true})
-    if (this.state.password == this.state.password2) {
+    if (this.state.password === this.state.password2) {
       const data = {
         user: {
           username: this.state.username,

@@ -12,7 +12,7 @@ import SingleArticleView from '../containers/Articles/SingleArticleView';
 
 import '../styles/App.scss';
 import 'materialize-css/dist/css/materialize.min.css';
-import RatingContainer from './RatingContainer';
+
 
 class App extends Component {
   render() {

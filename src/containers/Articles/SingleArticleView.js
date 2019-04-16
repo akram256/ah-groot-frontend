@@ -8,6 +8,9 @@ import { getSingleleUserArticle } from '../../actions/ArticleAction';
 
 import '../../styles/singlearticle.scss';
 
+
+import RatingContainer from '../RatingContainer';
+
 export class SingleArticleView extends Component {
 constructor(props){
   super(props);
@@ -48,8 +51,11 @@ componentWillReceiveProps(props){
             {(this.state.tagList.length > 0) ?
             this.state.tagList.map(item=>{
               return(
+                <div>
                 <div key={item} className="chip">
                   {item}
+                </div>
+                <RatingContainer />
                 </div>
               );
             }): (<span></span>)
@@ -58,6 +64,7 @@ componentWillReceiveProps(props){
             <div className="col s12 read">
               <Editor showTheme={false} bodyDefaultValue={this.state.body} />
             </div>
+            
           </div>
         </div>
       </div>

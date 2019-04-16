@@ -3,8 +3,16 @@ import { mount, shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import store from '../../src/Store';
 import { userRating } from '../../src/actions/ratingActions';
-describe('User registration actions', () => {
+import { RatingContainer } from '../../src/containers/RatingContainer';
+import Rating from '../../src/components/Rating';
+
+describe('User rating', () => {
+  const ratingProps = {
+    name: "rate1", starCount: 5, value: 0, onStarClick: jest.fn(),  rating: 0,
+  };
   const ratingData = {
     article: {
       score: 2,
@@ -14,13 +22,29 @@ describe('User registration actions', () => {
   const WrongRatingData = {
     article: {},
   };
-  beforeEach(function() {
+  beforeEach(() => {
     moxios.install();
   });
 
-  afterEach(function() {
+  afterEach(() => {
     moxios.uninstall();
   });
+
+  it('hits mapStateToProps', () => {
+    mount(<RatingContainer {...ratingProps} /> );
+  });
+
+
+  it("should prompt onStarClick updates rate score in state", () => {
+
+    const wrapper = shallow ( <RatingContainer /> );
+    const instance = wrapper.instance();
+    instance.onStarClick(4);
+    instance.onSubmit();
+    expect(wrapper.state().rating).toBe(4);
+  });
+
+
 
   it('should not rate article', () => {
     const mockStore = configureMockStore([thunk]);

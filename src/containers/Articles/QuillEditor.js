@@ -1,15 +1,12 @@
-import ReactQuill from 'react-quill';
-import React, { Component } from 'react';
+import React, { Component, createElement } from 'react';
+import CreatableSelect from 'react-select/lib/Creatable';
 import { connect } from 'react-redux';
 
 import * as sanitizeHtml from "sanitize-html";
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 
-import '../../styles/editor.scss';
-import { setBody } from '../../actions/NewArticle';
-
-export class Editor extends Component {
+export class TagContainer extends Component {
   constructor(props) {
     super(props);
     this.state = { editorHtml: "", theme: 'snow' };
@@ -61,6 +58,18 @@ componentWillReceiveProps(props){
     this.quillNode = node;
   }
   render() {
+    let data = [];
+    data = this.processTagData(this.props.tags);
+    console.log("hr", this.props.defaultTags)
+
+    let  defaultValue = this.props.defaultTags.length > 0 ?
+    {
+      value: this.processTagData(this.props.defaultTags),
+
+    }: {
+      placeholder: "Add tag and press enter",
+    };
+
     return (
       <div>
         {createElement(ReactQuill, {
@@ -74,76 +83,25 @@ componentWillReceiveProps(props){
           placeholder: this.props.placeholder,
           ...this.creatorEditorProps(),
         })}
-        {this.props.showTheme ? (
-          <div className="themeSwitcher">
-            <div className="switch">
-              <span>Editor Mode</span>
-              <label>
-                Bubble
-                <input
-                  type="checkbox"
-                  defaultChecked="checked"
-                  onClick={() => this.handleThemeChange()}
-                />
-                <span className="lever" />
-                Snow
-              </label>
-            </div>
-          </div>
-        ) : (
-          <span />
-        )}
       </div>
     );
   }
 }
 
-Editor.modules = {
-  toolbar: [
-    [{ header: '1' }, { header: '2' }, { font: [] }],
-    [{ size: [] }],
-    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    [
-      { list: 'ordered' },
-      { list: 'bullet' },
-      { indent: '-1' },
-      { indent: '+1' },
-    ],
-    ['link', 'image', 'video'],
-    ['clean'],
-  ],
-  clipboard: {
-    matchVisual: false,
-  },
-};
-
-Editor.formats = [
-  'header',
-  'font',
-  'size',
-  'bold',
-  'italic',
-  'underline',
-  'strike',
-  'blockquote',
-  'list',
-  'bullet',
-  'indent',
-  'link',
-  'image',
-];
-
 const mapStateToProps = state => {
   return {
     ...state,
-    body: state.body,
+    tags: state.tags,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    setBody: function(body) {
-      dispatch(setBody(body));
+    getTags: function() {
+      dispatch(getTags());
+    },
+    addTags: function(tags) {
+      dispatch(addTags(tags));
     },
   };
 };
@@ -151,4 +109,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Editor);
+)(TagContainer);

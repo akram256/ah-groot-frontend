@@ -66,7 +66,6 @@
     "react-redux": "^6.0.1",
     "react-responsive-modal": "^3.6.0",
     "react-router-dom": "^5.0.0",
-    "react-star-rating-component": "^1.4.1",
     "react-test-renderer": "^16.8.6",
     "react-toastify": "^5.0.0",
     "redux": "^4.0.1",
@@ -78,7 +77,8 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.1"
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
     "materialize-css": "^1.0.0-rc.2",

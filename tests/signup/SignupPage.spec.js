@@ -2,11 +2,10 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import moxios from 'moxios';
-import data from '../landing_page/maxios_mock';
 import thunk from 'redux-thunk';
 import { userSignupRequest } from '../../src/actions/signup/signupActions';
 import SignUpModal from '../../src/components/signup/SignupModal';
-import SignUpPage, { SignupPage as NoStoreSignUp, mapStateToProps } from '../../src/containers/signup/SignupPage';
+import SignUpPage, { SignupPage as NoStoreSignUp} from '../../src/containers/signup/SignupPage';
 import {Provider} from 'react-redux';
 import store from '../../src/Store';
 
@@ -239,52 +238,4 @@ it('calls input handler', () => {
 
 
 });
-
-
-// describe('timer mocks', () => {
-
-//   const userData = {
-//     username: 'edgar',
-//     email: 'edgarnyabongo@gamil.com',
-//     password: 'P@ssw0rd2',
-//     password2: 'P@ssw0rd2',
-//   };
-
-
-//   it('tests the timer', () => {
-//     const mockStore = configureMockStore([thunk]);
-//     const store = mockStore({
-//       error: null,
-//       successMsg: null,
-//       loading: false,
-//     });
-
-//     moxios.wait(() => {
-//       const request = moxios.requests.mostRecent();
-//       request.respondWith({
-//         status: 201,
-//         response: {user: { Message: 'Successfully logged in'} },
-//       })
-
-//     });
-
-//     const expectedAction = [
-//       { type: 'STARTED' },
-//       { type: 'SUCCESSFUL', data: {user: { Message: 'Successfully logged in'} } },
-//     ];
-
-//     return store.dispatch(userSignupRequest(userData)).then(() => {
-//       expect(store.getActions()).toEqual(expectedAction);
-//       jest.runAllTimers();
-//       expect(setTimeout).toHaveBeenCalledTimes(1);
-//       expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 3000);
-
-//   });
-
-
-//   });
-
-// });
-
-
 

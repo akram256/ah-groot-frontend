@@ -8,7 +8,11 @@ import AllArticleView from '../../components/articles/AllArticleView';
 import { getAllArticles } from '../../actions/ArticleAction';
 import Header from '../../components/landingPage/Header';
 
+
 import '../../styles/viewarticle.scss';
+
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems, options);
 
 export class ArticleFeed extends Component {
   constructor(props) {
@@ -60,6 +64,7 @@ export class ArticleFeed extends Component {
                       slug={element.slug}
                     />
                   );
+
                 })
               ) : (
                 <span />
@@ -67,6 +72,8 @@ export class ArticleFeed extends Component {
             </div>
           </div>
         </div>
+
+        
       </div>
     );
   }

@@ -1,27 +1,31 @@
 import React, { Component } from 'react'
-import StarRatingComponent from 'react-star-rating-component';
 import Rating from '../components/Rating';
 import { userRating } from '../actions/ratingActions'
 import { connect } from 'react-redux';
-class RatingContainer extends Component {
+
+export class RatingContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          rating: 0
+          rating: 1
         };
     }
 
-    onStarClick(nextValue, prevValue, name){
+    onStarClick = (nextValue, prevValue, name) => {
       this.setState({rating: nextValue});
       // const slug = this.props.match.params.slug
-      const slug = "demo-article"
-      const ratingData = { 
-        article: {
-          score: this.state.rating
-        }
-      }
-      this.props.userRating(ratingData, slug);
     }
+
+    onSubmit = () => {
+      // const slug = "demo-article"
+      // const ratingData = { 
+      //   article: {
+      //     score: this.state.rating
+      //   }
+      // }
+      // this.props.userRating(ratingData, slug);
+      console.log(this.state.rating);
+    };
     //we need an actual function that sends the average rating
 
   render() {
@@ -34,8 +38,10 @@ class RatingContainer extends Component {
           name="rate1"
           starCount={5}
           value={rating}
-          onStarClick={this.onStarClick.bind(this)}
-          rating={rating} />
+          onStarClick={this.onStarClick}
+          rating={rating}
+          onSubmit={this.onSubmit}
+          />
 
       </div>
     )
@@ -43,8 +49,8 @@ class RatingContainer extends Component {
 }
 
 export const mapStateToProps = (state) => {
-  return { loading: state.ratingReducer }
-}
+  return { ratingReducer: state.ratingReducer }
+};
 
 export default connect(
   mapStateToProps,

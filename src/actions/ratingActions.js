@@ -24,9 +24,8 @@ export const userRating= (ratingData, slug)  => async (dispatch) => {
     );
     dispatch(successRating(response.data));
     // M.toast({ html: response.data.user.Message, classes: 'green' });
-    setTimeout(() => window.location.reload(), 3000);
   } catch (error) {
-      console.log(error.response.data);
+      // console.log(error.response.data);
     dispatch(failedRating(error.response.data));
     // M.toast({ html: Object.values(error.response.data.errors)[0], classes: 'red' });
   }
