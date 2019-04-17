@@ -13,8 +13,9 @@ describe('Test login reducer', ()=>{
         }
         expect(loginReducer(initialState,actionSuccess)).toEqual({
             isSuccessful: true,
-            token: '',
+            identity: "",
             errors: null,
+            token:""
           })
     });
 

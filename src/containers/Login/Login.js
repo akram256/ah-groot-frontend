@@ -16,6 +16,7 @@ export class LoginContainer extends Component {
     };
     let { history } = this.props;
   }
+  
 
   componentWillReceiveProps(nextProps) {
     if (nextProps) {

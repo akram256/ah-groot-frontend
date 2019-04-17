@@ -30,3 +30,9 @@ exclude_patterns:
   - "src/containers/App.js"
   - "src/reducers/CreateArticle.js"
   - "src/components/articles/*"
+  - "src/components/profile/profileModal.js"
+  - "src/reducers/profile/retrieveProfileReducer.js"
+  - "src/components/profile/profileModal.js"
+  - "src/reducers/profile/updateProfileReducer.js"
+  - "src/components/profile/profileModal.js"
+
