@@ -28,19 +28,33 @@ describe('Comments', () => {
         });
       });
       const expectedActions = [
-        { type: types.GET_COMMENTS, payload: [{}, {}] },
+        { type: types.GET_COMMENTS },
       ];
 
-      const store = mockStore({ comments: data.comments });
+      const store = mockStore({ comments: []});
       return store.dispatch(actions.getComments()).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       })
     });
 
+    it('should not create an action to get comments', () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 404,
+          response: data
+        });
+      });
+      const store = mockStore({ comments: []});
+      return store.dispatch(actions.getComments()).then(() => {
+        expect(store.getActions()).toEqual([]);
+      })
+    });
+
     it('should create an action to post a comment', () => {
         moxios.wait(() => {
-          const request2 = moxios.requests.mostRecent();
-          request2.respondWith({
+          const request = moxios.requests.mostRecent();
+          request.respondWith({
             status: 201,
             response: data
           });
@@ -51,59 +65,93 @@ describe('Comments', () => {
         ];
 
         const store = mockStore({ commentPosted: false });
-        return store.dispatch(actions.getComments()).then(() => {
+        return store.dispatch(actions.postComment()).then(() => {
           expect(store.getActions()).toEqual(expectedActions);
         })
       });
 
-    // it('should not create an action to provide an email to send a link to for wrong email', () => {
-    //   moxios.wait(() => {
-    //     const request = moxios.requests.mostRecent();
-    //     request.respondWith({
-    //       status: 404,
-    //       response: data,
-    //     });
-    //   });
+      it('should not create an action to post a comment', () => {
+        moxios.wait(() => {
+          const request = moxios.requests.mostRecent();
+          request.respondWith({
+            status: 404,
+            response: data
+          });
+        });
 
-    //   const store = mockStore({ email: '' });
-    //   return store.dispatch(actions.provideResetEmail(wrong_email)).then(() => {
-    //     expect(store.getActions()).toEqual([]);
-    //   })
-    // });
+        const store = mockStore({ commentPosted: false });
+        return store.dispatch(actions.postComment()).then(() => {
+          expect(store.getActions()).toEqual([]);
+        })
+      });
 
-    // it('should create an action to reset password', () => {
-    //   moxios.wait(() => {
-    //     const requeste = moxios.requests.mostRecent();
-    //     requeste.respondWith({
-    //       status: 200,
-    //       response: data,
-    //     });
-    //   });
+      it('should create an action to update a comment', () => {
+        moxios.wait(() => {
+          const request = moxios.requests.mostRecent();
+          request.respondWith({
+            status: 200,
+            response: data
+          });
+        });
 
-    //   const expectedActions = [
-    //     { type: types.RESET_PASSWORD },
-    //   ];
+        const expectedActions = [
+          { type: types.UPDATE_COMMENT, payload: true },
+        ];
 
-    //   const store = mockStore({ });
-    //   return store.dispatch(actions.resetPassword(password)).then(() => {
-    //     expect(store.getActions()).toEqual(expectedActions);
-    //   })
-    // });
+        const store = mockStore({ commentUpdated: false });
+        return store.dispatch(actions.updateComment()).then(() => {
+          expect(store.getActions()).toEqual(expectedActions);
+        })
+      });
 
-    // it('should not create an action to reset password', () => {
-    //   moxios.wait(() => {
-    //     const request = moxios.requests.mostRecent();
-    //     request.respondWith({
-    //       status: 404,
-    //       response: data,
-    //     });
-    //   });
+      it('should not create an action to update a comment', () => {
+        moxios.wait(() => {
+          const request = moxios.requests.mostRecent();
+          request.respondWith({
+            status: 404,
+            response: data
+          });
+        });
 
-    //   const store = mockStore({ });
-    //   return store.dispatch(actions.resetPassword(password)).catch(() => {
-    //     expect(store.getActions()).toEqual([]);
-    //   })
-    // });
+        const store = mockStore({ commentUpdated: false });
+        return store.dispatch(actions.updateComment()).then(() => {
+          expect(store.getActions()).toEqual([]);
+        })
+      });
+
+      it('should create an action to delete a comment', () => {
+        moxios.wait(() => {
+          const request = moxios.requests.mostRecent();
+          request.respondWith({
+            status: 204,
+            response: data
+          });
+        });
+
+        const expectedActions = [
+          { type: types.DELETE_COMMENT, payload: true },
+        ];
+
+        const store = mockStore({ commentDeleted: false });
+        return store.dispatch(actions.deleteComment()).then(() => {
+          expect(store.getActions()).toEqual(expectedActions);
+        })
+      });
+
+      it('should not create an action to delete a comment', () => {
+        moxios.wait(() => {
+          const request = moxios.requests.mostRecent();
+          request.respondWith({
+            status: 404,
+            response: data
+          });
+        });
+
+        const store = mockStore({ commentDeleted: false });
+        return store.dispatch(actions.deleteComment()).then(() => {
+          expect(store.getActions()).toEqual([]);
+        })
+      });
 
   });
 

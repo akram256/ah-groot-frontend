@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  getComments,
-  postComment,
-  updateComment,
-  deleteComment,
-} from '../../actions/commentAction';
+import { getComments, postComment } from '../../actions/commentAction';
 import CommentForm from '../../components/comments/CommentForm';
-import CommentEditForm from '../../components/comments/CommentEditForm';
 import CommentsPanel from '../../components/comments/CommentsPanel';
 
 export class CommentContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayAllComments: false,
       displayCommentForm: false,
-      displayEditCommentForm: false,
       commentText: '',
     };
   }
@@ -31,18 +23,6 @@ export class CommentContainer extends Component {
     });
   };
 
-  toggleCommentEditForm = (id) => {
-    this.setState({
-      displayEditCommentForm: !this.state.displayEditCommentForm,
-    });
-  };
-
-  displayAllComments = () => {
-    this.setState({
-      displayAllComments: !this.state.displayAllComments,
-    });
-  };
-
   commentTextChange = event =>
     this.setState({ commentText: event.target.value });
 
@@ -50,39 +30,24 @@ export class CommentContainer extends Component {
     event.preventDefault();
     const commentText = this.state.commentText;
     this.props.postComment(commentText, this.props.slug);
-    this.setState({ displayCommentForm: false, displayAllComments: true });
-  };
-
-  updateComment = event => {
     this.setState({ displayCommentForm: false });
-    this.props.updateComment(comment, this.props.slug);
-  };
-
-  deleteComment = event => {
-    this.setState({ displayCommentForm: false });
-    this.props.deleteComment(comment, this.props.slug);
+    document.location.reload(true);
   };
 
   render() {
     return (
       <div className="comments">
-        <button className="waves-effect btn" onClick={this.displayAllComments}>
-          View Comments
-        </button>
+          <div>
+            <CommentsPanel
+              comments={this.props.comments}
+              slug={this.props.slug}
+              getComments={this.props.getComments}
+            />
+          </div>
+
         <button className="waves-effect btn" onClick={this.toggleCommentForm}>
           Add Comment
         </button>
-
-        {this.state.displayEditCommentForm ? (
-          <div>
-            <CommentEditForm
-              handleSubmit={this.updateComment}
-              toggleCommentEditForm={this.toggleCommentEditForm}
-            />
-          </div>
-        ) : (
-          <div></div>
-        )}
 
         {this.state.displayCommentForm ? (
           <div>
@@ -92,19 +57,6 @@ export class CommentContainer extends Component {
               commentTextChange={this.commentTextChange}
               inputValue="Post Comment"
               textareaLabel="Write your comment here"
-            />
-          </div>
-        ) : (
-          <div />
-        )}
-
-        {this.state.displayAllComments ? (
-          <div>
-            <CommentsPanel
-              comments={this.props.comments}
-              handleSubmit={this.updateComment}
-              toggleEditForm={this.toggleCommentEditForm}
-              displayEditForm={this.state.displayCommentEditForm}
             />
           </div>
         ) : (
@@ -122,8 +74,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   getComments,
   postComment,
-  updateComment,
-  deleteComment,
 };
 
 export default connect(

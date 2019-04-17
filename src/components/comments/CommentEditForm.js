@@ -3,14 +3,14 @@ import '../../styles/comments.scss';
 
 const CommentEditForm = props => {
   return (
-    <div className="comment-form">
+    <div className="comment-edit-form">
       <div className="row">
         <form className="col s12">
           <div className="row">
             <div className="input-field col s12">
               <textarea
                 id="textarea1"
-                className="materialize-textarea"
+                className="materialize-textarea comment-edit"
                 value={props.commentText}
                 onChange={props.commentTextChange}
               />
@@ -25,7 +25,7 @@ const CommentEditForm = props => {
             className="btn right"
             onClick={props.handleSubmit}
           />
-          <button className="btn right" onClick={props.toggleCommentEditForm}>
+          <button className="btn right cancel" onClick={props.toggleEditForm}>
             Cancel
           </button>
         </form>

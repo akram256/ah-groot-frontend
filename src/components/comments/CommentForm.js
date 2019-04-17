@@ -3,7 +3,7 @@ import '../../styles/comments.scss';
 
 const CommentForm = props => {
   return (
-    <div className="comment-form">
+    <div className="comment-create-form">
       <div className="row">
         <form className="col s12">
           <div className="row">
