@@ -1,13 +1,13 @@
 .view-article-description {
   color: grey;
-  border: none; 
+  border: none;
 }
 
 .card-action {
   margin: 0 0px 40px 0px;
 }
 
-.material-icons {
+.material-icons.like {
   background-color: rgba(0,0,0,0);
   border:none;
   cursor: pointer;
@@ -17,6 +17,7 @@
   padding: 0px !important;
   color: #fff;
 }
+
 .votes{
     font-size: 25px;
     position: relative;
@@ -38,5 +39,4 @@
 .fa-thumbs-up {
     margin-right: 4px;
     font-size: 5
-
 }

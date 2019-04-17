@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-class AllArticleView extends Component {
+export class AllArticleView extends Component {
   constructor(props) {
     super(props);
     let { history } = this.props;
@@ -29,7 +29,6 @@ class AllArticleView extends Component {
             <div className="card-action">
             <button >{likes} Likes</button>
             <button >{dislikes} DisLikes</button>
-            <button >0 comments</button>
             <button >rating: {average_rating}</button>
           </div>
 

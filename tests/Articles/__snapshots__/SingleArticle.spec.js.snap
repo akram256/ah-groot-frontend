@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ArticleMetaData  should call on click functions 1`] = `ShallowWrapper {}`;
+exports[`Single article  should call on click functions 1`] = `ShallowWrapper {}`;
 
-exports[`ArticleMetaData  should mount without crashing 1`] = `ReactWrapper {}`;
+exports[`Single article  should mount without crashing 1`] = `ReactWrapper {}`;
 
-exports[`ArticleMetaData  should render without crashing 1`] = `ShallowWrapper {}`;
+exports[`Single article  should render without crashing 1`] = `ShallowWrapper {}`;

@@ -11,11 +11,7 @@ const endPoints = {
   allCategories: `${base}/categories/`,
   postArticle: `${base}/articles/`,
   singleArticle: `${base}/article/`,
-  tags: `${base}/tags/`,
-  postComment: `${base}/articles/i-do-not-like-animals-ask-me-why/comments/`,
-  getComments: `${base}/articles/i-do-not-like-animals-ask-me-why/comments/`,
-  updateComment: `${base}/articles/i-do-not-like-animals-ask-me-why/comments/1/`,
-  deleteComment: `${base}/articles/i-do-not-like-animals-ask-me-why/comments/`
+  tags: `${base}/tags/`
 };
 
 export const authHeader = {

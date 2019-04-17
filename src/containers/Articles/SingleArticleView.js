@@ -14,7 +14,6 @@ import '../../styles/singlearticle.scss';
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 
-import AllArticleView from '../../components/articles/AllArticleView'
 
 export class SingleArticleView extends Component {
   constructor(props) {
@@ -28,6 +27,7 @@ export class SingleArticleView extends Component {
       tagList: []
     }
   }
+
   handlelike = (slug) => {
     this.props.likearticle(slug);
   }
@@ -75,9 +75,6 @@ export class SingleArticleView extends Component {
                   }) : (<span></span>)
                 }
               </div>
-              <div className="col s12 read">
-                <Editor showTheme={false} bodyDefaultValue={this.state.body} />
-              </div>
             </div>
             <div className="col s12 read">
               <ReactQuill
@@ -89,7 +86,7 @@ export class SingleArticleView extends Component {
               modules={modules} />
             <div className="card-action">
                   <label className="outter">
-                  <button slug={this.props.match.params.slug} className="material-icons" onClick={(event) => {
+                  <button slug={this.props.match.params.slug} className="material-icons like" onClick={(event) => {
                     const slug = event.currentTarget.getAttribute('slug');
                     this.handlelike(slug)
                   }
@@ -97,7 +94,7 @@ export class SingleArticleView extends Component {
                   </label>
 
                   <label className="outter">
-                  <button slug={this.props.match.params.slug} className="material-icons" onClick={(event) => {
+                  <button slug={this.props.match.params.slug} className="material-icons like" onClick={(event) => {
                     const slug = event.currentTarget.getAttribute('slug'); this.handledislike(slug)
                                    }}>thumb_down</button><span className="votes">{this.state.dislikes}</span>
 

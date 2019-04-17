@@ -4,7 +4,7 @@ import endPoints, {authHeader} from '../../containers/urls';
 import CommentContainer from '../../containers/Comments/CommentContainer';
 import axios from 'axios';
 
-class ArticleView extends Component {
+export class ArticleView extends Component {
   constructor(props) {
     super(props);
     let { history } = this.props;

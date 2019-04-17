@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`comment container should render a comment edit form 1`] = `ReactWrapper {}`;
+
+exports[`comment container should render a comment form 1`] = `ReactWrapper {}`;
+
+exports[`comment container should render a comments panel 1`] = `ReactWrapper {}`;
+
+exports[`comment container should render a confirm delete comment component 1`] = `ReactWrapper {}`;
+
+exports[`comment container should render without crashing 1`] = `ShallowWrapper {}`;

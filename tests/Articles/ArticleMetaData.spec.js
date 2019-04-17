@@ -55,7 +55,7 @@ describe('ArticleMetaData ', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should respond on onchnage events', () => {
+    it('should respond on onchange events', () => {
       const wrapper = shallow(
         <DumpArticleMetaData
         setDescription={() => jest.fn()}

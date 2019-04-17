@@ -28,7 +28,7 @@ export class ArticleMetaData extends Component {
       <div>
         <div className="input-field col s6">
           <input className='active' defaultValue={this.props.titleDefaultValue} placeholder="Title" id="title" type="text" onChange={(event) => this.handleChangeTitle(event)} />
-          <label htmlFor="title">Title</label>
+          <label className='active' htmlFor="title">Title</label>
         </div>
         <div className="input-field col s6">
         {createElement('textarea',{
@@ -37,7 +37,7 @@ export class ArticleMetaData extends Component {
           onChange: (event) => this.handleChangeDescription(event),
           ...setValue
         },)}
-          <label htmlFor="textarea1">Description</label>
+          <label className='active' htmlFor="textarea1">Description</label>
         </div>
       </div>
     );

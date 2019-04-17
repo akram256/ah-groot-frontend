@@ -26,8 +26,6 @@ export class ArticleFeed extends Component {
 
 
   render() {
-    console.log(this.props.allArticles);
-
     return (
       <div>
         <Header />

@@ -1,14 +1,24 @@
 $primary-color: #040a47;
 
+p.comments-title {
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 10px;
+}
+
+hr.comment-title-divider {
+  border-top: 1px solid rgb(206, 206, 206);
+}
+
 div.comments .btn {
-  margin: -5px 5px 5px 5px;
+  margin: 10px;
   background-color: $primary-color;
   color: white;
 }
 
 div.comment-container {
   margin: 10px;
-  padding: 10px;
+  padding: 15px 80px 15px 80px;
   border-bottom: 1px solid rgb(206, 206, 206);
 }
 
@@ -22,15 +32,40 @@ div.comment-container {
   font-weight: bold;
 }
 
-i.comment-update {
+i.comment-edit {
   cursor: pointer;
-  color: rgb(143, 143, 143);
+  color: rgb(179, 179, 179);
 }
 
 div.comment-body.card-panel {
   box-shadow: none !important;
 }
 
-div.comment-form {
-  margin-bottom: 50px;
+div.comment-create-form, div.comment-edit-form, div.comment-delete {
+  margin-bottom: 20px;
+
+  .btn.cancel {
+    color: $primary-color;
+    background-color: white;
+    border: 1px solid $primary-color;
+  }
 }
+
+div.comment-delete {
+  box-shadow: 2px 4px 3px gray;
+  border: 1px solid gray;
+
+  p.comment-delete {
+    color: gray;
+  }
+}
+
+@media screen and (max-width: 720px) {
+
+  div.comment-container {
+    margin: 5px;
+    padding: 10px;
+  }
+
+}
+

@@ -1,17 +1,20 @@
-
 import TagReducer from '../../src/reducers/GetTags';
-import { articleReducer,
-    userArticleReducer,
-    allUserArticles,
-    postArticle,publishedArticles,
-    updatedArticle, singleUserArticle} from '../../src/reducers/ArticleReducer';
+import {
+  articleReducer,
+  userArticleReducer,
+  allUserArticles,
+  postArticle,
+  publishedArticles,
+  updatedArticle,
+  singleUserArticle,
+} from '../../src/reducers/ArticleReducer';
 import getAllCategories from '../../src/reducers/GetAllCategories';
 import CreateArticleReducer from '../../src/reducers/CreateArticle';
 
 describe('Article reducers ', () => {
   it('should handle TAGS', () => {
     expect(
-        TagReducer([], {
+      TagReducer([], {
         type: 'TAGS',
         tags: [],
       })
@@ -20,7 +23,7 @@ describe('Article reducers ', () => {
 
   it('should handle ALL CATEGORIES', () => {
     expect(
-        getAllCategories([], {
+      getAllCategories([], {
         type: 'ALLCATEGORIES',
         allCategories: [],
       })
@@ -29,86 +32,102 @@ describe('Article reducers ', () => {
 
   it('should handle ALL ARTICLES', () => {
     expect(
-        CreateArticleReducer('amazing', {
+      CreateArticleReducer('amazing', {
         type: 'TITLE',
         title: 'amazing',
       })
-    ).toEqual({"0": "a", "1": "m", "2": "a", "3": "z", "4": "i", "5": "n", "6": "g", "title": "amazing"});
+    ).toEqual({
+      '0': 'a',
+      '1': 'm',
+      '2': 'a',
+      '3': 'z',
+      '4': 'i',
+      '5': 'n',
+      '6': 'g',
+      title: 'amazing',
+    });
 
     expect(
-        CreateArticleReducer('', {
+      CreateArticleReducer('', {
         type: 'DESCRIPTION',
         description: '',
       })
-    ).toEqual({'description':''});
+    ).toEqual({ description: '' });
 
     expect(
-        CreateArticleReducer('', {
+      CreateArticleReducer('', {
         type: 'CATEGORY',
         category: '',
       })
-    ).toEqual({'category':''});
+    ).toEqual({ category: '' });
 
     expect(
-        CreateArticleReducer([], {
+      CreateArticleReducer('', {
+        type: 'BODY',
+        body: '',
+      })
+    ).toEqual({ body: '' });
+
+    expect(
+      CreateArticleReducer([], {
         type: 'TAGSLIST',
         tags: [],
       })
-    ).toEqual({'tags': []});
+    ).toEqual({ tags: [] });
   });
 
   it('should handle Article actions', () => {
     expect(
-        articleReducer([], {
+      articleReducer([], {
         type: 'ARTICLES',
         articles: [],
       })
     ).toEqual([]);
 
     expect(
-        userArticleReducer([], {
+      userArticleReducer([], {
         type: 'USER_ARTICLES',
         articles: [],
       })
     ).toEqual([]);
 
     expect(
-        allUserArticles([], {
+      allUserArticles([], {
         type: 'ALL_ARTICLES',
         articles: [],
       })
     ).toEqual([]);
 
     expect(
-        postArticle([], {
+      postArticle([], {
         type: 'POST_ARTICLE',
         article: [],
       })
     ).toEqual([]);
 
     expect(
-        publishedArticles([], {
+      publishedArticles([], {
         type: 'PUBLISHED_ARTICLES',
         articles: [],
       })
     ).toEqual([]);
 
     expect(
-        updatedArticle([], {
+      updatedArticle([], {
         type: 'ARTICLE_UPDATE',
         article: [],
       })
     ).toEqual([]);
 
     expect(
-        updatedArticle([], {
+      updatedArticle([], {
         type: 'ARTICLE_UPDAE',
         article: [],
       })
     ).toEqual([]);
 
     expect(
-        singleUserArticle([], {
+      singleUserArticle([], {
         type: 'EDIT_ARTICLE',
         article: [],
       })

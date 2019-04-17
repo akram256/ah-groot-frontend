@@ -53,7 +53,7 @@ describe('ArticleView', () => {
     wrapper.find('.delete-artilce').simulate('click');
   });
 
-  it('should call the async delete function with error', async () => {
+  it('should call the async delete function', async () => {
     const wrapper = shallow(<ArticleView
       history = {{push: jest.fn()}}
       />);
@@ -67,5 +67,19 @@ describe('ArticleView', () => {
     return wrapper.instance().deleteArticle("slug").then(()=>{
     });
   });
-});
 
+  it('should call the async delete function with error', async () => {
+    const wrapper = shallow(<ArticleView
+      history = {{push: jest.fn()}}
+      />);
+    moxios.wait(() => {
+      const requestM = moxios.requests.mostRecent();
+      requestM.respondWith({
+        status: 404,
+        response: {},
+      });
+    });
+    return wrapper.instance().deleteArticle("slug").then(()=>{
+    });
+  });
+});
