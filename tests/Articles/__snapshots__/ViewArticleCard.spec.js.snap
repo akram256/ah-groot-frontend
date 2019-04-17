@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`AllArticleView should render without crashing 1`] = `ShallowWrapper {}`;
-
-exports[`ArticleView should render without crashing 1`] = `ShallowWrapper {}`;
