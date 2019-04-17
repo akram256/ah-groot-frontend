@@ -10,6 +10,7 @@ import { articleReducer, userArticleReducer, publishedArticles,
   singleUserArticle , allUserArticles, postArticle
 } from './ArticleReducer';
 import CreateArticleReducer from './CreateArticle';
+import commentReducer from './commentReducer';
 
 
 export default combineReducers({
@@ -25,5 +26,7 @@ export default combineReducers({
   editArticle: singleUserArticle,
   allArticles: allUserArticles,
   recentArticlePost: postArticle,
-  publishedArticles: publishedArticles
+  publishedArticles: publishedArticles,
+  comments: commentReducer
+
 });

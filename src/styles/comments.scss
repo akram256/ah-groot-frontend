@@ -1,0 +1,36 @@
+$primary-color: #040a47;
+
+div.comments .btn {
+  margin: 10px;
+  background-color: $primary-color;
+  color: white;
+}
+
+div.comment-container {
+  margin: 10px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.comment-timestamp {
+  color: rgb(153, 153, 153);
+  font-style: italic;
+}
+
+.comment-owner {
+  color: #575eac;
+  font-weight: bold;
+}
+
+i.comment-update {
+  cursor: pointer;
+  color: rgb(143, 143, 143);
+}
+
+div.comment-body.card-panel {
+  box-shadow: none !important;
+}
+
+div.comment-form {
+  margin-bottom: 50px;
+}

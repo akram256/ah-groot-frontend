@@ -11,8 +11,11 @@ const endPoints = {
   allCategories: `${base}/categories/`,
   postArticle: `${base}/articles/`,
   singleArticle: `${base}/article/`,
-  tags: `${base}/tags/`
-  // token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJzdGFubGV5QGdtYWlsLmNvbSIsImV4cCI6MTU1NzE2MTg0OX0.4CbvdVeEtXD11DoPnVe1HI44SousNaZzJYMr8KsPoIE',
+  tags: `${base}/tags/`,
+  postComment: `${base}/articles/i-do-not-like-animals-ask-me-why/comments/`,
+  getComments: `${base}/articles/i-do-not-like-animals-ask-me-why/comments/`,
+  updateComment: `${base}/articles/i-do-not-like-animals-ask-me-why/comments/1/`,
+  deleteComment: `${base}/articles/i-do-not-like-animals-ask-me-why/comments/`
 };
 
 export const authHeader = {
