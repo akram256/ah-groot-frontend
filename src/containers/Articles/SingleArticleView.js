@@ -114,9 +114,10 @@ export class SingleArticleView extends Component {
                 <p className="left">{this.state.dislikes} DisLikes</p>
               </span>
             </div>
+            <CommentContainer slug={this.props.match.params.slug} />
           </div>
         </div>
-        <CommentContainer slug={this.props.match.params.slug} />
+       
       </div>
 
 
