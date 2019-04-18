@@ -18,7 +18,7 @@ export class ArticleMetaData extends Component {
     let setValue;
     setValue = this.props.descriptionDefaultValue ?
       {
-        defaultValue: this.props.descriptionDefaultValue
+        value: this.props.descriptionDefaultValue
       }
       :
       {
@@ -27,17 +27,17 @@ export class ArticleMetaData extends Component {
     return (
       <div>
         <div className="input-field col s6">
-          <input  defaultValue={this.props.titleDefaultValue} placeholder="Title" id="title" type="text" onChange={(event) => this.handleChangeTitle(event)} />
-          <label className='active' htmlFor="title">Title</label>
+          <input className='active' defaultValue={this.props.titleDefaultValue} placeholder="Title" id="title" type="text" onChange={(event) => this.handleChangeTitle(event)} />
+          <label htmlFor="title">Title</label>
         </div>
         <div className="input-field col s6">
-        {createElement('input',{
+        {createElement('textarea',{
           id:"textarea1",
           className:"materialize-textarea",
           onChange: (event) => this.handleChangeDescription(event),
           ...setValue
         },)}
-          <label className='active' htmlFor="textarea1">Description</label>
+          <label htmlFor="textarea1">Description</label>
         </div>
       </div>
     );

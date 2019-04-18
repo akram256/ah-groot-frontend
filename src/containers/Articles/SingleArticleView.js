@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Editor from './QuillEditor';
 import Header from '../../components/landingPage/Header';
+import CommentContainer from '../../containers/Comments/CommentContainer';
 
 import { getSingleleUserArticle } from '../../actions/ArticleAction';
 
@@ -59,6 +60,7 @@ componentWillReceiveProps(props){
               <Editor showTheme={false} bodyDefaultValue={this.state.body} />
             </div>
           </div>
+          <CommentContainer slug={this.props.match.params.slug}/>
         </div>
       </div>
     );
