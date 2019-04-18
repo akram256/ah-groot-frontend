@@ -1,19 +1,14 @@
 version: "2"
+checks:
+  method-lines:
+    config:
+      threshold: 90
+  similar-code:
+    enabled: false
+  identical-code:
+    enabled: false
+
 exclude_patterns:
   - "tests/"
-  - "src/components/login/LoginForm.js"
-  - "src/components/signup/SignupForm.js"
-  - "src/actions/ArticleAction.js"
-  - "src/actions/index.js"
-  - "src/containers/ResetPassword/ResetPassword.js"
-  - "src/containers/ResetPassword/NewPassword.js"
-  - "src/components/landingPage/Header.js"
-  - "src/components/landingPage/Logo.js"
-  - "src/reducers/SocialAuth/SocialAuthReducers.js"
-  - "src/actions/SocialAuth/GoogleActions.js"
-  - "src/actions/SocialAuth/FacebookActions.js"
-  - "src/containers/Login/Login.js"
-  - "src/containers/Login.js"
-  - "src/actions/index.js"
-  - "src/containers/SocialAuthContainer.js"
+
 
