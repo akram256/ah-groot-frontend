@@ -26,33 +26,10 @@ export class SingleArticleView extends Component {
   }
   handlelike = (slug) => {
     this.props.likearticle(slug);
-    const { likeColor, dislikeColor } = this.state;
-    if (slug.likes > 1) {
-      this.setState(
-        {
-          likeColor: '#808080'
-        },
-        () => {
-          localStorage.setItem('likeColor', JSON.stringify(likeColor));
-        }
-      );
-    } else {
-      this.setState(
-        {
-          likeColor: '#3f51b5',
-          dislikeColor: '#808080'
-        },
-        () => {
-          localStorage.setItem('dislikeColor', JSON.stringify(dislikeColor));
-          localStorage.setItem('likeColor', JSON.stringify(likeColor));
-        }
-      );
-    }
   }
 
   handledislike = (slug) => {
     this.props.dislikearticle(slug);
-    // console.log('dislike attempt');
 
   }
 
@@ -101,18 +78,21 @@ export class SingleArticleView extends Component {
               </div>
             </div>
             <div className="card-action">
-              <span>
-                <button slug={this.props.match.params.slug} className="material-icons left" onClick={(event) => {
-                  const slug = event.currentTarget.getAttribute('slug');
-                  this.handlelike(slug)
-                }
-                }>thumb_up</button>
-                <p className="left">{this.state.likes} Likes</p>
-                <button slug={this.props.match.params.slug} className="material-icons left" onClick={(event) => {
-                  const slug = event.currentTarget.getAttribute('slug'); this.handledislike(slug)
-                }}>thumb_down</button>
-                <p className="left">{this.state.dislikes} DisLikes</p>
-              </span>
+                  <label className="outter">
+                  <button slug={this.props.match.params.slug} className="material-icons" onClick={(event) => {
+                    const slug = event.currentTarget.getAttribute('slug');
+                    this.handlelike(slug)
+                  }
+                  }>thumb_up</button><span className="votes">{this.state.likes}</span>
+                  </label>
+                
+                  <label className="outter">
+                  <button slug={this.props.match.params.slug} className="material-icons" onClick={(event) => {
+                    const slug = event.currentTarget.getAttribute('slug'); this.handledislike(slug)
+                                   }}>thumb_down</button><span className="votes">{this.state.dislikes}</span>
+                  
+                  </label>
+          
             </div>
             <CommentContainer slug={this.props.match.params.slug} />
           </div>

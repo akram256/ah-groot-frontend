@@ -1,3 +1,42 @@
 .view-article-description {
-color: grey;
+  color: grey;
+  border: none; 
+}
+
+.card-action {
+  margin: 0 0px 40px 0px;
+}
+
+.material-icons {
+  background-color: rgba(0,0,0,0);
+  border:none;
+  cursor: pointer;
+  margin-top: 3px;
+  margin-right: 5px;
+  position: relative;
+  padding: 0px !important;
+  color: #fff;
+}
+.votes{
+    font-size: 25px;
+    position: relative;
+    color: #fff;
+    margin-top: -10px !important;
+}
+.outter{
+    border: 1px solid #040a47;
+    background-color: #040a47;
+    overflow: auto;
+    padding: 15px 5px 2px 5px;
+    margin-right: 15px;
+}
+
+.d {
+    margin-bottom: 3px;
+}
+
+.fa-thumbs-up {
+    margin-right: 4px;
+    font-size: 5
+
 }
