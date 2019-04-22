@@ -18,14 +18,13 @@ export const getComments = (slug) => dispatch => {
       });
     })
     .catch(function(error) {
-      M.toast({ html: 'No comments found', classes: 'red' });
     });
 };
 
-export const postComment = (comment, slug) => dispatch => {
+export const postComment = (commentText, slug) => dispatch => {
   const requestBody = {
     comment: {
-      body: comment,
+      body: commentText,
     },
   };
   return axios
@@ -36,41 +35,44 @@ export const postComment = (comment, slug) => dispatch => {
         payload: true,
       });
       M.toast({ html: 'Comment created', classes: 'green' });
+      document.location.reload(true);
     })
     .catch(function(error) {
-      M.toast({ html: 'Comment not created', classes: 'red' });
+      M.toast({ html: 'Could not create comment', classes: 'red' });
     });
 };
 
-export const updateComment = (comment, slug) => dispatch => {
+export const updateComment = (commentText, commentId, slug) => dispatch => {
   const requestBody = {
     comment: {
-      body: comment,
+      body: commentText,
     },
   };
   return axios
-    .put(`${endPoints.singleArticle}${slug}/comments/${comment}/`, requestBody, authHeader)
+    .put(`${endPoints.postArticle}${slug}/comments/${commentId}/`, requestBody, authHeader)
     .then(function(response) {
       dispatch({
         type: UPDATE_COMMENT,
         payload: true,
       });
       M.toast({ html: 'Comment updated', classes: 'green' });
+      document.location.reload(true);
     })
     .catch(function(error) {
       M.toast({ html: 'Could not update this comment', classes: 'red' });
     });
 };
 
-export const deleteComment = (comment, slug) => dispatch => {
+export const deleteComment = (commentId, slug) => dispatch => {
   return axios
-    .delete(`${endPoints.singleArticle}${slug}/comments/${comment}/`, authHeader)
+    .delete(`${endPoints.postArticle}${slug}/comments/${commentId}/`, authHeader)
     .then(function(response) {
       dispatch({
         type: DELETE_COMMENT,
         payload: true,
       });
       M.toast({ html: 'Comment deleted', classes: 'green' });
+      document.location.reload(true);
     })
     .catch(function(error) {
       M.toast({ html: 'Could not delete this comment', classes: 'red' });
