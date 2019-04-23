@@ -44,6 +44,7 @@ export class RatingContainer extends Component {
   }
 }
 export const mapStateToProps = (state) => {
+   /* istanbul ignore next */
   return { ratingReducer: state.ratingReducer }
 };
 export default connect(mapStateToProps, { userRating })(RatingContainer);

@@ -78,7 +78,17 @@ describe('All Article container:', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  
+  it('ArticleFeed should respond to events', () => {
+    const wrapper = shallow(<DumpArticleFeed
+    allArticles ={data.article.articles.results}
+    paginateArticles={data.article.articles.results}
+    fetchOriginal={()=>jest.fn()}
+    getAllArticles={()=>jest.fn()}
+     />);
+     const push = jest.fn();
+     wrapper.setProps({ history: { push } })
+     wrapper.instance().logout();
+  });
 
   it('ArticleFeed should render with store without crashing', () => {
      const wrapper = shallow(<Router><Provider store={store}><ArticleFeed
