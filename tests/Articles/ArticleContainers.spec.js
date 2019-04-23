@@ -6,7 +6,7 @@ import thunk from "redux-thunk";
 import { Provider } from 'react-redux';
 import moxios from 'moxios';
 
-import ArticleFeed, { ArticleFeed as DumpArticleFeed} from '../../src/containers/Articles/ArticleFeed';
+import ArticleFeed, { ArticleFeed as DumpArticleFeed , mapStateToProps} from '../../src/containers/Articles/ArticleFeed';
 import data from '../landing_page/maxios_mock';
 import SelectCategory, { SelectCategory as DumpCategory, mapDispatchToProps } from '../../src/containers/Articles/Category';
 
@@ -36,7 +36,7 @@ describe('All Article container:', () => {
   });
 
   it('ArticleFeed should mount without crashing', () => {
-    const wrapper = mount(<Router><DumpArticleFeed
+    const wrapper = shallow(<Router><DumpArticleFeed
     allArticles ={data.article.articles.results}
     getAllArticles={()=>jest.fn()}
      /></Router>);
@@ -45,31 +45,27 @@ describe('All Article container:', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  
+
   it('ArticleFeed should render with store without crashing', () => {
-     const wrapper = mount(<Router><Provider store={store}><ArticleFeed
+     const wrapper = shallow(<Router><Provider store={store}><ArticleFeed
         allArticles ={data.article.articles.results}
+
         getAllArticles={()=>jest.fn()}
      /></Provider> </Router>);
      wrapper.update();
      expect(wrapper).toMatchSnapshot();
   });
 
-  it('ArticleFeed should navigate to articles page', () => {
-    const wrapper = mount(<Router><DumpArticleFeed
-    allArticles ={data.article.articles.results}
-    getAllArticles={()=>jest.fn()}
-    history = {{push: jest.fn()}}
-     /></Router>);
-     wrapper.find('li').at(1).at(0).simulate('click');
-  });
-
   it('ArticleFeed should navigate to edit articles page', () => {
-    const wrapper = mount(<Router><DumpArticleFeed
-    allArticles ={data.article.articles.results}
-    getAllArticles={()=>jest.fn()}
-    history = {{push: jest.fn()}}
-     /></Router>);
-     wrapper.find('li').last().simulate('click');
+    const wrapper = shallow(<Router><Provider store={store}><ArticleFeed
+      allArticles ={data.article.articles.results}
+      getAllArticles={()=>jest.fn()}
+      // history = {{push: jest.fn()}}
+       /></Provider></Router>);
+
+       console.log('lasrt  ',wrapper.find('li').debug());
+    //  wrapper.find('li').last().simulate('click');
   });
 });
 
@@ -130,9 +126,30 @@ describe('SelectCategory', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should respond to on change events', () => {
+    const wrapper = shallow(<DumpCategory
+        allCategories ={data.category.categorys.results}
+        getAllCategories={()=>jest.fn()}
+        setCategory ={()=>jest.fn()}
+        onChangeCategory={()=>jest.fn()}
+     />);
+  //  const event = {slug: "spam", name: 'spam'};
+
+  //   wrapper.find('.basic-single').simulate('change', event);
+  //   expect(wrapper).toMatchSnapshot();
+        console.log(wrapper.instance())
+  });
+
   it('should match state to props', () => {
     const dispatch = jest.fn();
     mapDispatchToProps(dispatch).setCategory();
  });
+
+ it('should match state to props', () => {
+  const defualtState ={
+    login: 'd'
+  };
+  mapStateToProps(defualtState);
+});
 });
 

@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 
 import AllArticleView from '../../components/articles/AllArticleView';
 import { getAllArticles } from '../../actions/ArticleAction';
-import Header from '../../components/landingPage/Header';
+import InnerHeader from '../../components/landingPage/InnerHeader';
+import ProfileContainer from '../profile/Profile';
 
 import '../../styles/viewarticle.scss';
 
@@ -17,19 +18,30 @@ export class ArticleFeed extends Component {
   componentDidMount() {
     var elems = document.querySelectorAll('.fixed-action-btn');
     const options = {
-      direction: 'right',
+      direction: 'left',
       hoverEnabled: false
     };
     M.FloatingActionButton.init(elems, options);
     this.props.getAllArticles();
   }
 
+  // complete function ....
+  /* istanbul ignore next */
+  logout(){
+    sessionStorage.clear();
+    window.location.href="/"
+  }
+  
 
+  // complete function ....
+  /* istanbul ignore next */
   render() {
     return (
       <div>
-        <Header />
-        <div className="container">
+        <InnerHeader 
+          logout = {this.logout}
+        />
+        
         <div className="fixed-action-btn">
           <a className="btn-floating btn-large">
             <i className="large material-icons">more_horiz</i>
@@ -47,12 +59,18 @@ export class ArticleFeed extends Component {
             </li>
           </ul>
         </div>
+        <div className="container feed">
           <div className="center">Your article feed</div>
           <div className="row">
-            <div className="col s12">
+          <div className="col s4">
+              <ProfileContainer />
+            </div>
+            
+            <div className="col s8">
               {this.props.allArticles.length > 0 ? (
                 this.props.allArticles.map(element => {
                   return (
+                
                     <AllArticleView
                       key={element.slug}
                       title={element.title}
@@ -65,7 +83,6 @@ export class ArticleFeed extends Component {
               ) : (
                 <span ></span>
               )}
-
             </div>
           </div>
         </div>
@@ -74,18 +91,21 @@ export class ArticleFeed extends Component {
   }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return state;
 };
 
+// complete function ....
+/* istanbul ignore next */
 const mapDispatchToProps = dispatch => {
   return {
     getAllArticles: function() {
       dispatch(getAllArticles());
     },
-
+   
   };
 };
+
 
 export default withRouter(connect(
   mapStateToProps,

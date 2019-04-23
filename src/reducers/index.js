@@ -13,6 +13,7 @@ import CreateArticleReducer from './CreateArticle';
 import commentReducer from './commentReducer';
 import dislikeReducer from './LikeDislikeReducers';
 
+import retrieveProfile from './profile/retrieveProfileReducer'
 
 export default combineReducers({
   categories: getCategories,
@@ -29,5 +30,6 @@ export default combineReducers({
   recentArticlePost: postArticle,
   publishedArticles: publishedArticles,
   comments: commentReducer,
-  dislikeReducer
+  dislikeReducer,
+  retrieveProfile
 });

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`All Article container: ArticleFeed should mount without crashing 1`] = `ReactWrapper {}`;
+exports[`All Article container: ArticleFeed should mount without crashing 1`] = `ShallowWrapper {}`;
 
-exports[`All Article container: ArticleFeed should render with store without crashing 1`] = `ReactWrapper {}`;
+exports[`All Article container: ArticleFeed should render with store without crashing 1`] = `ShallowWrapper {}`;
 
 exports[`All Article container: ArticleFeed should render without crashing 1`] = `ShallowWrapper {}`;
 

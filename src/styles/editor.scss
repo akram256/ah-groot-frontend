@@ -13,53 +13,53 @@ div.container > div.row {
       position: relative;
     }
     > div {
-      > div.css-2o5izw.select__control.select__control--is-focused > div.css-1wy0on6.select__indicators > span {
+      > div.select__control.select__control--is-focused > div.css-1wy0on6.select__indicators > span {
         display: none;
       }
       > input {
         width: -webkit-fill-available !important;
       }
-      > div.css-vj8t7z.select__control > div.css-1wy0on6.select__indicators > span {
+      > div.select__control > div.css-1wy0on6.select__indicators > span {
         display: none;
       }
-      > div.css-2o5izw.select__control.select__control--is-focused.select__control--menu-is-open {
+      > div.select__control.select__control--is-focused.select__control--menu-is-open {
         box-shadow: unset;
         :hover {
           border-color: unset;
         }
       }
-      > div.css-162g8z5.select__control.select__control--is-disabled {
+      > div.select__control.select__control--is-disabled {
         background-color: white;
         border-color: white;
-        > div.css-1wy0on6.select__indicators{
+        > div.select__indicators{
           > span {
             display: none;
           }
-          > div.css-1ep9fjw.select__indicator.select__dropdown-indicator{
+          > div.select__indicator.select__dropdown-indicator{
             display: none;
           }
         }
 
       }
-      > div.css-vj8t7z.select__control {
+      > div.select__control {
         border-radius: unset;
         border-style: unset;
         border-bottom-style: solid;
         border-width: 2px;
-        > div.css-1hwfws3.select__value-container.select__value-container--is-multi{
+        > div.select__value-container.select__value-container--is-multi{
           padding: unset;
         }
 
       }
-      > div.css-2o5izw.select__control.select__control--is-focused.select__control--menu-is-open {
+      > div.select__control.select__control--is-focused.select__control--menu-is-open {
         border-radius: unset;
         border-style: unset;
         border-bottom-style: solid;
       }
-      > div.css-2o5izw.select__control.select__control--is-focused.select__control--menu-is-open > div.css-1wy0on6.select__indicators > span {
+      > div.select__control.select__control--is-focused.select__control--menu-is-open > div.css-1wy0on6.select__indicators > span {
         display: none;
       }
-      > div.css-2o5izw.select__control.select__control--is-focused {
+      > div.select__control.select__control--is-focused {
         border-radius: unset;
         border-style: unset;
         border-bottom-style: solid;
@@ -77,11 +77,11 @@ div.container > div.row {
         > div.css-1hwfws3 {
           height: 15px;
         }
-        > div.css-1hwfws3.select__value-container.select__value-container--has-value
-          > div.css-xp4uvy.select__single-value {
+        > div.select__value-container.select__value-container--has-value
+          > div.select__single-value {
           position: inherit;
         }
-        > div.css-1wy0on6.select__indicators > span {
+        > div.select__indicators > span {
           display: none;
         }
         border-radius: unset;
@@ -90,27 +90,27 @@ div.container > div.row {
         border-width: 2px;
       }
       padding-top: 21px;
-      > div.css-2o5izw.select__control.select__control--is-focused.select__control--menu-is-open {
+      > div.select__control.select__control--is-focused.select__control--menu-is-open {
         box-shadow: unset;
         :hover {
           border-color: unset;
         }
       }
-      > div.css-2o5izw.select__control.select__control--is-focused {
+      > div.select__control.select__control--is-focused {
         box-shadow: unset;
       }
-      > div.css-15k3avv.select__menu {
-        .css-wqgs6e.select__option.select__option--is-focused {
+      > div.select__menu {
+        .select__option.select__option--is-focused {
           background-color: #e4e4e4;
         }
-        .css-z5z6cw.select__option.select__option--is-selected {
+        .select__option.select__option--is-selected {
           background-color: #8f8c8c;
         }
-      }
-      > div.css-2o5izw {
+      } 
+      > div {
         border-color: #26a69a;
       }
-      > div.css-15k3avv.select__menu > div > div.css-wqgs6e.select__option.select__option--is-focused {
+      > div.select__menu > div > div.select__option.select__option--is-focused {
         background-color: #e4e4e4;
       }
     }
@@ -160,3 +160,4 @@ div.container > div.row {
 .css-2o5izw:hover {
   border-color: #8f8c8c !important;
 }
+

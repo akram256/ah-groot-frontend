@@ -16,7 +16,7 @@ const loginAction = loginData => {
       .then(function(response) {
         M.toast({html:`Successfully logged in as ${response.data.user.username}`, classes:'green'
       });
-      localStorage.setItem("token",response.data.user.token)
+      sessionStorage.setItem('user', response.data.user.username)
         dispatch({
           type: LOGIN_SUCCESS,
           payload: response.data.user.token,

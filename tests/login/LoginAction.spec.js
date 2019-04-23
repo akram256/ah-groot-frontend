@@ -28,7 +28,13 @@ describe('log in process', () => {
       });
     });
     const expectedActions = [
-      { type: LOGIN_SUCCESS, payload: data.login.success.user.token },
+      {
+        type: LOGIN_SUCCESS,
+        "payload": 
+          
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZW1haWwiOiJqZXJyeUBnbWFpbC5jb20iLCJleHAiOjE1NTY3Nzc4NjN9.ZuV7IjxVVfVU8PoQ8elR4FS-KWdXTyrt6v6jtKAOxr4'
+          
+      },
     ];
     const valiData = {
       user: {
@@ -54,13 +60,13 @@ describe('log in process', () => {
       { type: LOGIN_FAIL, payload: data.login.failure.errors.error },
     ];
     const invalidData = {
-          user: {
-            email: '',
-            password: '',
-          },
-        };
+      user: {
+        email: '',
+        password: '',
+      },
+    };
     return store.dispatch(loginAction(invalidData)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
-        });
+    });
   });
 });

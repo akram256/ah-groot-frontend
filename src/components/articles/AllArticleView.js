@@ -26,11 +26,6 @@ export class AllArticleView extends Component {
             <span className="card-title truncate">{title}</span>
             <span className="card-description truncate">{description}</span>
           </div>
-            <div className="card-action">
-            <button >{likes} Likes</button>
-            <button >{dislikes} DisLikes</button>
-            <button >rating: {average_rating}</button>
-          </div>
 
           </div>
         </div>

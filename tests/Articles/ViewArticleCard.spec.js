@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import moxios from 'moxios';
 
 import { AllArticleView } from '../../src/components/articles/AllArticleView';
-import { ArticleView } from '../../src/components/articles/ViewArticleCard';
+import  {ArticleView}  from '../../src/components/articles/ViewArticleCard';
 
 describe('AllArticleView', () => {
   it('should render without crashing', () => {
