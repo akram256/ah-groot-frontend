@@ -68,7 +68,6 @@ describe('comment container', () => {
       </Provider>
     );
     expect(wrapper).toMatchSnapshot();
- 
   });
 
   it('should render the comment container with its children', () => {
@@ -81,7 +80,7 @@ describe('comment container', () => {
     const event = {
       target: { value: '' },
     };
-    wrapper.find('button.waves-effect.btn').simulate('click');
+    wrapper.find('button.btn').simulate('click');
     wrapper
       .find('textarea.materialize-textarea')
       .simulate('change', { target: { value: 'l' } });
@@ -117,6 +116,7 @@ describe('comment container', () => {
     wrapper
       .find('i.small.material-icons.right.comment-edit.two')
       .simulate('click');
+    wrapper.find('i.small.material-icons.comment-edit.three').simulate('click');
     wrapper
       .find('textarea.materialize-textarea.comment-edit')
       .simulate('change', { target: { value: 'l' } });

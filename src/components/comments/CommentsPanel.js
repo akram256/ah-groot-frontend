@@ -11,6 +11,7 @@ const CommentsPanel = props => {
       body={comment.body}
       user={comment.user.user}
       createdAt={comment.created_at}
+      likes={comment.likes}
       slug={props.slug}
       getComments={props.getComments}
     />
@@ -18,9 +19,7 @@ const CommentsPanel = props => {
 
   return (
     <div>
-      <section className="card">
-      <p className="comments-title center-align">Comments</p>
-      <hr className="comment-title-divider"></hr>
+      <section className="comments card">
         <ul>{commentItems}</ul>
       </section>
     </div>

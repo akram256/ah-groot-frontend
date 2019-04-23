@@ -4,6 +4,7 @@ import {
   POST_COMMENT,
   UPDATE_COMMENT,
   DELETE_COMMENT,
+  LIKE_COMMENT
 } from './types';
 import M from 'materialize-css/dist/js/materialize.js';
 import endPoints, { authHeader } from '../containers/urls';
@@ -76,5 +77,21 @@ export const deleteComment = (commentId, slug) => dispatch => {
     })
     .catch(function(error) {
       M.toast({ html: 'Could not delete this comment', classes: 'red' });
+    });
+};
+
+export const likeComment = (commentId, slug) => dispatch => {
+  return axios
+    .post(`${endPoints.postArticle}${slug}/comments/${commentId}/like/`, {}, authHeader)
+    .then(function(response) {
+      dispatch({
+        type: LIKE_COMMENT,
+        payload: true,
+      });
+      M.toast({ html: 'Liked', classes: 'green' });
+      document.location.reload(true);
+    })
+    .catch(function(error) {
+      M.toast({ html: 'Error liking this comment', classes: 'red' });
     });
 };

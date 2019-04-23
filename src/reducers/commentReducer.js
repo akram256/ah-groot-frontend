@@ -1,9 +1,16 @@
-import { GET_COMMENTS, POST_COMMENT, UPDATE_COMMENT, DELETE_COMMENT } from '../actions/types';
+import {
+  GET_COMMENTS,
+  POST_COMMENT,
+  UPDATE_COMMENT,
+  DELETE_COMMENT,
+  LIKE_COMMENT
+} from '../actions/types';
 
 const initialState = {
   commentPosted: false,
   commentUpdated: false,
   commentDeleted: false,
+  commentLiked: false,
   comments: [],
 };
 
@@ -28,6 +35,11 @@ const commentReducer = (state = initialState, action) => {
       return {
         ...state,
         commentDeleted: action.payload,
+      };
+    case LIKE_COMMENT:
+      return {
+        ...state,
+        commentLiked: action.payload,
       };
     default:
       return state;
