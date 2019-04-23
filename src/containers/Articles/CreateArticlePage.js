@@ -8,7 +8,7 @@ import TagContainer from './Tag';
 import SelectCategory from './Category';
 import ArticleMetaData from './MetaData';
 import { modules, formats } from './QuillModules';
-import Header from '../../components/landingPage/Header';
+import InnerHeader from '../../components/landingPage/InnerHeader';
 
 import { postArticle } from '../../actions/ArticleAction';
 import { setBody, setCategory } from '../../actions/NewArticle';
@@ -66,7 +66,7 @@ export class CreateArticle extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <InnerHeader />
         <div className="container">
           <div className="center">Create an article</div>
           <div className="row">

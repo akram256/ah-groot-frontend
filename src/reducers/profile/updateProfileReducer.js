@@ -14,11 +14,11 @@ const updateProfile = (state=initialState,action) => {
             profile:action.payload,
             loading:true
         };
-    // case UPDATE_PROFILE_FAIL:
-    //     return {
-    //         ...state,
-    //         errors:action.payload
-    //     };
+    case "UPDATE_PROFILE_FAIL":
+        return {
+            ...state,
+            errors:action.payload
+        };
     default:
         return state;
   }

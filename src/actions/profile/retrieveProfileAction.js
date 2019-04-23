@@ -15,12 +15,12 @@ const retrieveProfileAction = () => {
           payload: data,
         });
       })
-      // .catch(function(error) {
-      //   dispatch({
-      //     type: RETRIEVE_PROFILE_FAIL,
-      //     payload: error,
-      //   });
-      // });
+      .catch(function(error) {
+        dispatch({
+          type: "RETRIEVE_PROFILE_FAIL",
+          payload: error,
+        });
+      });
   };
 };
 

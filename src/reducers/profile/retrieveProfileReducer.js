@@ -14,11 +14,11 @@ const retrieveProfile = (state=initialState,action) => {
             profile:action.payload,
             loading:true
         };
-    // case RETRIEVE_PROFILE_FAIL:
-    //     return {
-    //         ...state,
-    //         errors:action.payload
-    //     };
+    case "RETRIEVE_PROFILE_FAIL":
+        return {
+            ...state,
+            errors:action.payload
+        };
     default:
         return state;
   }

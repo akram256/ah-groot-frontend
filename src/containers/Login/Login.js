@@ -25,11 +25,11 @@ export class LoginContainer extends Component {
         sessionStorage.setItem('token', nextProps.token);
         this.props.history.push('/home');
       }
-    }
-    if(sessionStorage.token){
-      this.props.history.push('/home');
-    }
-  }
+    }}
+  //   if(sessionStorage.token){
+  //     this.props.history.push('/home');
+  //   }
+  // }
 
   emailChange = event => this.setState({ email: event.target.value });
   passwordChange = event => this.setState({ password: event.target.value });

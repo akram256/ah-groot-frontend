@@ -14,14 +14,13 @@ const UpdateProfileModal = (props) => {
             fullname,
             nameChange,
             bioChange,
-            picChange} = props;
+            picChange,
+            isUploading,
+            progress} = props;
             
   return (
     <div className="modal ">
         <Modal open={open} onClose={close}>
-            <div>
-             <h5>Welcome Back!</h5>
-            </div>
             <div>
                 <UpdateProfileForm
                 updateProfile = {updateProfile}
@@ -31,6 +30,8 @@ const UpdateProfileModal = (props) => {
                 nameChange={nameChange}
                 bioChange={bioChange}
                 picChange={picChange}
+                isUploading={isUploading}
+                progress={progress}
                 />
             </div>
         </Modal>

@@ -13,7 +13,7 @@ const endPoints = {
   postArticle: `${base}/articles/`,
   singleArticle: `${base}/article/`,
   tags: `${base}/tags/`,
-  profile : `${base}/profiles/${sessionStorage.getItem('username')}/`
+  profile : `${base}/profiles/${sessionStorage.user}/`
 };
 
 export const authHeader = {

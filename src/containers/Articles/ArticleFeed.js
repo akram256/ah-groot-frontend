@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 
 import AllArticleView from '../../components/articles/AllArticleView';
 import { getAllArticles } from '../../actions/ArticleAction';
-import Header from '../../components/landingPage/Header';
+import InnerHeader from '../../components/landingPage/InnerHeader';
+import ProfileContainer from '../profile/Profile';
 
 import '../../styles/viewarticle.scss';
 
@@ -17,11 +18,16 @@ export class ArticleFeed extends Component {
   componentDidMount() {
     var elems = document.querySelectorAll('.fixed-action-btn');
     const options = {
-      direction: 'right',
+      direction: 'left',
       hoverEnabled: false
     };
     M.FloatingActionButton.init(elems, options);
     this.props.getAllArticles();
+  }
+
+  logout(){
+    sessionStorage.clear();
+    window.location.href="/"
   }
   
 
@@ -30,8 +36,10 @@ export class ArticleFeed extends Component {
     console.log(this.props.allArticles);
     return (
       <div>
-        <Header />
-        <div className="container">
+        <InnerHeader 
+          logout = {this.logout}
+        />
+        
         <div className="fixed-action-btn">
           <a className="btn-floating btn-large">
             <i className="large material-icons">more_horiz</i>
@@ -49,9 +57,14 @@ export class ArticleFeed extends Component {
             </li>
           </ul>
         </div>
+        <div className="container feed">
           <div className="center">Your article feed</div>
           <div className="row">
-            <div className="col s12">
+          <div className="col s4">
+              <ProfileContainer />
+            </div>
+            
+            <div className="col s8">
               {this.props.allArticles.length > 0 ? (
                 this.props.allArticles.map(element => {
                   return (
@@ -63,10 +76,7 @@ export class ArticleFeed extends Component {
                       slug={element.slug}
                       average_rating={element.average_rating}
                     />
-                   
-                    
                   );
-                  
                 })
               ) : (
                 <span ></span>

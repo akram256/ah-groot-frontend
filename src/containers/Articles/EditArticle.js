@@ -6,7 +6,7 @@ import ReactQuill from 'react-quill';
 import TagContainer from './Tag';
 import ArticleMetaData from './MetaData';
 import { modules, formats } from './QuillModules';
-import Header from '../../components/landingPage/Header';
+import InnerHeader from '../../components/landingPage/InnerHeader';
 
 import {
   updateUserArticle,
@@ -100,7 +100,7 @@ export class UpdateArticle extends Component {
     /* istanbul ignore next */
     return (
       <div>
-        <Header />
+        <InnerHeader />
         <div className="container">
           <div className="center">Edit article</div>
           <div className="row">

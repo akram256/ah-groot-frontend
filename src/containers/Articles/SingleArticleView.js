@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactQuill from 'react-quill';
 
-import Header from '../../components/landingPage/Header';
 import { modules, formats } from './QuillModules';
+import InnerHeader from '../../components/landingPage/InnerHeader';
 import CommentContainer from '../../containers/Comments/CommentContainer';
 
 import likearticle from '../../actions/LikeAction'
@@ -52,7 +52,7 @@ export class SingleArticleView extends Component {
     return (
       <div>
         <div>
-          <Header />
+          <InnerHeader />
           <div className="container">
             <div className="row">
               <h2>{this.state.title}</h2>

@@ -7,7 +7,7 @@ import {
   getUserArticle,
   getUserPublishedArticles,
 } from '../../actions/ArticleAction';
-import Header from '../../components/landingPage/Header';
+import InnerHeader from '../../components/landingPage/InnerHeader';
 import '../../styles/viewarticle.scss';
 
 export class ViewArticle extends Component {
@@ -25,7 +25,7 @@ export class ViewArticle extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <InnerHeader />
         <div className="container">
           <div className="center">Your articles</div>
           <div className="row">
