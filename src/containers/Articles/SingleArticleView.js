@@ -25,7 +25,6 @@ import RetrieveProfileComponent from '../../components/profile/retrieveProfile'
 import '../../styles/rating.scss';
 import '../../styles/report.scss';
 
-
 export class SingleArticleView extends Component {
   constructor(props) {
     super(props);
@@ -124,7 +123,6 @@ export class SingleArticleView extends Component {
     const { handlelike, handledislike } = this.props;
     console.log(this.state.author.user)
     return (
-      <div>
         <div>
           <InnerHeader />
           <div className="container">
@@ -211,18 +209,14 @@ export class SingleArticleView extends Component {
                   <span className="votes">{this.state.likes}</span>
                 </label>
                 <label className="outter">
-                  <button
-                    slug={this.props.match.params.slug}
-                    className="material-icons like"
-                    onClick={event => {
-                      const slug = event.currentTarget.getAttribute('slug');
-                      this.handledislike(slug);
-                    }}
-                  >
-                    thumb_down
-                  </button>
-                  <span className="votes">{this.state.dislikes}</span>
-                </label>
+                  <button slug={this.props.match.params.slug} className="material-icons like" onClick={(event) => {
+                    const slug = event.currentTarget.getAttribute('slug'); this.handledislike(slug)
+                                   }}>thumb_down</button><span className="votes">{this.state.dislikes}</span>
+
+                  </label>
+                  <label className="outter majorReportbtn"><ReportingContainer slug={this.props.match.params.slug} /></label>
+                  <label className="outter rater"><RatingContainer slug={this.props.match.params.slug} /></label>
+               
                 <label className="outter majorReportbtn">
                   <ReportingContainer slug={this.props.match.params.slug} />
                 </label>
@@ -247,7 +241,7 @@ export class SingleArticleView extends Component {
 
         </div>
       </div>
-      </div>
+   
     );
   }
 }

@@ -50,5 +50,8 @@ export default combineReducers({
   ratingReducer,
   reportingReducer,
   paginateArticles,
-  firstArticles
+  firstArticles,
+  bookmarks,
+  unbookmark,
+  bookmark,
 });
