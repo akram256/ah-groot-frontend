@@ -6,7 +6,7 @@ import { modules, formats } from './QuillModules';
 import InnerHeader from '../../components/landingPage/InnerHeader';
 import CommentContainer from '../../containers/Comments/CommentContainer';
 import RatingContainer from '../../containers/RatingContainer';
-
+import ReportingContainer from '../../containers/report/ReportingContainer';
 import likearticle from '../../actions/LikeAction'
 import dislikearticle from '../../actions/DislikeAction'
 import { getSingleleUserArticle } from '../../actions/ArticleAction';
@@ -14,7 +14,8 @@ import { getSingleleUserArticle } from '../../actions/ArticleAction';
 import '../../styles/singlearticle.scss';
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
-import '../../styles/rating.scss'
+import '../../styles/rating.scss';
+import '../../styles/report.scss';
 
 
 export class SingleArticleView extends Component {
@@ -104,13 +105,15 @@ export class SingleArticleView extends Component {
                                    }}>thumb_down</button><span className="votes">{this.state.dislikes}</span>
 
                   </label>
+                  <label className="outter majorReportbtn"><ReportingContainer slug={this.props.match.params.slug} /></label>
                   <label className="outter rater"><RatingContainer slug={this.props.match.params.slug} />
                   </label>
                   <label className="outter rateStar">
                   <span className="rating-digit">{ this.state.average_rating }</span>
                   <i className="material-icons small">star</i>
                   </label>
-                    
+
+
               </div>
             </div>
             <CommentContainer slug={this.props.match.params.slug} />
