@@ -20,6 +20,7 @@ import reportingReducer from './reportingReducer';
 import followReducer from '../reducers/profile/followuserReducer'
 // import ratingReducer from './ratingReducer';
 
+
 export default combineReducers({
   categories: getCategories,
   articles: articleReducer,
@@ -44,6 +45,8 @@ export default combineReducers({
   bookmarks,
   unbookmark,
   bookmark,
-  followReducer
+  followReducer,
   // ratingReducer
+  ratingReducer,
+  reportingReducer,
 });

@@ -22,6 +22,8 @@ import '../../styles/rating.scss';
 import '../../styles/report.scss';
 import '../../styles/rating.scss'
 import RetrieveProfileComponent from '../../components/profile/retrieveProfile'
+import '../../styles/rating.scss';
+import '../../styles/report.scss';
 
 
 export class SingleArticleView extends Component {
@@ -227,6 +229,10 @@ export class SingleArticleView extends Component {
                 <label className="outter rater">
                   <RatingContainer slug={this.props.match.params.slug} />
                 </label>
+                <label className="outter rateStar">
+                  <span className="rating-digit">{ this.state.average_rating }</span>
+                  <i className="material-icons small">star</i>
+                  </label>
                 <label className="bookmark button">
                   <BookmarkButton slug={this.props.match.params.slug} />
                 </label>
