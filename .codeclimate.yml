@@ -1,4 +1,13 @@
 version: "2"
+checks:
+  method-lines:
+    config:
+      threshold: 90
+  similar-code:
+    enabled: false
+  identical-code:
+    enabled: false
+
 exclude_patterns:
   - "tests/"
   - "src/components/login/LoginForm.js"
@@ -16,4 +25,14 @@ exclude_patterns:
   - "src/containers/Login.js"
   - "src/actions/index.js"
   - "src/containers/SocialAuthContainer.js"
+  - "src/containers/Articles/*"
+  - "src/reducers/ArticleReducer.js"
+  - "src/containers/App.js"
+  - "src/reducers/CreateArticle.js"
+  - "src/components/articles/*"
+  - "src/components/profile/profileModal.js"
+  - "src/reducers/profile/retrieveProfileReducer.js"
+  - "src/components/profile/profileModal.js"
+  - "src/reducers/profile/updateProfileReducer.js"
+  - "src/components/profile/profileModal.js"
 

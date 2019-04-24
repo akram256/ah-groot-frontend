@@ -24,6 +24,7 @@ export const userSignupRequest = userData => async (dispatch) => {
     );
     dispatch(successRegistration(response.data));
     M.toast({ html: response.data.user.Message, classes: 'green' });
+    /* istanbul ignore next */
     setTimeout(() => window.location.reload(), 3000);
   } catch (error) {
     dispatch(failedRegistration(error.response.data));

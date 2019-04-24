@@ -19,7 +19,6 @@ export class AricleCardContainer extends Component {
                 key={element.slug}
                 title={element.title}
                 description={element.description}
-                body={element.body}
                 reading_time={element.reading_time}
                 updated_at={element.updated_at}
               />

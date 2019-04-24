@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const LoginForm = (props) => {
 
-    const { 
-        email, 
+    const {
+        email,
         password,
         emailChange,
         passwordChange,
@@ -30,7 +30,7 @@ const LoginForm = (props) => {
                     value ={password}
                     onChange={passwordChange}
                 />
-                <label className="active" for="password">Password</label>
+                <label className="active" htmlFor="password">Password</label>
                 <div className="button-area">
                 <div><Link to='/password-reset' className="forgot-password">Forgot Password?</Link></div>
                 <div className="login-button">

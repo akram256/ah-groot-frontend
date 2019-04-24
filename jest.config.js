@@ -31,7 +31,8 @@ module.exports = {
   ],
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['<rootDir>/SetupTests.js'],
+  setupFiles: ['<rootDir>/SetupTests.js', 'mock-local-storage'],
+  // setupFilesAfterEnv: "mock-local-storage",
 
   // The test environment that will be used for testing
   testEnvironment: "jest-environment-jsdom",
