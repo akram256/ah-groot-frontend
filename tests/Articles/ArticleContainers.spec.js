@@ -61,11 +61,7 @@ describe('All Article container:', () => {
     const wrapper = shallow(<Router><Provider store={store}><ArticleFeed
       allArticles ={data.article.articles.results}
       getAllArticles={()=>jest.fn()}
-      // history = {{push: jest.fn()}}
        /></Provider></Router>);
-
-       console.log('lasrt  ',wrapper.find('li').debug());
-    //  wrapper.find('li').last().simulate('click');
   });
 });
 
@@ -133,11 +129,7 @@ describe('SelectCategory', () => {
         setCategory ={()=>jest.fn()}
         onChangeCategory={()=>jest.fn()}
      />);
-  //  const event = {slug: "spam", name: 'spam'};
 
-  //   wrapper.find('.basic-single').simulate('change', event);
-  //   expect(wrapper).toMatchSnapshot();
-        console.log(wrapper.instance())
   });
 
   it('should match state to props', () => {

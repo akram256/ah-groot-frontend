@@ -33,7 +33,6 @@ div.container > div.row {
         border-color: white;
         > div.select__indicators{
           > span {
-            display: none;
           }
           > div.select__indicator.select__dropdown-indicator{
             display: none;
@@ -69,8 +68,6 @@ div.container > div.row {
   }
   > div.input-field.col.s6.category {
     margin-top: auto;
-    > label {
-      position: static;
     }
     > div {
       > div {
@@ -108,7 +105,7 @@ div.container > div.row {
         }
       } 
       > div {
-        border-color: #26a69a;
+        border: none;
       }
       > div.select__menu > div > div.select__option.select__option--is-focused {
         background-color: #e4e4e4;
@@ -155,8 +152,7 @@ div.container > div.row {
         }
       }
   }
-}
-
+  
 .css-2o5izw:hover {
   border-color: #8f8c8c !important;
 }

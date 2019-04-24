@@ -56,19 +56,6 @@ describe('ProfileContainer', () => {
       wrapper.instance().bioChange(event);
     });
 
-    
-    // it('should call picChange',
-    // () => {
-    //     const wrapper = shallow(<App profile={{name:"wali"}} errors={{error:"error"}} loading={{loading:true}} 
-    //     getProfiles={mockFn} updateProfile={mockFn}/>
-    //     );
-    //   const event ={
-    //     preventDefault: mockFn,
-    //     target:{files:''}
-    // }
-    //   wrapper.instance().picChange(event);
-    // });
-
     it("should call picChange", () =>{
       const wrapper = shallow(<App profile={{name:"wali"}} errors={{error:"error"}} loading={{loading:true}} 
         getProfiles={mockFn} updateProfile={mockFn}/>
@@ -110,13 +97,7 @@ describe('ProfileContainer', () => {
     });
 
     it('should match state to props', () => {
-        const defualtState ={
-          login: {
-          token:"dd",
-          errors: "error",
-          isSuccesfull: false
-        }
-        };
+      const dispatch = jest.fn();
         const initialState ={
           retrieveProfile: {
           profile: "",
@@ -124,8 +105,9 @@ describe('ProfileContainer', () => {
           loading: false
         }
         };
-        mapDispatchToProps(defualtState);
         mapStateToProps(initialState);
+        mapDispatchToProps(dispatch).getProfiles();
+        mapDispatchToProps(dispatch).updateProfile();
      });
      
 

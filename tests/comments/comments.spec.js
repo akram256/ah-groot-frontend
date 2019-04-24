@@ -68,7 +68,7 @@ describe('comment container', () => {
       </Provider>
     );
     expect(wrapper).toMatchSnapshot();
-    // wrapper.setProps({comments:  });
+ 
   });
 
   it('should render the comment container with its children', () => {
@@ -78,7 +78,6 @@ describe('comment container', () => {
       </Provider>
     );
     wrapper.setState({ displayCommentForm: false, commentText: '' });
-    console.log(wrapper);
     const event = {
       target: { value: '' },
     };

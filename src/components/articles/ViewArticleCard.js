@@ -18,7 +18,6 @@ export class ArticleView extends Component {
           /* istanbul ignore next */
           window.location.reload();
         }
-        console.log(response);
       })
       .catch(function(error) {
         return;

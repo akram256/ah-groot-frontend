@@ -1,7 +1,6 @@
 import { DISLIKE_ARTICLE_SUCCESS, DISLIKE_ARTICLE_FAILED } from './types'
  
  const dislikearticle = slug =>(dispatch) => {
-     console.log (slug)
       return fetch(`https://ah-backend-groot.herokuapp.com/api/articles/${slug}/dislike/`, {
         method: 'POST',
         headers: {

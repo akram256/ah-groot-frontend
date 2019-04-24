@@ -1,7 +1,6 @@
 import {LIKE_ARTICLE_SUCCESS,LIKE_ARTICLE_FAILED} from './types'
 
  const likearticle = slug =>(dispatch) => {
-     console.log (slug)
       return fetch(`https://ah-backend-groot.herokuapp.com/api/articles/${slug}/like/`, {
         method: 'POST',
         headers: {

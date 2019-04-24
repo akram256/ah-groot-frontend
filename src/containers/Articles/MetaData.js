@@ -37,7 +37,7 @@ export class ArticleMetaData extends Component {
           onChange: (event) => this.handleChangeDescription(event),
           ...setValue
         },)}
-          <label className='active' htmlFor="textarea1">Description</label>
+          <label htmlFor="textarea1">Description</label>
         </div>
       </div>
     );

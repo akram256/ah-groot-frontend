@@ -46,7 +46,6 @@ export class ProfileContainer extends Component {
       }
       this.props.updateProfile(body);
 
-      console.log(body);
       
       location.reload();
     };
@@ -58,10 +57,10 @@ export class ProfileContainer extends Component {
         /* istanbul ignore next */
     picChange = (event) => {
       const file=event.target.files[0]
-      this.setState({image:file})
+      // this.setState({image:file})
       return this.handleUpload(file);
     }
-
+    
        // complete function ....
         /* istanbul ignore next */   
    handleUpload = (image) => {
@@ -90,7 +89,6 @@ export class ProfileContainer extends Component {
   render() {
     const {profile} = this.props
     sessionStorage.setItem('profile', profile.user)
-    console.log(profile.followers)
     
     return (
       <div>
@@ -133,13 +131,15 @@ export const mapStateToProps = state => ({
     loading: state.retrieveProfile.loading,
   });
 
-         // complete function ....
-        /* istanbul ignore next */   
+
+        
 export const mapDispatchToProps = dispatch => ({
     getProfiles: () => {
+      /* istanbul ignore next */   
       dispatch(retrieveProfileAction());
     },
     updateProfile: (data) => {
+      /* istanbul ignore next */ 
       dispatch(updateProfileAction(data));
     }
   });
