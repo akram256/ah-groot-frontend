@@ -102,9 +102,9 @@ export const getAllArticles = () => {
 export const getSingleleUserArticle = (slug) => {
   return dispatch => {
     return axios
-      .get(`${endPoints.singleArticle}${slug}/`, authHeader)
+      .get(`${endPoints.postArticle}?slug=${slug}`, {})
       .then(function(response) {
-        const data = response.data;
+        const data = response.data.articles.results[0];;
         dispatch({
           type: 'EDIT_ARTICLE',
           article: data,

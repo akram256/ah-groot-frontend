@@ -43,8 +43,8 @@
 }
 
 .bookmark.button {
-  overflow: auto;
-  margin-right: 15px;
+  position: relative;
+  margin-left: 180px;
 }
 
 .material-icons.unbookmarked {
@@ -57,4 +57,7 @@
   color: #040a47;
   cursor: pointer;
   font-size: 2rem;
+}
+.chip {
+  border-radius: 16px !important;
 }

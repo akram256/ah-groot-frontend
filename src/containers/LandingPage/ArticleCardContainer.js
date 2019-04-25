@@ -18,6 +18,8 @@ export class AricleCardContainer extends Component {
               <ArticleCard
                 key={element.slug}
                 title={element.title}
+                slug={element.slug}
+                author={element.author.user}
                 description={element.description}
                 reading_time={element.reading_time}
                 updated_at={element.updated_at}
