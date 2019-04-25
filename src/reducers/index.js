@@ -15,6 +15,7 @@ import dislikeReducer from './LikeDislikeReducers';
 
 import retrieveProfile from './profile/retrieveProfileReducer'
 import ratingReducer from './ratingReducer';
+import reportingReducer from './reportingReducer';
 
 export default combineReducers({
   categories: getCategories,
@@ -34,4 +35,5 @@ export default combineReducers({
   dislikeReducer,
   retrieveProfile,
   ratingReducer,
+  reportingReducer,
 });
