@@ -153,6 +153,40 @@ describe('Comments', () => {
         })
       });
 
+      it('should create an action to like a comment', () => {
+        moxios.wait(() => {
+          const request = moxios.requests.mostRecent();
+          request.respondWith({
+            status: 204,
+            response: data
+          });
+        });
+
+        const expectedActions = [
+          { type: types.LIKE_COMMENT, payload: true },
+        ];
+
+        const store = mockStore({ commentLiked: false });
+        return store.dispatch(actions.likeComment()).then(() => {
+          expect(store.getActions()).toEqual(expectedActions);
+        })
+      });
+
+      it('should not create an action to like a comment', () => {
+        moxios.wait(() => {
+          const request = moxios.requests.mostRecent();
+          request.respondWith({
+            status: 404,
+            response: data
+          });
+        });
+
+        const store = mockStore({ commentLiked: false });
+        return store.dispatch(actions.likeComment()).then(() => {
+          expect(store.getActions()).toEqual([]);
+        })
+      });
+
   });
 
 });

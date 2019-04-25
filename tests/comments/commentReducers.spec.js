@@ -8,6 +8,7 @@ describe('comment reducers', () => {
       commentPosted: false,
       commentUpdated: false,
       commentDeleted: false,
+      commentLiked: false,
       comments: [],
     });
   });
@@ -53,6 +54,17 @@ describe('comment reducers', () => {
       })
     ).toEqual({
       commentDeleted: true,
+    });
+  });
+
+  it('should like a comment', () => {
+    expect(
+      commentReducer([], {
+        type: types.LIKE_COMMENT,
+        payload: true,
+      })
+    ).toEqual({
+      commentLiked: true,
     });
   });
 

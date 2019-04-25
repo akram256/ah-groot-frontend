@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { updateComment, deleteComment } from '../../actions/commentAction';
+import {
+  updateComment,
+  deleteComment,
+  likeComment,
+} from '../../actions/commentAction';
 import CommentEditForm from '../../components/comments/CommentEditForm';
 import ConfirmDeleteComment from '../../components/comments/ConfirmDeleteComment';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 export class Comment extends Component {
   constructor(props) {
@@ -37,7 +42,7 @@ export class Comment extends Component {
   };
 
   getDateCreated = () => {
-    return `${new Date(this.props.createdAt).toLocaleDateString()} at ${new Date(this.props.createdAt).toLocaleTimeString()}`;
+    return `${moment(`${new Date(this.props.createdAt)}`).fromNow()}`;
   };
 
   deleteComment = () => {
@@ -45,26 +50,48 @@ export class Comment extends Component {
     this.props.deleteComment(this.props.id, this.props.slug);
   };
 
+  likeComment = () => {
+    this.props.likeComment(this.props.id, this.props.slug);
+  };
+
   render() {
     return (
       <div className="comment-container">
-        <div className="comment-owner">{this.props.user}</div>
+        <div className="comment-owner">
+          {this.props.user} <span className="commented">commented: </span>
+        </div>
         <div className="comment-timestamp">{this.getDateCreated()}</div>
-        <span>
+        {this.props.user === sessionStorage.user ? (
+          <div>
+            <span>
+              <i
+                className="small material-icons right comment-edit one"
+                onClick={this.toggleConfirmDelete}
+              >
+                delete
+              </i>
+            </span>
+            <span>
+              <i
+                className="small material-icons right comment-edit two"
+                onClick={this.toggleEditForm}
+              >
+                edit
+              </i>
+            </span>
+          </div>
+        ) : (
+          <div />
+        )}
+
+        <span className="right">
           <i
-            className="small material-icons right comment-edit one"
-            onClick={this.toggleConfirmDelete}
+            className="small material-icons comment-edit three"
+            onClick={this.likeComment}
           >
-            delete
+            thumb_up
           </i>
-        </span>
-        <span>
-          <i
-            className="small material-icons right comment-edit two"
-            onClick={this.toggleEditForm}
-          >
-            edit
-          </i>
+          <span className="comment-like-count">{this.props.likes}</span>
         </span>
         <div className="comment-body card-panel">
           <div className="comment-body">{this.props.body}</div>
@@ -105,6 +132,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   updateComment,
   deleteComment,
+  likeComment,
 };
 
 export default connect(

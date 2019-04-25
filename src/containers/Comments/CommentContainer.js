@@ -37,15 +37,15 @@ export class CommentContainer extends Component {
   render() {
     return (
       <div className="comments">
-          <div>
-            <CommentsPanel
-              comments={this.props.comments}
-              slug={this.props.slug}
-              getComments={this.props.getComments}
-            />
-          </div>
+        <div>
+          <CommentsPanel
+            comments={this.props.comments}
+            slug={this.props.slug}
+            getComments={this.props.getComments}
+          />
+        </div>
 
-        <button className="waves-effect btn" onClick={this.toggleCommentForm}>
+        <button className="btn comment-add" onClick={this.toggleCommentForm}>
           Add Comment
         </button>
 

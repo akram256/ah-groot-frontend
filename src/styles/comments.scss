@@ -1,13 +1,13 @@
 $primary-color: #040a47;
 
+.section.comments.card {
+  transition: none !important;
+}
+
 p.comments-title {
   font-weight: bold;
   font-size: 16px;
   padding-top: 10px;
-}
-
-hr.comment-title-divider {
-  border-top: 1px solid rgb(206, 206, 206);
 }
 
 div.comments .btn {
@@ -17,7 +17,7 @@ div.comments .btn {
 }
 
 div.comment-container {
-  margin: 10px;
+  margin: 20px;
   padding: 15px 80px 15px 80px;
   border-bottom: 1px solid rgb(206, 206, 206);
 }
@@ -34,14 +34,37 @@ div.comment-container {
 
 i.comment-edit {
   cursor: pointer;
-  color: rgb(179, 179, 179);
+  color: rgb(153, 153, 153);
+}
+
+span.commented {
+  color: rgb(153, 153, 153);
+  font-weight: normal;
+}
+
+span.comment-like-count {
+  color:rgb(153, 153, 153);
+  font-size: 25px;
+  position: relative;
+  margin-top: -10px !important;
+  display: inline-block;
+}
+
+button.btn.comment-add {
+  margin: 0px;
+}
+
+button.comment-like {
+  background-color: $primary-color;
 }
 
 div.comment-body.card-panel {
   box-shadow: none !important;
 }
 
-div.comment-create-form, div.comment-edit-form, div.comment-delete {
+div.comment-create-form,
+div.comment-edit-form,
+div.comment-delete {
   margin-bottom: 20px;
 
   .btn.cancel {
@@ -61,11 +84,8 @@ div.comment-delete {
 }
 
 @media screen and (max-width: 720px) {
-
   div.comment-container {
     margin: 5px;
     padding: 10px;
   }
-
 }
-
