@@ -28,7 +28,8 @@ export class AllArticleView extends Component {
             <span className="card-title truncate">{title}</span>
             <span className="card-description truncate">{description}</span>
             <div className="meta-data">
-            <div className="article-author">By {user}</div>
+            {/* <div className="article-author">By {user}</div> */}
+            <div>By <span className="by-user">{user}</span></div>
             <div className="reading-time">{reading_time}</div>
             </div>
           </div>

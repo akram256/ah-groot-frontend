@@ -30,6 +30,8 @@ export class SingleArticleView extends Component {
       category: {},
       tagList: [],
       average_rating: 0,
+      read_stats: 0,
+      author: {}
     };
   }
 
@@ -60,6 +62,8 @@ export class SingleArticleView extends Component {
         likes,
         dislikes,
         average_rating,
+        read_stats,
+        author
       } = props.editArticle;
       this.setState({
         description,
@@ -70,6 +74,8 @@ export class SingleArticleView extends Component {
         likes,
         dislikes,
         average_rating,
+        read_stats,
+        author
       });
     }
   }
@@ -82,41 +88,48 @@ export class SingleArticleView extends Component {
 
     return (
       <div>
-        <InnerHeader />
-        <div className="container">
-          <div className="row">
-            <h2>{this.state.title}</h2>
-            <h5 className="view-article-description">{this.state.description} </h5>
-            <div className="category">
-              Category:
-              <span className="chip">{this.state.category.name}</span>
-            </div>
-            <div>
-              Tags:
-              {this.state.tagList.length > 0 ? (
-                this.state.tagList.map(item => {
-                  return (
-                    <div key={item} className="chip">
-                      {item}
-                    </div>
-                  );
-                })
+        <div>
+          <InnerHeader />
+          <div className="container">
+            <div className="row">
+              <h2>{this.state.title}</h2>
+              <h5 className="view-article-description">
+                {this.state.description}{' '}
+              </h5>
+              <div className="category">
+                Category:
+                <span className="chip">{this.state.category.name}</span>
+              </div>
+              <div>
+                Tags:
+                {this.state.tagList.length > 0 ? (
+                  this.state.tagList.map(item => {
+                    return (
+                      <div key={item} className="chip">
+                        {item}
+                      </div>
+                    );
+                  })
+                ) : (
+                  <span />
+                )}
+              </div>
+              {this.state.author.user === sessionStorage.user ? (
+                <p className="read-stats">This article has been read: {this.state.read_stats} times</p>
               ) : (
-                <span />
+                <div />
               )}
             </div>
-          </div>
-          <div className="col s12 read">
-            <ReactQuill
-              className="editor"
-              readOnly={true}
-              theme="bubble"
-              value={this.state.body}
-              format={formats}
-              modules={modules}
-            />
+            <div className="col s12 read">
+              <ReactQuill
+                className="editor"
+                readOnly={true}
+                theme="bubble"
+                value={this.state.body}
+                format={formats}
+                modules={modules}
+              />
 
-            {sessionStorage.token ? (
               <div className="card-action">
                 <label className="outter">
                   <button
@@ -154,9 +167,7 @@ export class SingleArticleView extends Component {
                   <BookmarkButton slug={this.props.match.params.slug} />
                 </label>
               </div>
-            ) : (
-              <span />
-            )}
+
             {sessionStorage.token ? (
               <CommentContainer slug={this.props.match.params.slug} />
             ) : (
@@ -164,6 +175,7 @@ export class SingleArticleView extends Component {
             )}
           </div>
         </div>
+      </div>
       </div>
     );
   }

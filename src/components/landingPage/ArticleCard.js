@@ -32,7 +32,7 @@ export class ArticleCard extends Component {
               {sanitizeHtml(body, { allowedTags: [], allowedAttributes: {} })}
             </div>
           </div>
-          <div className="card-action">
+          <div className="card-action all-article-details">
             <div>
               published by {author} {timeAgo}
             </div>
