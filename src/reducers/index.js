@@ -49,4 +49,6 @@ export default combineReducers({
   // ratingReducer
   ratingReducer,
   reportingReducer,
+  paginateArticles,
+  firstArticles
 });
