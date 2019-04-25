@@ -16,8 +16,9 @@ const UpdateProfileForm = (props) => {
       <form>
         <div className="file-field">
         <label htmlFor="file">
-          <img className="circle responsive-img update-image" src={image} />
+          <button className="btn">UPLOAD</button>
         </label>
+        <img className="circle responsive-img update-image" src={image} />
         <input id="file" onChange={picChange} value={picture} className="file-field input-field" type="file" name="pic" accept="image/*"/> 
         </div> 
         <div className="row">

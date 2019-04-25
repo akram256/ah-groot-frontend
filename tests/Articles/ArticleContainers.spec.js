@@ -30,9 +30,42 @@ describe('All Article container:', () => {
     it('ArticleFeed should render without crashing', () => {
     const wrapper = shallow(<DumpArticleFeed
     allArticles ={data.article.articles.results}
+    firstArticles ={[]}
+    paginateArticles = {[]}
     getAllArticles={()=>jest.fn()}
+    fetchOriginal={()=>jest.fn()}
      />);
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('ArticleFeed should fetch data', () => {
+    const wrapper = shallow(<DumpArticleFeed
+    allArticles ={data.article.articles.results}
+    firstArticles ={[]}
+    paginateArticles = {[]}
+    getAllArticles={()=>jest.fn()}
+    fetchOriginal={()=>jest.fn()}
+    fetchNext = {()=>jest.fn()}
+     />);
+     const event = {
+      preventDefault : jest.fn(),
+    }
+    wrapper.instance().fetchData(event)
+  });
+
+  it('ArticleFeed should fetch next', () => {
+    const wrapper = shallow(<DumpArticleFeed
+    allArticles ={data.article.articles.results}
+    firstArticles ={[]}
+    paginateArticles = {[]}
+    getAllArticles={()=>jest.fn()}
+    fetchOriginal={()=>jest.fn()}
+    fetchNext = {()=>jest.fn()}
+     />);
+     const event = {
+      preventDefault : jest.fn(),
+    }
+    wrapper.instance().fetchPrevious(event)
   });
 
   it('ArticleFeed should mount without crashing', () => {

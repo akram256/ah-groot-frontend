@@ -7,7 +7,7 @@ import socialauthReducer from './SocialAuth/SocialAuthReducers'
 import getAllCategories from './GetAllCategories';
 import TagReducer from './GetTags';
 import { articleReducer, userArticleReducer, publishedArticles,
-  singleUserArticle , allUserArticles, postArticle
+  singleUserArticle , allUserArticles, postArticle, paginateArticles, firstArticles
 } from './ArticleReducer';
 import CreateArticleReducer from './CreateArticle';
 import commentReducer from './commentReducer';
@@ -36,4 +36,6 @@ export default combineReducers({
   retrieveProfile,
   ratingReducer,
   reportingReducer,
+  paginateArticles,
+  firstArticles
 });

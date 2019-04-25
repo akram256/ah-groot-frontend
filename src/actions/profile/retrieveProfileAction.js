@@ -15,9 +15,6 @@ const retrieveProfileAction = () => {
           payload: data,
         });
       })
-      // .catch(function(error) {
-      //   return;
-      // });
   };
 };
 

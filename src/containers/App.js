@@ -9,7 +9,6 @@ import ViewArticle from '../containers/Articles/ViewArticlePage';
 import UpdateArticle from '../containers/Articles/EditArticle';
 import ArticleFeed from '../containers/Articles/ArticleFeed';
 import SingleArticleView from '../containers/Articles/SingleArticleView';
-// import ProfileContainer from '../containers/profile/Profile';
 
 import '../styles/App.scss';
 import 'materialize-css/dist/css/materialize.min.css';

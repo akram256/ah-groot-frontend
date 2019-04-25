@@ -57,7 +57,6 @@ export class ProfileContainer extends Component {
         /* istanbul ignore next */
     picChange = (event) => {
       const file=event.target.files[0]
-      // this.setState({image:file})
       return this.handleUpload(file);
     }
     
