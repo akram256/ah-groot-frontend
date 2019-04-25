@@ -47,6 +47,7 @@ export class SingleArticleView extends Component {
     this.props.likearticle(slug);
   }
   handlefollow = (user, hasFollowed) => {
+      /* istanbul ignore next */
     hasFollowed ? this.props.unfollowuser(user) : this.props.followuser(user)
   }
 
@@ -69,11 +70,12 @@ export class SingleArticleView extends Component {
 
   }
   handlefollowers = (user) => {
+      /* istanbul ignore next */
     this.props.followerlist(user)
       }
 
   componentDidMount() {
-
+      /* istanbul ignore next */
     document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.modal');
       Modal.init(elems);
@@ -85,31 +87,10 @@ export class SingleArticleView extends Component {
   }
 
   componentWillReceiveProps(props) {
+      /* istanbul ignore next */
     if (props.editArticle.hasOwnProperty('title')) {
-      const {
-        description,
-        title,
-        tagList,
-        category,
-        body,
-        likes,
-        dislikes,
-        average_rating,
-        read_stats,
-        author
-      } = props.editArticle;
-      this.setState({
-        description,
-        title,
-        tagList,
-        category,
-        body,
-        likes,
-        dislikes,
-        average_rating,
-        read_stats,
-        author
-      });
+      const { description, title, tagList, category, body, likes, dislikes, author, average_rating, read_stats} = props.editArticle;
+      this.setState({ description, title, tagList, category, body, likes, dislikes, author,  average_rating,  read_stats});
       if (this.state.title === "") this.props.followerlist(author.user)
     }
   }
@@ -124,67 +105,32 @@ export class SingleArticleView extends Component {
     const { handlelike, handledislike } = this.props;
     console.log(this.state.author.user)
     return (
-      <div>
-        <InnerHeader />
-        <div className="container">
-          <div className="row">
-            <h2>{this.state.title}</h2>
-            <h5 className="view-article-description">{this.state.description} </h5>
-            <div className="category">
-              Category:
-              <span className="chip">{this.state.category.name}</span>
-            </div>
-            {this.state.author.user === sessionStorage.user ? (
-                <p className="read-stats">This article has been read: {this.state.read_stats} times</p>
-              ) : (
-                <div />
-              )}
-
-            <div className="col s12 read">
-              <ReactQuill
-                className="editor"
-                readOnly={true}
-                theme="bubble"
-                value={this.state.body}
-                format={formats}
-                modules={modules}
-              />
-
-              <div className="card-action">
-                <label className="outter">
-                  <button
-                    slug={this.props.match.params.slug}
-                    className="material-icons like"
-                    onClick={event => {
-                      const slug = event.currentTarget.getAttribute('slug');
-                      this.handlelike(slug);
-                    }}
-                  >
-                    thumb_up
-                  </button>
-                  <span className="votes">{this.state.likes}</span>
-                </label>
-                <label className="outter">
-                  <button slug={this.props.match.params.slug} className="material-icons like" onClick={(event) => {
-                    const slug = event.currentTarget.getAttribute('slug'); this.handledislike(slug)
-                                   }}>thumb_down</button><span className="votes">{this.state.dislikes}</span>
-
-                  </label>
-                  <label className="outter majorReportbtn"><ReportingContainer slug={this.props.match.params.slug} /></label>
-                  <label className="outter rater"><RatingContainer slug={this.props.match.params.slug} /></label>
-               
-                <label className="outter majorReportbtn">
-                  <ReportingContainer slug={this.props.match.params.slug} />
-                </label>
-                <label className="outter majorReportbtn">
-                  <ReportingContainer slug={this.props.match.params.slug} />
-                </label>
-                <label className="outter rater">
-                  <RatingContainer slug={this.props.match.params.slug} />
-                </label>
-                <label className="bookmark button">
-                  <BookmarkButton slug={this.props.match.params.slug} />
-                </label>
+      
+        <div>
+          <InnerHeader />
+          <div className="container">
+            <div className="row">
+              <h2>{this.state.title}</h2>
+              <h5 className="view-article-description">
+                {this.state.description}{' '}
+              </h5>
+              <div className="category">
+                Category:
+                <span className="chip">{this.state.category.name}</span>
+              </div>
+              <div>
+                Tags:
+                {this.state.tagList.length > 0 ? (
+                  this.state.tagList.map(item => {
+                    return (
+                      <div key={item} className="chip">
+                        {item}
+                      </div>
+                    );
+                  })
+                ) : (
+                  <span />
+                )}
               </div>
               <div id="modal1" className="modal">
                 <div className="modal-content">
@@ -214,6 +160,59 @@ export class SingleArticleView extends Component {
               <a className="waves-effect waves-light  modal-trigger" href="#modal1" >By {this.state.author.user}</a>
 
             </div>
+              {this.state.author.user === sessionStorage.user ? (
+                <p className="read-stats">This article has been read: {this.state.read_stats} times</p>
+              ) : (
+                <div />
+              )}
+            
+          {/* </div> */}
+          
+          <div className="col s12 read">
+            <ReactQuill
+              className="editor"
+              readOnly={true}
+              theme="bubble"
+              value={this.state.body}
+              format={formats}
+              modules={modules}
+            />
+
+            {sessionStorage.token ? (
+                
+              <div className="card-action">
+                <label className="outter">
+                  <button
+                    slug={this.props.match.params.slug}
+                    className="material-icons like"
+                    onClick={event => {
+                      const slug = event.currentTarget.getAttribute('slug');
+                      this.handlelike(slug);
+                    }}
+                  >
+                    thumb_up
+                  </button>
+                  <span className="votes">{this.state.likes}</span>
+                </label>
+                <label className="outter">
+                  <button slug={this.props.match.params.slug} className="material-icons like" onClick={(event) => {
+                    const slug = event.currentTarget.getAttribute('slug'); this.handledislike(slug)
+                                   }}>thumb_down</button><span className="votes">{this.state.dislikes}</span>
+
+                  </label>
+               
+                <label className="outter majorReportbtn">
+                  <ReportingContainer slug={this.props.match.params.slug} />
+                </label>
+            
+                <label className="outter rater">
+                  <RatingContainer slug={this.props.match.params.slug} />
+                </label>
+                <label className="bookmark button">
+                  <BookmarkButton slug={this.props.match.params.slug} />
+                </label>
+              </div>
+          
             ) : (
               <span />
             )}
@@ -223,9 +222,9 @@ export class SingleArticleView extends Component {
               <span />
             )}
           </div>
-
+          </div>
         </div>
-        </div>
+       
    
     );
   }

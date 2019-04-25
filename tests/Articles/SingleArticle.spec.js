@@ -6,10 +6,11 @@ import { Provider } from 'react-redux';
 import moxios from 'moxios';
 import fetchMock from 'fetch-mock';
 
-import SingleArticleView, {
+import SingleArticleView,{
   SingleArticleView as DumpSingleArticleView,
 } from '../../src/containers/Articles/SingleArticleView';
 import data from '../landing_page/maxios_mock';
+import followReducer from '../../src/reducers/profile/followuserReducer';
 
 describe('Single article ', () => {
   const initialState = {
@@ -53,26 +54,6 @@ describe('Single article ', () => {
       {...props}
     />
   );
-
-  it('should render without crashing', () => {
-    expect(wrapperarticle).toMatchSnapshot();
-  });
-
-    it('should call on click functions', () => {
-        const wrapper = shallow(
-            <DumpSingleArticleView
-            getSingleleUserArticle={() => jest.fn()}
-              setTitle={() => jest.fn()}
-              match={{
-                params: {
-                  slug: 'hdhgd-djh',
-                },
-              }}
-            />
-        );
-      wrapper.instance().componentWillReceiveProps({editArticle: data.article.articles.results[0]});
-      expect(wrapper).toMatchSnapshot();
-    });
   it('should call on click functions', () => {
 
     wrapperarticle.instance().componentWillReceiveProps({ editArticle: data.article.articles.results[0] });
@@ -91,15 +72,14 @@ describe('Single article ', () => {
    const wrapper = shallow(
       <Provider store={store}>
         <SingleArticleView
+        followReducer
           {...props}
-        />
+         />
       </Provider>);
     global.document.getSelection = function () { }
 
     expect(wrapper).toMatchSnapshot();
     console.log(wrapper)
-    // wrapper.find('button.material-icons.like').first().simulate('click');
-    // wrapper.find('button.material-icons.like').last().simulate('click');
   });
   
 

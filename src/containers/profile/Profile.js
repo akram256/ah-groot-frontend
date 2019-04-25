@@ -81,6 +81,7 @@ export class ProfileContainer extends Component {
           
         },  
         () => {
+            /* istanbul ignore next */
           storage.ref("images")
             .child(image.name)
             .getDownloadURL()

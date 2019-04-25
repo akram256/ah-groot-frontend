@@ -15,7 +15,9 @@ module.exports = {
     "/node_modules/",
     "<rootDir>/ignore-css.js",
     "<rootDir>/tests/maxios_mock.js",
-    "<rootDir>/tests/helpers/"
+    "<rootDir>/tests/Article/SingleArticle.js",
+    "<rootDir>/tests/helpers/",
+    "<rootDir>/src/components/profile/retrieveProfile.js",
   ],
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
