@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ArticleCard should render without crashing 1`] = `ShallowWrapper {}`;
+
+exports[`ArticleCard should respond to click events 1`] = `ShallowWrapper {}`;

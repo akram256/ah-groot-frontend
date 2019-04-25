@@ -38,12 +38,6 @@ div.tabs-content.carousel.carousel-slider::-webkit-scrollbar-thumb {
   );
 }
 
-.row .col.s12 {
-  text-align: unset !important;
-  font-size: inherit !important;
-  padding-left: 5px !important;
-  padding-right: 5px !important;
-}
 #root > div > div > div.container {
   > div.center {
     font-size: x-large;
@@ -132,6 +126,7 @@ div.tabs-content.carousel.carousel-slider::-webkit-scrollbar-thumb {
 .delete-artilce {
   color: red;
 }
+
 .edit-artilce:hover,
 .delete-artilce:hover {
   cursor: pointer;

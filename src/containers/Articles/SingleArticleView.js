@@ -7,7 +7,7 @@ import InnerHeader from '../../components/landingPage/InnerHeader';
 import CommentContainer from '../../containers/Comments/CommentContainer';
 import RatingContainer from '../../containers/RatingContainer';
 import ReportingContainer from '../../containers/report/ReportingContainer';
-import dislikearticle from '../../actions/DislikeAction'
+import dislikearticle from '../../actions/DislikeAction';
 import BookmarkButton from '../../containers/Bookmark/BookmarkButton';
 
 import likearticle from '../../actions/LikeAction';
@@ -30,18 +30,18 @@ export class SingleArticleView extends Component {
       category: {},
       tagList: [],
       average_rating: 0,
-    }
+    };
   }
 
-   /* istanbul ignore next */
+  /* istanbul ignore next */
   handlelike = slug => {
-     /* istanbul ignore next */
+    /* istanbul ignore next */
     this.props.likearticle(slug);
   };
 
-   /* istanbul ignore next */
+  /* istanbul ignore next */
   handledislike = slug => {
-     /* istanbul ignore next */
+    /* istanbul ignore next */
     this.props.dislikearticle(slug);
   };
 
@@ -51,126 +51,119 @@ export class SingleArticleView extends Component {
 
   componentWillReceiveProps(props) {
     if (props.editArticle.hasOwnProperty('title')) {
-      const { description, title, tagList, category, body, likes, dislikes, average_rating } = props.editArticle;
-      this.setState({ description, title, tagList, category, body, likes, dislikes, average_rating });
-    };
+      const {
+        description,
+        title,
+        tagList,
+        category,
+        body,
+        likes,
+        dislikes,
+        average_rating,
+      } = props.editArticle;
+      this.setState({
+        description,
+        title,
+        tagList,
+        category,
+        body,
+        likes,
+        dislikes,
+        average_rating,
+      });
     }
+  }
 
-/* istanbul ignore next */
+  /* istanbul ignore next */
   render() {
     const { handlelike, handledislike } = this.props;
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems);
 
     return (
-        <div>
-          <InnerHeader />
-          <div className="container">
-            <div className="row">
-              <h2>{this.state.title}</h2>
-              <h5 className="view-article-description">
-                {this.state.description}{' '}
-              </h5>
-              <div className="category">
-                Category:
-                <span className="chip">{this.state.category.name}</span>
-              </div>
-              <div>
-                Tags:
-                {this.state.tagList.length > 0 ? (
-                  this.state.tagList.map(item => {
-                    return (
-                      <div key={item} className="chip">
-                        {item}
-                      </div>
-                    );
-                  })
-                ) : (
-                  <span />
-                )}
-              </div>
+      <div>
+        <InnerHeader />
+        <div className="container">
+          <div className="row">
+            <h2>{this.state.title}</h2>
+            <h5 className="view-article-description">
+              {this.state.description}{' '}
+            </h5>
+            <div className="category">
+              Category:
+              <span className="chip">{this.state.category.name}</span>
             </div>
-            <div className="col s12 read">
-              <ReactQuill
+            <div>
+              Tags:
+              {this.state.tagList.length > 0 ? (
+                this.state.tagList.map(item => {
+                  return (
+                    <div key={item} className="chip">
+                      {item}
+                    </div>
+                  );
+                })
+              ) : (
+                <span />
+              )}
+            </div>
+          </div>
+          <div className="col s12 read">
+            <ReactQuill
               className="editor"
               readOnly={true}
-              theme='bubble'
+              theme="bubble"
               value={this.state.body}
               format={formats}
-              modules={modules} />
+              modules={modules}
+            />
 
             <div className="card-action">
-                  <label className="outter">
-                  <button slug={this.props.match.params.slug} className="material-icons like" onClick={(event) => {
+              <label className="outter">
+                <button
+                  slug={this.props.match.params.slug}
+                  className="material-icons like"
+                  onClick={event => {
                     const slug = event.currentTarget.getAttribute('slug');
-                    this.handlelike(slug)
-                  }
-                  }>thumb_up</button><span className="votes">{this.state.likes}</span>
-                  </label>
-                  <label className="outter">
-                  <button slug={this.props.match.params.slug} className="material-icons like" onClick={(event) => {
-                    const slug = event.currentTarget.getAttribute('slug'); this.handledislike(slug)
-                                   }}>thumb_down</button><span className="votes">{this.state.dislikes}</span>
-
-                  </label>
-                  <label className="outter majorReportbtn"><ReportingContainer slug={this.props.match.params.slug} /></label>
-                  <label className="outter rater"><RatingContainer slug={this.props.match.params.slug} /></label>
-                className="editor"
-                readOnly={true}
-                theme="bubble"
-                value={this.state.body}
-                format={formats}
-                modules={modules}
-              />
-              <div className="card-action">
-                <label className="outter">
-                  <button
-                    slug={this.props.match.params.slug}
-                    className="material-icons like"
-                    onClick={event => {
-                      const slug = event.currentTarget.getAttribute('slug');
-                      this.handlelike(slug);
-                    }}
-                  >
-                    thumb_up
-                  </button>
-                  <span className="votes">{this.state.likes}</span>
-                </label>
-                <label className="outter">
-                  <button
-                    slug={this.props.match.params.slug}
-                    className="material-icons like"
-                    onClick={event => {
-                      const slug = event.currentTarget.getAttribute('slug');
-                      this.handledislike(slug);
-                    }}
-                  >
-                    thumb_down
-                  </button>
-                  <span className="votes">{this.state.dislikes}</span>
-                </label>
-                <label className="bookmark button">
-                    <BookmarkButton slug={this.props.match.params.slug}/>
-                </label>
-                <label className="outter rater"><RatingContainer slug={this.props.match.params.slug} />
-                  </label>
-                  <label className="outter rateStar">
-                  <span className="rating-digit">{ this.state.average_rating }</span>
-                  <i className="material-icons small">star</i>
-                  </label>
-
-
-              </div>
-              <CommentContainer slug={this.props.match.params.slug} />
+                    this.handlelike(slug);
+                  }}
+                >
+                  thumb_up
+                </button>
+                <span className="votes">{this.state.likes}</span>
+              </label>
+              <label className="outter">
+                <button
+                  slug={this.props.match.params.slug}
+                  className="material-icons like"
+                  onClick={event => {
+                    const slug = event.currentTarget.getAttribute('slug');
+                    this.handledislike(slug);
+                  }}
+                >
+                  thumb_down
+                </button>
+                <span className="votes">{this.state.dislikes}</span>
+              </label>
+              <label className="outter majorReportbtn">
+                <ReportingContainer slug={this.props.match.params.slug} />
+              </label>
+              <label className="outter rater">
+                <RatingContainer slug={this.props.match.params.slug} />
+              </label>
+              <label className="bookmark button">
+                <BookmarkButton slug={this.props.match.params.slug} />
+              </label>
+            </div>
+            <CommentContainer slug={this.props.match.params.slug} />
           </div>
         </div>
-      </div>
       </div>
     );
   }
 }
 
- /* istanbul ignore next */
+/* istanbul ignore next */
 const mapStateToProps = state => {
   /* istanbul ignore next */
   return {
