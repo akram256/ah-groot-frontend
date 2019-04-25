@@ -98,6 +98,7 @@ export class ArticleFeed extends Component {
                         slug={element.slug}
                         average_rating={element.average_rating}
                         user={element.author.user}
+                        reading_time={element.reading_time}
                       />
                     );
                   })
@@ -110,6 +111,7 @@ export class ArticleFeed extends Component {
                         slug={element.slug}
                         average_rating={element.average_rating}
                         user={element.author.user}
+                        reading_time={element.reading_time}
                       />
                     );
                   })}

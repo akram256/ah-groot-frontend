@@ -13,7 +13,9 @@ div.container > div.row {
       position: relative;
     }
     > div {
-      > div.select__control.select__control--is-focused > div.css-1wy0on6.select__indicators > span {
+      > div.select__control.select__control--is-focused
+        > div.css-1wy0on6.select__indicators
+        > span {
         display: none;
       }
       > input {
@@ -31,31 +33,31 @@ div.container > div.row {
       > div.select__control.select__control--is-disabled {
         background-color: white;
         border-color: white;
-        > div.select__indicators{
+        > div.select__indicators {
           > span {
           }
-          > div.select__indicator.select__dropdown-indicator{
+          > div.select__indicator.select__dropdown-indicator {
             display: none;
           }
         }
-
       }
       > div.select__control {
         border-radius: unset;
         border-style: unset;
         border-bottom-style: solid;
         border-width: 2px;
-        > div.select__value-container.select__value-container--is-multi{
+        > div.select__value-container.select__value-container--is-multi {
           padding: unset;
         }
-
       }
       > div.select__control.select__control--is-focused.select__control--menu-is-open {
         border-radius: unset;
         border-style: unset;
         border-bottom-style: solid;
       }
-      > div.select__control.select__control--is-focused.select__control--menu-is-open > div.css-1wy0on6.select__indicators > span {
+      > div.select__control.select__control--is-focused.select__control--menu-is-open
+        > div.css-1wy0on6.select__indicators
+        > span {
         display: none;
       }
       > div.select__control.select__control--is-focused {
@@ -116,42 +118,51 @@ div.container > div.row {
     > label {
       margin-top: -29px;
     }
-      > div.themeSwitcher {
-        text-align: -webkit-auto;
+    > div.themeSwitcher {
+      text-align: -webkit-auto;
+      font-size: medium;
+      padding-top: 20px;
+      > span {
         font-size: medium;
-        padding-top: 20px;
-        > span {
-          font-size: medium;
-          padding-right: 10px;
-        }
-        > div.switch > span{
-            padding-right: 10px;
-        }
+        padding-right: 10px;
       }
+      > div.switch > span {
+        padding-right: 10px;
+      }
+    }
 
-      > div.quill {
-        font-size: small;
-        > div.ql-toolbar.ql-snow {
-          border-top-left-radius: 0.5em;
-          border-top-right-radius: 0.5em;
-          border-bottom: none;
-        }
-        > div.ql-container.ql-snow {
-          min-height: 6em;
-          border-bottom-left-radius: 0.5em;
-          border-bottom-right-radius: 0.5em;
-        }
-        > div.ql-container.ql-bubble {
-          min-height: 8.9em;
-          border-bottom-left-radius: 0.5em;
-          border-bottom-right-radius: 0.5em;
-        }
-        > div.ql-container{
-          font-size: 14px;
-        }
+    > div.quill {
+      font-size: small;
+      > div.ql-toolbar.ql-snow {
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        border-bottom: none;
       }
+      > div.ql-container.ql-snow {
+        min-height: 6em;
+        border-bottom-left-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+      }
+      > div.ql-container.ql-bubble {
+        min-height: 8.9em;
+        border-bottom-left-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+      }
+      > div.ql-container {
+        font-size: 14px;
+      }
+    }
   }
 }
+
 .css-2o5izw:hover {
   border-color: #8f8c8c !important;
+}
+
+.meta-data {
+  display: inline-flex;
+}
+
+.reading-time {
+  padding-left: 50px;
 }
