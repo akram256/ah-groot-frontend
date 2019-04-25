@@ -144,3 +144,7 @@ div.tabs-content.carousel.carousel-slider::-webkit-scrollbar-thumb {
 #root > div > div > div.container.feed {
   width: 85%;
 }
+
+.bookmark-link:hover {
+color: $primary-color;
+}

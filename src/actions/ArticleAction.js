@@ -47,7 +47,7 @@ export const getUserArticle = () => {
   const email = JSON.parse(atob(sessionStorage.token.split('.')[1]))['email'];
   return dispatch => {
     return axios
-      .get(`${endPoints.postArticle}?email=${email}`)
+      .get(`${endPoints.postArticle}?email=${email}&is_published=False`)
       .then(function(response) {
         const data = response.data.articles.results;
         dispatch({
@@ -121,7 +121,7 @@ export const updateUserArticle = (slug, data) => {
     return axios
       .put(`${endPoints.singleArticle}${slug}/`, { article: data }, authHeader)
       .then(function(response) {
-        const data = response.data.article;
+        const data = response.data;
         if (response.status === 200) {
           M.toast({ html: 'SAVED', classes: 'green' });
         }

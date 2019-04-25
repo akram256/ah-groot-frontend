@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import AllArticleView from '../../components/articles/AllArticleView';
+import AllBookmarks from '../../containers/Bookmark/AllBookmarks';
 import { getAllArticles } from '../../actions/ArticleAction';
 import InnerHeader from '../../components/landingPage/InnerHeader';
 import ProfileContainer from '../profile/Profile';
@@ -42,20 +43,17 @@ export class ArticleFeed extends Component {
     this.props.fetchNext(localStorage.previous);
   };
 
-  // complete function ....
-  /* istanbul ignore next */
-  logout() {
+  logout=()=>{
     sessionStorage.clear();
-    window.location.href = '/';
+    /* istanbul ignore next */
+    window.location.href="/"
   }
 
-  // complete function ....
   /* istanbul ignore next */
   render() {
     return (
       <div>
         <InnerHeader logout={this.logout} />
-
         <div className="fixed-action-btn">
           <a className="btn-floating btn-large">
             <i className="large material-icons">more_horiz</i>
@@ -79,6 +77,7 @@ export class ArticleFeed extends Component {
             <div className="col s4">
               <ProfileContainer />
             </div>
+            <div className="col s5">
             <div>
               <button className="btn right" onClick={this.fetchData}>
                 Next
@@ -89,7 +88,6 @@ export class ArticleFeed extends Component {
                 Previous
               </button>
             </div>
-            <div className="col s8">
               {this.props.paginateArticles.length === 0
                 ? this.props.firstArticles.map(element => {
                     return (
@@ -115,9 +113,13 @@ export class ArticleFeed extends Component {
                       />
                     );
                   })}
-            </div>
           </div>
+          <div className='col s3'>
+                Bookmarks
+                <AllBookmarks/>
+            </div>
         </div>
+      </div>
       </div>
     );
   }
@@ -127,7 +129,6 @@ export const mapStateToProps = state => {
   return state;
 };
 
-// complete function ....
 /* istanbul ignore next */
 const mapDispatchToProps = dispatch => {
   return {

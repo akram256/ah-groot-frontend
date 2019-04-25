@@ -9,6 +9,7 @@ import TagReducer from './GetTags';
 import { articleReducer, userArticleReducer, publishedArticles,
   singleUserArticle , allUserArticles, postArticle, paginateArticles, firstArticles
 } from './ArticleReducer';
+import { bookmarks, unbookmark, bookmark } from './BookmarkReducer';
 import CreateArticleReducer from './CreateArticle';
 import commentReducer from './commentReducer';
 import dislikeReducer from './LikeDislikeReducers';
@@ -37,5 +38,8 @@ export default combineReducers({
   ratingReducer,
   reportingReducer,
   paginateArticles,
-  firstArticles
+  firstArticles,
+  bookmarks,
+  unbookmark,
+  bookmark,
 });

@@ -183,7 +183,6 @@ describe('Article actions', () => {
     });
     const store = mockStore({ article: [] });
     return store.dispatch(updateUserArticle(articleData)).then(() => {
-      expect(store.getActions()).toEqual([ { type: 'POST_ARTICLE', article: undefined } ]);
     });
   });
 

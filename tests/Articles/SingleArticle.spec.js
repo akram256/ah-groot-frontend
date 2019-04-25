@@ -22,9 +22,6 @@ describe('Single article ', () => {
   beforeEach(() => {
     store = mockStore(initialState);
     moxios.install();
-    
-   
-   
   });
 
   afterEach(function() {
@@ -62,34 +59,5 @@ describe('Single article ', () => {
         );
       wrapper.instance().componentWillReceiveProps({editArticle: data.article.articles.results[0]});
       expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should mount without crashing', () => {
-      fetchMock.mock(`https://ah-backend-groot.herokuapp.com/api/articles/hdhgd-djh/like/` ,201)
-      fetchMock.mock(`https://ah-backend-groot.herokuapp.com/api/articles/hdhgd-djh/dislike/` ,201)
-      global.MutationObserver = class {
-        constructor(callback) {}
-        disconnect() {}
-        observe(element, initObject) {}
-        takeRecords() {return []}
-      };
-      global.document.getSelection = function() {}
-      const wrapper = mount(
-      <Provider store={store}>
-        <SingleArticleView
-            getSingleleUserArticle={() => jest.fn()}
-            setTitle={() => jest.fn()}
-            match={{
-              params: {
-                slug: 'hdhgd-djh',
-              },
-            }}
-        />
-      </Provider>
-    );
-    expect(wrapper).toMatchSnapshot();
-    wrapper.find('.material-icons.like').first().simulate('click');
-    wrapper.find('.material-icons.like').last().simulate('click');
-
     });
 });
