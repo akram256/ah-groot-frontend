@@ -24,7 +24,7 @@ export class ArticleFeed extends Component {
     M.FloatingActionButton.init(elems, options);
     this.props.getAllArticles();
   }
-  
+
 
   // complete function ....
   /* istanbul ignore next */
@@ -32,17 +32,17 @@ export class ArticleFeed extends Component {
     sessionStorage.clear();
     window.location.href="/"
   }
-  
+
 
   // complete function ....
   /* istanbul ignore next */
   render() {
     return (
       <div>
-        <InnerHeader 
+        <InnerHeader
           logout = {this.logout}
         />
-        
+
         <div className="fixed-action-btn">
           <a className="btn-floating btn-large">
             <i className="large material-icons">more_horiz</i>
@@ -66,12 +66,11 @@ export class ArticleFeed extends Component {
           <div className="col s4">
               <ProfileContainer />
             </div>
-            
+
             <div className="col s8">
               {this.props.allArticles.length > 0 ? (
                 this.props.allArticles.map(element => {
                   return (
-                
                     <AllArticleView
                       key={element.slug}
                       title={element.title}
@@ -79,11 +78,9 @@ export class ArticleFeed extends Component {
                       slug={element.slug}
                       average_rating={element.average_rating}
                       user={element.author.user}
+                      reading_time={element.reading_time}
                     />
-                   
-                    
                   );
-                  
                 })
               ) : (
                 <span ></span>
@@ -107,7 +104,7 @@ const mapDispatchToProps = dispatch => {
     getAllArticles: function() {
       dispatch(getAllArticles());
     },
-   
+
   };
 };
 
