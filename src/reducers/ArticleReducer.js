@@ -25,6 +25,24 @@ export const  allUserArticles = (state = [], action) => {
   }
 };
 
+export const  paginateArticles = (state = [], action) => {
+  switch (action.type) {
+    case 'GET_NEXT':
+      return  action.articles
+    default:
+      return state;
+  }
+};
+
+export const  firstArticles = (state = [], action) => {
+  switch (action.type) {
+    case 'ORIGINAL':
+      return  action.articles
+    default:
+      return state;
+  }
+};
+
 
 export const  postArticle = (state = [], action) => {
   switch (action.type) {

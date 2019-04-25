@@ -7,6 +7,8 @@ import {
   publishedArticles,
   updatedArticle,
   singleUserArticle,
+  paginateArticles,
+  firstArticles
 } from '../../src/reducers/ArticleReducer';
 import getAllCategories from '../../src/reducers/GetAllCategories';
 import CreateArticleReducer from '../../src/reducers/CreateArticle';
@@ -29,6 +31,24 @@ describe('Article reducers ', () => {
       })
     ).toEqual([]);
   });
+
+  it('should handle pagination', () => {
+    expect(
+      paginateArticles([], {
+        type: 'GET_NEXT',
+        articles: [],
+      })
+    ).toEqual([]);
+  });  
+
+  it('should handle fetch articles', () => {
+    expect(
+      firstArticles([], {
+        type: 'ORIGINAL',
+        articles: [],
+      })
+    ).toEqual([]);
+  }); 
 
   it('should handle ALL ARTICLES', () => {
     expect(
