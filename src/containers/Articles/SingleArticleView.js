@@ -115,6 +115,7 @@ export class SingleArticleView extends Component {
   }
  
 
+    
 
   /* istanbul ignore next */
   render() {
