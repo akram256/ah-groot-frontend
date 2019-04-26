@@ -126,6 +126,7 @@ export class ArticleFeed extends Component {
             </div>
           </div>
           </div>
+          
         </div>
       </div>
       </div>

@@ -17,6 +17,9 @@ import dislikeReducer from './LikeDislikeReducers';
 import retrieveProfile from './profile/retrieveProfileReducer'
 import ratingReducer from './ratingReducer';
 import reportingReducer from './reportingReducer';
+import followReducer from '../reducers/profile/followuserReducer'
+// import ratingReducer from './ratingReducer';
+
 
 export default combineReducers({
   categories: getCategories,
@@ -35,6 +38,15 @@ export default combineReducers({
   comments: commentReducer,
   dislikeReducer,
   retrieveProfile,
+  ratingReducer,
+  reportingReducer,
+  paginateArticles,
+  firstArticles,
+  bookmarks,
+  unbookmark,
+  bookmark,
+  followReducer,
+  // ratingReducer
   ratingReducer,
   reportingReducer,
   paginateArticles,

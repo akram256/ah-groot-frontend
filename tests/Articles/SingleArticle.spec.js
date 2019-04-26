@@ -6,16 +6,35 @@ import { Provider } from 'react-redux';
 import moxios from 'moxios';
 import fetchMock from 'fetch-mock';
 
-import SingleArticleView, {
-    SingleArticleView as DumpSingleArticleView,
+import SingleArticleView,{
+  SingleArticleView as DumpSingleArticleView,
 } from '../../src/containers/Articles/SingleArticleView';
 import data from '../landing_page/maxios_mock';
+import followReducer from '../../src/reducers/profile/followuserReducer';
 
 describe('Single article ', () => {
   const initialState = {
     articles: data.article.articles.results,
-    comments: { comments: []},
+    comments: { comments: [] },
+    followers:{following:[]},
   };
+  const props = {
+    followers: {
+      following: ['mike']
+    },
+    hasfollowed:jest.fn(),
+    following:{
+      following:[]
+    },
+
+    getSingleleUserArticle: jest.fn(),
+    setTitle: jest.fn(),
+    match: {
+      params: {
+        slug: 'hdhgd-djh'
+      }
+    }
+  }
   const mockStore = configureStore([thunk]);
   let store;
 
@@ -24,40 +43,46 @@ describe('Single article ', () => {
     moxios.install();
   });
 
-  afterEach(function() {
+  afterEach(function () {
     moxios.uninstall();
     fetchMock.restore();
   });
 
-  it('should render without crashing', () => {
-    const wrapper = shallow(
-        <DumpSingleArticleView
-        getSingleleUserArticle={() => jest.fn()}
-          setTitle={() => jest.fn()}
-          match={{
-            params: {
-              slug: 'hdhgd-djh',
-            },
-          }}
-        />
-    );
+  const wrapperarticle = shallow(
+    
+    <DumpSingleArticleView
+      {...props}
+    />
+  );
+  it('should call on click functions', () => {
 
-    expect(wrapper).toMatchSnapshot();
+    wrapperarticle.instance().componentWillReceiveProps({ editArticle: data.article.articles.results[0] });
+    expect(wrapperarticle).toMatchSnapshot();
   });
 
-    it('should call on click functions', () => {
-        const wrapper = shallow(
-            <DumpSingleArticleView
-            getSingleleUserArticle={() => jest.fn()}
-              setTitle={() => jest.fn()}
-              match={{
-                params: {
-                  slug: 'hdhgd-djh',
-                },
-              }}
-            />
-        );
-      wrapper.instance().componentWillReceiveProps({editArticle: data.article.articles.results[0]});
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('should mount without crashing', () => {
+    fetchMock.mock(`https://ah-backend-groot.herokuapp.com/api/articles/hdhgd-djh/like/`, 201)
+    fetchMock.mock(`https://ah-backend-groot.herokuapp.com/api/articles/hdhgd-djh/dislike/`, 201)
+    global.MutationObserver = class {
+      constructor(callback) { }
+      disconnect() { }
+      observe(element, initObject) { }
+      takeRecords() { return [] }
+    };
+   const wrapper = shallow(
+      <Provider store={store}>
+        <SingleArticleView
+        followReducer
+          {...props}
+         />
+      </Provider>);
+    global.document.getSelection = function () { }
+
+    expect(wrapper).toMatchSnapshot();
+    console.log(wrapper)
+  });
+  
+
 });
+
+

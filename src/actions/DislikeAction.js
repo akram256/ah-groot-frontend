@@ -5,7 +5,7 @@ import { DISLIKE_ARTICLE_SUCCESS, DISLIKE_ARTICLE_FAILED } from './types'
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization':`Bearer ${localStorage.getItem('token')}`
+          'Authorization':`Bearer ${sessionStorage.getItem('token')}`
         },
       }).then(
         res => res.json(),

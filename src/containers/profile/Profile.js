@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 
 import retrieveProfileAction from '../../actions/profile/retrieveProfileAction';
 import RetrieveProfileComponent from '../../components/profile/retrieveProfile';
+import Footer from '../../components/landingPage/Footer';
+import Header from '../../components/landingPage/Header';
+import followuser from '../../actions/profile/followActions'
+import followerlist from '../../actions/profile/followersActions'
+import followinglist from '../../actions/profile/followingActions'
 import UpdateProfileModal from '../../components/profile/profileModal';
 import updateProfileAction from '../../actions/profile/updateProfileAction';
 import {storage} from '../../firebase/config';
@@ -13,17 +18,22 @@ export class ProfileContainer extends Component {
         super(props, { match });
        this.state = {
           open:false,
-          image:"https://res.cloudinary.com/dx0hz2ziy/image/upload/v1555995619/groot/download.png",
+          image:'',
+          user:'',
           bio:'',
           full_name:'',
           isUploading:false,
           progress:0
         };
+        this.componentDidMount = this.componentDidMount.bind(this);
       }
     
     componentDidMount() {
         this.props.getProfiles();
+        this.props.followerlist(sessionStorage.user);
+     
       }
+
   
     close = () => {
       this.setState({ open: false });
@@ -59,10 +69,8 @@ export class ProfileContainer extends Component {
       const file=event.target.files[0]
       return this.handleUpload(file);
     }
-    
-       // complete function ....
-        /* istanbul ignore next */   
-   handleUpload = (image) => {
+
+    handleUpload = (image) => {
       this.setState({isUploading:true});
       const uploadTask = storage.ref(`images/${image}`)
         .put(image);
@@ -71,10 +79,9 @@ export class ProfileContainer extends Component {
           let progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
           this.setState({ progress:progress });
           
-        },
-        // complete function ....
-        /* istanbul ignore next */   
+        },  
         () => {
+            /* istanbul ignore next */
           storage.ref("images")
             .child(image.name)
             .getDownloadURL()
@@ -88,6 +95,8 @@ export class ProfileContainer extends Component {
   render() {
     const {profile} = this.props
     sessionStorage.setItem('profile', profile.user)
+
+    console.log(this.props.followReducer);
     
     return (
       <div>
@@ -116,6 +125,9 @@ export class ProfileContainer extends Component {
               timestamp = {profile.timestamp}
               followers = {profile.follower_count}
               following = {profile.following_count}
+              follow = {profile.follow}
+              peepsIbeFollow= {this.props.followReducer}
+              handlefollowers={this.handlefollowers}
               image = {profile.image || "https://res.cloudinary.com/dx0hz2ziy/image/upload/v1555995619/groot/download.png"}
           />
       
@@ -128,6 +140,8 @@ export const mapStateToProps = state => ({
     profile: state.retrieveProfile.profile,
     errors: state.retrieveProfile.errors,
     loading: state.retrieveProfile.loading,
+    followReducer: state.followReducer.following
+   
   });
 
 
@@ -140,7 +154,12 @@ export const mapDispatchToProps = dispatch => ({
     updateProfile: (data) => {
       /* istanbul ignore next */ 
       dispatch(updateProfileAction(data));
-    }
+    },
+  
+     followerlist:(user) => {
+      dispatch(followerlist(user));
+    },
+    
   });
   
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
