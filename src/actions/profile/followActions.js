@@ -1,7 +1,8 @@
-import {LIKE_ARTICLE_SUCCESS,LIKE_ARTICLE_FAILED} from './types'
-
- const likearticle = slug =>(dispatch) => {
-      return fetch(`https://ah-backend-groot.herokuapp.com/api/articles/${slug}/like/`, {
+import { FOLLOW_SUCESS,FOLLOW_FAILURE} from '../types'
+ 
+ const followuser = user =>(dispatch) => {
+     console.log (user)
+      return fetch(`https://ah-backend-groot.herokuapp.com/api/profiles/${user}/follow/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -13,19 +14,19 @@ import {LIKE_ARTICLE_SUCCESS,LIKE_ARTICLE_FAILED} from './types'
         (data) => {
           if (data.errors) {
             dispatch({
-              type: LIKE_ARTICLE_FAILED,
+              type: FOLLOW_FAILURE,
               payload: data.errors,
             });
           } else {
             dispatch({
-              type: LIKE_ARTICLE_SUCCESS,
+              type: FOLLOW_SUCESS,
               payload: data,
             });
-
-            window.location.reload()
           }
+          window.location.reload()
         },
       )
     };
     
-    export default likearticle;
+    export default followuser;
+   

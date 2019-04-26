@@ -2,4 +2,6 @@
 
 exports[`Single article  should call on click functions 1`] = `ShallowWrapper {}`;
 
+exports[`Single article  should mount without crashing 1`] = `ShallowWrapper {}`;
+
 exports[`Single article  should render without crashing 1`] = `ShallowWrapper {}`;

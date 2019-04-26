@@ -32,9 +32,19 @@ div.comment-container {
   font-weight: bold;
 }
 
-i.comment-edit {
+i.comment-edit.one {
   cursor: pointer;
-  color: rgb(153, 153, 153);
+  color: red;
+}
+
+i.comment-edit.two {
+  cursor: pointer;
+  color: green;
+}
+
+i.comment-edit.three {
+  cursor: pointer;
+  color: $primary-color;
 }
 
 span.commented {
@@ -43,7 +53,7 @@ span.commented {
 }
 
 span.comment-like-count {
-  color:rgb(153, 153, 153);
+  color: $primary-color;
   font-size: 25px;
   position: relative;
   margin-top: -10px !important;

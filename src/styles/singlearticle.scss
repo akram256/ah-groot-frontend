@@ -4,7 +4,7 @@
 }
 
 .card-action {
-  margin: 0 0px 40px 0px;
+  margin: 0 0px 5px 0px;
 }
 
 .material-icons.like {
@@ -60,4 +60,8 @@
 }
 .chip {
   border-radius: 16px !important;
+}
+
+p.read-stats {
+    color: gray;
 }

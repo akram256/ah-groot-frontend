@@ -72,12 +72,12 @@ export class ArticleFeed extends Component {
           </ul>
         </div>
         <div className="container feed">
-          <div className="center">Your article feed</div>
+          <div className="center your-feed">Your article feed</div>
           <div className="row">
-            <div className="col s4">
+            <div className="col s3">
               <ProfileContainer />
             </div>
-            <div className="col s5">
+            <div className="col s6">
               {this.props.paginateArticles.length === 0
                 ? this.props.firstArticles.map(element => {
                     return (
