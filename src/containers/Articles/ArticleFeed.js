@@ -78,16 +78,6 @@ export class ArticleFeed extends Component {
               <ProfileContainer />
             </div>
             <div className="col s5">
-            <div>
-              <button className="btn right" onClick={this.fetchData}>
-                Next
-              </button>
-            </div>
-            <div>
-              <button className="btn left" onClick={this.fetchPrevious}>
-                Previous
-              </button>
-            </div>
               {this.props.paginateArticles.length === 0
                 ? this.props.firstArticles.map(element => {
                     return (
@@ -115,11 +105,27 @@ export class ArticleFeed extends Component {
                       />
                     );
                   })}
-          </div>
-          <div className='col s3'>
-                Bookmarks
-                <AllBookmarks/>
+                  <div>
+              <button className="btn right" onClick={this.fetchData}>
+                Next
+              </button>
             </div>
+            <div>
+              <button className="btn left" onClick={this.fetchPrevious}>
+                Previous
+              </button>
+            </div>
+          </div>
+          <div className="col s3">
+          <div className="card grey lighten-5 z-depth-1">
+            <div className="card-content">
+              <span className="card-title">Bookmarks</span>
+            </div>
+            <div className="card-action">
+            <AllBookmarks/>
+            </div>
+          </div>
+          </div>
         </div>
       </div>
       </div>

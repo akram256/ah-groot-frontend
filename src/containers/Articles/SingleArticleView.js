@@ -86,9 +86,7 @@ export class SingleArticleView extends Component {
         <div className="container">
           <div className="row">
             <h2>{this.state.title}</h2>
-            <h5 className="view-article-description">
-              {this.state.description}{' '}
-            </h5>
+            <h5 className="view-article-description">{this.state.description} </h5>
             <div className="category">
               Category:
               <span className="chip">{this.state.category.name}</span>
@@ -118,44 +116,52 @@ export class SingleArticleView extends Component {
               modules={modules}
             />
 
-            <div className="card-action">
-              <label className="outter">
-                <button
-                  slug={this.props.match.params.slug}
-                  className="material-icons like"
-                  onClick={event => {
-                    const slug = event.currentTarget.getAttribute('slug');
-                    this.handlelike(slug);
-                  }}
-                >
-                  thumb_up
-                </button>
-                <span className="votes">{this.state.likes}</span>
-              </label>
-              <label className="outter">
-                <button
-                  slug={this.props.match.params.slug}
-                  className="material-icons like"
-                  onClick={event => {
-                    const slug = event.currentTarget.getAttribute('slug');
-                    this.handledislike(slug);
-                  }}
-                >
-                  thumb_down
-                </button>
-                <span className="votes">{this.state.dislikes}</span>
-              </label>
-              <label className="outter majorReportbtn">
-                <ReportingContainer slug={this.props.match.params.slug} />
-              </label>
-              <label className="outter rater">
-                <RatingContainer slug={this.props.match.params.slug} />
-              </label>
-              <label className="bookmark button">
-                <BookmarkButton slug={this.props.match.params.slug} />
-              </label>
-            </div>
-            <CommentContainer slug={this.props.match.params.slug} />
+            {sessionStorage.token ? (
+              <div className="card-action">
+                <label className="outter">
+                  <button
+                    slug={this.props.match.params.slug}
+                    className="material-icons like"
+                    onClick={event => {
+                      const slug = event.currentTarget.getAttribute('slug');
+                      this.handlelike(slug);
+                    }}
+                  >
+                    thumb_up
+                  </button>
+                  <span className="votes">{this.state.likes}</span>
+                </label>
+                <label className="outter">
+                  <button
+                    slug={this.props.match.params.slug}
+                    className="material-icons like"
+                    onClick={event => {
+                      const slug = event.currentTarget.getAttribute('slug');
+                      this.handledislike(slug);
+                    }}
+                  >
+                    thumb_down
+                  </button>
+                  <span className="votes">{this.state.dislikes}</span>
+                </label>
+                <label className="outter majorReportbtn">
+                  <ReportingContainer slug={this.props.match.params.slug} />
+                </label>
+                <label className="outter rater">
+                  <RatingContainer slug={this.props.match.params.slug} />
+                </label>
+                <label className="bookmark button">
+                  <BookmarkButton slug={this.props.match.params.slug} />
+                </label>
+              </div>
+            ) : (
+              <span />
+            )}
+            {sessionStorage.token ? (
+              <CommentContainer slug={this.props.match.params.slug} />
+            ) : (
+              <span />
+            )}
           </div>
         </div>
       </div>
