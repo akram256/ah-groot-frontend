@@ -6,7 +6,7 @@ const Logout = (props) => {
         /* istanbul ignore next */
   return (
     <div>
-      <a href="#" onClick={() => logout()} className="new-user">Log out</a>
+      <a href="#" onClick={() => logout()} className="log-out">Log out</a>
     </div>
   )
 }
