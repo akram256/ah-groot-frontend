@@ -124,60 +124,15 @@ export class SingleArticleView extends Component {
     const { handlelike, handledislike } = this.props;
     console.log(this.state.author.user)
     return (
-        <div>
-          <InnerHeader />
-          <div className="container">
-            <div className="row">
-              <h2>{this.state.title}</h2>
-              <h5 className="view-article-description">
-                {this.state.description}{' '}
-              </h5>
-              <div className="category">
-                Category:
-                <span className="chip">{this.state.category.name}</span>
-              </div>
-              <div>
-                Tags:
-                {this.state.tagList.length > 0 ? (
-                  this.state.tagList.map(item => {
-                    return (
-                      <div key={item} className="chip">
-                        {item}
-                      </div>
-                    );
-                  })
-                ) : (
-                  <span />
-                )}
-              </div>
-
-              <div id="modal1" className="modal">
-                <div className="modal-content">
-
-                  <RetrieveProfileComponent
-                    user={this.state.author.user}
-                    timestamp={this.state.author.timestamp}
-                    full_name={this.state.author.full_name}
-                    bio={this.state.author.bio}
-                    image={this.state.author.image}
-                    followers={this.state.author.follower_count}
-                    following={this.state.author.following_count}
-                    handlefollow={this.handlefollow}
-                    shouldHiveStuff={true}
-                    hasFollowed={this.hasFollowed()}
-                    handlefollowers={this.handlefollowers}
-
-                  />
-
-                </div>
-                <div class="modal-footer">
-                  <a href="#!" className="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                </div>
-              </div>
-
-
-              <a className="waves-effect waves-light  modal-trigger" href="#modal1" >By {this.state.author.user}</a>
-
+      <div>
+        <InnerHeader />
+        <div className="container">
+          <div className="row">
+            <h2>{this.state.title}</h2>
+            <h5 className="view-article-description">{this.state.description} </h5>
+            <div className="category">
+              Category:
+              <span className="chip">{this.state.category.name}</span>
             </div>
             {this.state.author.user === sessionStorage.user ? (
                 <p className="read-stats">This article has been read: {this.state.read_stats} times</p>
@@ -221,18 +176,47 @@ export class SingleArticleView extends Component {
                 <label className="outter majorReportbtn">
                   <ReportingContainer slug={this.props.match.params.slug} />
                 </label>
+                <label className="outter majorReportbtn">
+                  <ReportingContainer slug={this.props.match.params.slug} />
+                </label>
                 <label className="outter rater">
                   <RatingContainer slug={this.props.match.params.slug} />
                 </label>
-                <label className="outter rateStar">
-                  <span className="rating-digit">{ this.state.average_rating }</span>
-                  <i className="material-icons small">star</i>
-                  </label>
                 <label className="bookmark button">
                   <BookmarkButton slug={this.props.match.params.slug} />
                 </label>
               </div>
+              <div id="modal1" className="modal">
+                <div className="modal-content">
 
+                  <RetrieveProfileComponent
+                    user={this.state.author.user}
+                    timestamp={this.state.author.timestamp}
+                    full_name={this.state.author.full_name}
+                    bio={this.state.author.bio}
+                    image={this.state.author.image}
+                    followers={this.state.author.follower_count}
+                    following={this.state.author.following_count}
+                    handlefollow={this.handlefollow}
+                    shouldHiveStuff={true}
+                    hasFollowed={this.hasFollowed()}
+                    handlefollowers={this.handlefollowers}
+                  />
+
+                </div>
+
+                <div class="modal-footer">
+                  <a href="#!" className="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                </div>
+              </div>
+
+
+              <a className="waves-effect waves-light  modal-trigger" href="#modal1" >By {this.state.author.user}</a>
+
+            </div>
+            ) : (
+              <span />
+            )}
             {sessionStorage.token ? (
               <CommentContainer slug={this.props.match.params.slug} />
             ) : (
@@ -241,7 +225,7 @@ export class SingleArticleView extends Component {
           </div>
 
         </div>
-      </div>
+        </div>
    
     );
   }
