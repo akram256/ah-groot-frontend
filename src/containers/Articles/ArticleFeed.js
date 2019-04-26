@@ -9,6 +9,7 @@ import { getAllArticles } from '../../actions/ArticleAction';
 import InnerHeader from '../../components/landingPage/InnerHeader';
 import ProfileContainer from '../profile/Profile';
 import { fetchOriginal, getNext } from '../../actions/paginationAction';
+import Search from '../../components/landingPage/search';
 
 import '../../styles/viewarticle.scss';
 
@@ -78,16 +79,6 @@ export class ArticleFeed extends Component {
               <ProfileContainer />
             </div>
             <div className="col s5">
-            <div>
-              <button className="btn right" onClick={this.fetchData}>
-                Next
-              </button>
-            </div>
-            <div>
-              <button className="btn left" onClick={this.fetchPrevious}>
-                Previous
-              </button>
-            </div>
               {this.props.paginateArticles.length === 0
                 ? this.props.firstArticles.map(element => {
                     return (
@@ -115,9 +106,20 @@ export class ArticleFeed extends Component {
                       />
                     );
                   })}
+                  <div> 
+              <button className="btn right" onClick={this.fetchData}>
+                Next
+              </button>
+            </div>
+            <div>
+              <button className="btn left" onClick={this.fetchPrevious}>
+                Previous
+              </button>
+            </div>
           </div>
           <div className='col s3'>
-                Bookmarks
+                <Search /><br></br>
+                <h6>Bookmarks</h6>
                 <AllBookmarks/>
             </div>
         </div>
