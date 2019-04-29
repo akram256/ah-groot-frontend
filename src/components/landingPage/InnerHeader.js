@@ -5,7 +5,7 @@ class InnerHeader extends Component {
   constructor(props) {
     super(props);
   }
-  
+
 
   render() {
     return (
@@ -15,12 +15,10 @@ class InnerHeader extends Component {
           <span>Authors Haven</span>
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down_">
-            <Logout 
+            <Logout
                 logout = {this.props.logout}
             />
         </ul>
-        
-        
       </div>
     );
   }

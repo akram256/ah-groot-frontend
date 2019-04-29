@@ -83,8 +83,8 @@
     "redux-thunk": "^2.3.0"
   },
   "dependencies": {
-    "javascript-stringify": "^2.0.0",
     "fetch-mock": "^7.3.3",
+    "javascript-stringify": "^2.0.0",
     "materialize-css": "^1.0.0-rc.2",
     "materialize-social": "^1.0.3",
     "react-facebook-login": "^4.1.1",
@@ -94,6 +94,7 @@
     "react-select": "^2.4.2",
     "react-star-rating-component": "^1.4.1",
     "redux-devtools-extension": "^2.13.8",
-    "redux-mock-store": "^1.5.3"
+    "redux-mock-store": "^1.5.3",
+    "sanitize-html": "^1.20.1"
   }
 }

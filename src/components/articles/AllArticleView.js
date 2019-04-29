@@ -11,7 +11,7 @@ export class AllArticleView extends Component {
     const {
       title, description, slug,
       likes, average_rating,
-      dislikes,user
+      dislikes,user, reading_time,
     } = this.props;
 
     return (
@@ -27,7 +27,11 @@ export class AllArticleView extends Component {
           >
             <span className="card-title truncate">{title}</span>
             <span className="card-description truncate">{description}</span>
-            <div>By {user}</div>
+            <div className="meta-data">
+            {/* <div className="article-author">By {user}</div> */}
+            <div>By <span className="by-user">{user}</span></div>
+            <div className="reading-time">{reading_time}</div>
+            </div>
           </div>
 
         </div>

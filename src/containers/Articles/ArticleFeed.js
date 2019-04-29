@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import AllArticleView from '../../components/articles/AllArticleView';
+import AllBookmarks from '../../containers/Bookmark/AllBookmarks';
 import { getAllArticles } from '../../actions/ArticleAction';
 import InnerHeader from '../../components/landingPage/InnerHeader';
 import ProfileContainer from '../profile/Profile';
@@ -42,20 +43,17 @@ export class ArticleFeed extends Component {
     this.props.fetchNext(localStorage.previous);
   };
 
-  // complete function ....
-  /* istanbul ignore next */
-  logout() {
+  logout=()=>{
     sessionStorage.clear();
-    window.location.href = '/';
+    /* istanbul ignore next */
+    window.location.href="/"
   }
 
-  // complete function ....
   /* istanbul ignore next */
   render() {
     return (
       <div>
         <InnerHeader logout={this.logout} />
-
         <div className="fixed-action-btn">
           <a className="btn-floating btn-large">
             <i className="large material-icons">more_horiz</i>
@@ -74,22 +72,12 @@ export class ArticleFeed extends Component {
           </ul>
         </div>
         <div className="container feed">
-          <div className="center">Your article feed</div>
+          <div className="center your-feed">Your article feed</div>
           <div className="row">
-            <div className="col s4">
+            <div className="col s3">
               <ProfileContainer />
             </div>
-            <div>
-              <button className="btn right" onClick={this.fetchData}>
-                Next
-              </button>
-            </div>
-            <div>
-              <button className="btn left" onClick={this.fetchPrevious}>
-                Previous
-              </button>
-            </div>
-            <div className="col s8">
+            <div className="col s6">
               {this.props.paginateArticles.length === 0
                 ? this.props.firstArticles.map(element => {
                     return (
@@ -100,6 +88,7 @@ export class ArticleFeed extends Component {
                         slug={element.slug}
                         average_rating={element.average_rating}
                         user={element.author.user}
+                        reading_time={element.reading_time}
                       />
                     );
                   })
@@ -112,12 +101,34 @@ export class ArticleFeed extends Component {
                         slug={element.slug}
                         average_rating={element.average_rating}
                         user={element.author.user}
+                        reading_time={element.reading_time}
                       />
                     );
                   })}
+                  <div>
+              <button className="btn right" onClick={this.fetchData}>
+                Next
+              </button>
+            </div>
+            <div>
+              <button className="btn left" onClick={this.fetchPrevious}>
+                Previous
+              </button>
             </div>
           </div>
+          <div className="col s3">
+          <div className="card grey lighten-5 z-depth-1">
+            <div className="card-content">
+              <span className="card-title">Bookmarks</span>
+            </div>
+            <div className="card-action">
+            <AllBookmarks/>
+            </div>
+          </div>
+          </div>
+          
         </div>
+      </div>
       </div>
     );
   }
@@ -127,7 +138,6 @@ export const mapStateToProps = state => {
   return state;
 };
 
-// complete function ....
 /* istanbul ignore next */
 const mapDispatchToProps = dispatch => {
   return {

@@ -1,6 +1,47 @@
+$primary-color: #040a47;
+
 body {
     div#root{
       background-color: rgb(255, 255, 255);
     }
 }
+
+div.card-panel.grey.lighten-5.z-depth-1 {
+  background-color: #f6f9ff !important;
+  box-shadow: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+div.card.grey.lighten-5 {
+  background-color: #fff !important;
+  min-height: 100px;
+  max-height: 500px;
+  box-shadow: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding-bottom: 10px;
+}
+
+div.your-feed {
+  background-color: #f6f9ff;
+  padding-top: 10px;
+}
+
+div.card-action.all-article-details {
+  width: 100%;
+}
+
+a.log-out {
+  color: #fff;
+  background-color: $primary-color;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+span.by-user {
+  color: #7b9ce2;
+}
+
+
 

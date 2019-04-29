@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All bookmarks  should receive new props 1`] = `ShallowWrapper {}`;
+
+exports[`All bookmarks  should render without crashing 1`] = `ShallowWrapper {}`;
+
+exports[`Bookmarks botton  should receive new props 1`] = `ShallowWrapper {}`;
+
+exports[`Bookmarks botton  should render without crashing 1`] = `ShallowWrapper {}`;

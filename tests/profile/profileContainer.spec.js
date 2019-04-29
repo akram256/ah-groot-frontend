@@ -12,6 +12,7 @@ import ProfileContainer, {
 describe('ProfileContainer', () => {
   const initialState = {
     login: { isSuccesfull: false, token: '' },
+    following:{},
   };
 
   const mockFn = jest.fn();
@@ -29,7 +30,7 @@ describe('ProfileContainer', () => {
 
   it('should render without crashing', () => {
     const wrapper = shallow(<App profile={{name:"wali"}} errors={{error:"error"}} loading={{loading:true}} 
-    getProfiles={mockFn} updateProfile={mockFn}/>
+    getProfiles={mockFn} updateProfile={mockFn} followerlist={mockFn}/>
     );
     expect(wrapper).toMatchSnapshot();
   });
@@ -37,7 +38,7 @@ describe('ProfileContainer', () => {
   it('should call name change',
     () => {
         const wrapper = shallow(<App profile={{name:"wali"}} errors={{error:"error"}} loading={{loading:true}} 
-        getProfiles={mockFn} updateProfile={mockFn}/>
+        getProfiles={mockFn} updateProfile={mockFn} followerlist={mockFn}/>
         );
       const event ={
           target:{value:''}
@@ -48,7 +49,7 @@ describe('ProfileContainer', () => {
     it('should call bioChange',
     () => {
         const wrapper = shallow(<App profile={{name:"wali"}} errors={{error:"error"}} loading={{loading:true}} 
-        getProfiles={mockFn} updateProfile={mockFn}/>
+        getProfiles={mockFn} updateProfile={mockFn} followerlist={mockFn}/>
         );
       const event ={
         target:{value:''}
@@ -58,7 +59,7 @@ describe('ProfileContainer', () => {
 
     it("should call picChange", () =>{
       const wrapper = shallow(<App profile={{name:"wali"}} errors={{error:"error"}} loading={{loading:true}} 
-        getProfiles={mockFn} updateProfile={mockFn}/>
+        getProfiles={mockFn} updateProfile={mockFn} followerlist={mockFn}/>
         );
         const event = {
           preventDefault : mockFn,
@@ -71,7 +72,7 @@ describe('ProfileContainer', () => {
     it('should open',
     () => {
         const wrapper = shallow(<App profile={{name:"wali"}} errors={{error:"error"}} loading={{loading:true}} 
-        getProfiles={mockFn} updateProfile={mockFn}/>
+        getProfiles={mockFn} updateProfile={mockFn}followerlist={mockFn}/>
         );
       wrapper.instance().openModal();
     });
@@ -79,7 +80,7 @@ describe('ProfileContainer', () => {
     it('should edit profile',
     () => {
         const wrapper = shallow(<App profile={{name:"wali"}} errors={{error:"error"}} loading={{loading:true}} 
-        getProfiles={mockFn} updateProfile={mockFn}/>
+        getProfiles={mockFn} updateProfile={mockFn} followerlist={mockFn}/>
         );
         const event ={
             preventDefault: mockFn,
@@ -91,7 +92,7 @@ describe('ProfileContainer', () => {
     it('should close',
     () => {
         const wrapper = shallow(<App profile={{name:"wali"}} errors={{error:"error"}} loading={{loading:true}} 
-        getProfiles={mockFn} updateProfile={mockFn}/>
+        getProfiles={mockFn} updateProfile={mockFn} followerlist={mockFn}/>
         );
       wrapper.instance().close();
     });
@@ -102,12 +103,17 @@ describe('ProfileContainer', () => {
           retrieveProfile: {
           profile: "",
           errors: "error",
-          loading: false
-        }
+          loading: false,
+        },
+          followReducer:{
+          following:""
+      } 
         };
         mapStateToProps(initialState);
         mapDispatchToProps(dispatch).getProfiles();
         mapDispatchToProps(dispatch).updateProfile();
+        mapDispatchToProps(dispatch).followerlist();
+
      });
      
 

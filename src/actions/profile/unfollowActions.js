@@ -1,31 +1,33 @@
-import {LIKE_ARTICLE_SUCCESS,LIKE_ARTICLE_FAILED} from './types'
-
- const likearticle = slug =>(dispatch) => {
-      return fetch(`https://ah-backend-groot.herokuapp.com/api/articles/${slug}/like/`, {
-        method: 'POST',
+import { UNFOLLOW_SUCESS,UNFOLLOW_FAILURE} from '../types'
+ 
+ const unfollowuser = user =>(dispatch) => {
+     console.log (user)
+      return fetch(`https://ah-backend-groot.herokuapp.com/api/profiles/${user}/follow/`, {
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
           'Authorization':`Bearer ${sessionStorage.getItem('token')}`
         },
       }).then(
-        res => res.json(),
+        res => res.json()
       ).then(
         (data) => {
           if (data.errors) {
             dispatch({
-              type: LIKE_ARTICLE_FAILED,
+              type: UNFOLLOW_FAILURE,
               payload: data.errors,
             });
           } else {
             dispatch({
-              type: LIKE_ARTICLE_SUCCESS,
+              type: UNFOLLOW_SUCESS,
               payload: data,
             });
-
-            window.location.reload()
           }
+       
         },
       )
+   
     };
     
-    export default likearticle;
+    export default unfollowuser;
+   

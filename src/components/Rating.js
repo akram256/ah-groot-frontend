@@ -5,9 +5,9 @@ const Rating = props => {
   return (
     <div>
 
-  <a className="ratingButton waves-effect waves-light btn modal-trigger" href="#modal1">Rate</a>
+  <a className="ratingButton waves-effect waves-light btn modal-trigger" href="#modal3">Rate</a>
 
-  <div id="modal1" className="modal">
+  <div id="modal3" className="modal">
     <div className="modal-content">
    
         <React.Fragment>
